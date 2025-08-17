@@ -9,11 +9,11 @@
 | **Rack Hardware** | M6 nuts & screws | €31.49 | ✅ [Ordered](#order-1) |
 | **Networking** | Keystone modules | €33.99 | ✅ [Ordered](#order-2) |
 | **Power** | Power strip 1U | €19.99 | ✅ [Ordered](#order-3) |
-| **3D Printing** | ~282g filament used | €3.95 | 🟡 [In Progress](#3d-printing) |
+| **3D Printing** | ~474g filament used | €6.64 | 🟡 [In Progress](#3d-printing) |
 | **Mini PCs** | - | €0.00 | ⚪ Pending |
 | **Storage** | - | €0.00 | ⚪ Pending |
 | **Cables/Misc** | - | €0.00 | ⚪ Pending |
-| **Total Spent** | | **€89.42** | 🚀 |
+| **Total Spent** | | **€92.11** | 🚀 |
 
 ## 📦 Orders
 
@@ -52,16 +52,18 @@
 **Purpose**: 1U rack-mount power distribution  
 **Specs**: 4-outlet, 10-inch form factor, rear mounting
 
+
 ### 3D Printing - Material Usage
+
 **Material**: PLA Matte (2kg spool @ €27.98 = €0.014/g)  
-**Cost**: €3.95 (281.69g × €0.014)  
+**Cost**: €6.64 (473.80g × €0.014)
 
 | Component | Weight | Cost | Status |
 |-----------|--------|------|--------|
-| **Frame** | 281.69g | €3.95 | 🟡 In Progress |
+| **Frame** | 473.80g | €6.64 | 🟡 In Progress |
 | **Side and Top Panels** | - | - | ⚪ Pending |
 | **Inserts** | - | - | ⚪ Pending |
-| **Total Used** | **281.69g** | **€3.95** | 🟡 In Progress |
+| **Total Used** | **473.80g** | **€6.64** | 🟡 In Progress |
 
 **Notes**: Cost calculated based on filament price €27.98/2kg
 
