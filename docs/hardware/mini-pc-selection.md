@@ -9,6 +9,7 @@
 **The Decision:**
 - **CPU**: Intel i5-10500T (6 cores, 12 threads) - **mandatory for Hyperthreading**
 - **RAM**: 16GB or 32GB (market-dependent, both viable)
+- **Storage**: 512GB NVMe SSD minimum (for comfortable VM density)
 - **Platform**: Dell OptiPlex preferred, but HP/Lenovo/Fujitsu acceptable
 - **Result**: 150-250 pod cluster capacity with room for real learning scenarios
 
@@ -20,6 +21,50 @@
 **Bottom Line:** This configuration transforms the lab from "functional" to "comfortable learning environment" without breaking the budget.
 
 > 🎭 *"Bazinga! Sometimes the best solution is hiding in plain sight - specifically in the CPU specifications."*
+
+---
+
+## 💾 Storage Requirements Analysis
+
+### Path A (Proxmox + K3s) Storage Needs
+```bash
+Proxmox Host OS:        ~20GB
+Proxmox Templates:      ~10GB  
+VM Images (6-9 VMs):    ~200-300GB
+Container Images:       ~50GB
+Snapshots/Backups:     ~100GB
+Growth/Logs:           ~50GB
+
+Total per Node: ~430-530GB
+```
+
+### Path B (OKD + KubeVirt) Storage Needs
+```bash
+CoreOS/FCOS:           ~20GB
+OKD Platform:          ~50GB
+Container Registry:    ~100GB
+KubeVirt VM Images:    ~150GB
+etcd + Logs:          ~30GB
+Growth:               ~100GB
+
+Total per Node: ~450GB
+```
+
+### Storage Strategy Comparison
+
+| Capacity | Viability | Learning Impact | Cost Impact |
+|----------|-----------|----------------|-------------|
+| **256GB** | ⚠️ Tight fit | Limited VM density, frequent cleanup | Budget-friendly |
+| **512GB** | ✅ Optimal | Comfortable for both paths, snapshots possible | Recommended balance |
+| **1TB** | ✅ Luxury | Unlimited experiments, local registries | Premium investment |
+
+**Recommended: 512GB NVMe SSD**
+- Sufficient for both architectural paths
+- Room for VM snapshots and experimentation
+- Container image caching without storage pressure
+- Sweet spot for learning lab requirements
+
+> 💾 *"Storage is like lab bench space - you think you have enough until you start the real experiments!"*
 
 ---
 
@@ -160,6 +205,7 @@ Estimated Pods:      ~25-35 pods per node
 ### Recommended Starting Point
 - **CPU**: i5-10500T (6C/12T) - non-negotiable for Hyperthreading advantage
 - **RAM**: 16GB or 32GB - depending on availability and pricing opportunities
+- **Storage**: 512GB NVMe SSD - optimal balance for both architectural paths
 - **Platform Preference**: Dell OptiPlex (proven experience) but open to HP EliteDesk, Lenovo ThinkCentre, or Fujitsu Esprimo
 - **Virtualization**: Proxmox with 1.5-2x CPU overcommit
 - **Cluster**: 6-9 VMs running K3s in HA configuration
