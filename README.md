@@ -1,4 +1,4 @@
-# Cooper'n'80s Kubernetes Homelab
+# Cooper'n'80s - Kubernetes Homelab
 
 <p align="center">
   <img src="assets/cooper-n-80s_500px.png" alt="Cooper'n'80s Logo" width="300"/>
@@ -10,11 +10,11 @@
 
 ```
 🖨️ 3D Printing    ████████░░ 🟡 Active     (Base rack printing)
-🔧 Hardware       ██░░░░░░░░ 🔴 Planning   (Sourcing components)  
-💾 Proxmox        ░░░░░░░░░░ ⚪ Waiting    (Hardware dependent)
-🌐 Networking     ░░░░░░░░░░ ⚪ Waiting    (Proxmox dependent)
+🔧 Hardware       ████░░░░░░ 🟡 Active     (i5-10500T/512GB/32GB specs defined)  
+📋 Infrastructure ███░░░░░░░ 🟡 Planning   (Path A vs B strategy complete)
+🌐 Networking     ░░░░░░░░░░ ⚪ Waiting    (Infrastructure deployment dependent)
 🚀 Kubernetes     ░░░░░░░░░░ ⚪ Waiting    (Infrastructure dependent)
-🔒 Security       ░░░░░░░░░░ ⚪ Waiting    (Base platform dependent)
+🔒 Security       ░░░░░░░░░░ ⚪ Waiting    (Platform dependent)
 ```
 
 ## 📚 Navigation
