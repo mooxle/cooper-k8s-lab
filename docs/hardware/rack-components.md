@@ -52,9 +52,26 @@
 | Component | Quantity | Material | Color | Purpose |
 |-----------|----------|----------|-------|---------|
 | Handles/Grips | 8 | PLA Matte | Orange | Brand accent + function |
-| Cooper'n'80s Logo | 1 | PLA Matte | Orange | Top branding |
+| Cooper'n'80s Logo | 1 | PLA Matte | Orange/Black | Top branding |
 | Mini PC Mounts | 3 | PETG | Black | Equipment mounting |
 | Switch Mount | 1 | PETG | Black | Equipment mounting |
+
+### Logo Elements
+**Available Assets**: 
+- `assets/Cooper'n80s.stl` - Single color 3D print file
+- `assets/Cooper'n80s.3mf` - Dual color 3D print file  
+- `assets/cooper-n-80s.svg` - Vector source (scalable)
+- `assets/cooper-n-80s_BW.png` - Documentation variant
+
+**Print Options**:
+- **Single Color**: Black PLA Matte (professional, subtle branding)
+- **Dual Color**: Black base + Orange accent (full brand consistency)
+
+**Mounting Location**: Top ventilation rail position for prominent visibility
+
+<img src="../photos/3d-printing/logo_3dprint_preview.png" alt="Logo Preview" alignment="center" width="150"/>
+
+*Cooper'n'80s logo - available in multiple formats for documentation and 3D printing*
 
 ### Patch Panel
 **Source**: [10-Keystone Patch Panel](https://makerworld.com/de/models/907994-patchpanel-for-10-keystones-10-rack)

@@ -24,7 +24,7 @@
 
 | Item | Qty | Price |
 |------|-----|-------|
-| M6 Hex Nuts (Stainless Steel DIN 934) | 50x | €5.76 |
+| M6 Hex Nuts (Stainless Steel DIN 934) | 100x | €5.76 |
 | M6x12mm Flanged Screws (Black, ISO7380FL) | 100x | €22.64 |
 | Shipping (Deutsche Post) | | €3.09 |
 
