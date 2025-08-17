@@ -1,7 +1,7 @@
 # Cooper'n'80s Kubernetes Homelab
 
 <p align="center">
-  <img src="assets/logo.png" alt="Cooper'n'80s Logo" width="300"/>
+  <img src="assets/cooper-n-80s_500px.png" alt="Cooper'n'80s Logo" width="300"/>
 </p>
 
 > *"In theory, theory and practice are the same. In practice, they are not."* - Attributed to Einstein (and every homelab builder ever)
