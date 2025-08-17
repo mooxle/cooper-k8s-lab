@@ -63,10 +63,3 @@ Create a **near enterprise-grade lab setup** that replicates enterprise environm
 - **Documentation**: Comprehensive knowledge transfer for others
 
 > 🔬 *"The best laboratory is one where theory and practice converge to create both understanding and capability."*
-
----
-
-**Related Documentation:**
-- [Technology Roadmap](../learning/technology-roadmap.md) - Detailed learning path
-- [Project Status](../../README.md#current-status) - Current progress
-- [Hardware Plans](../hardware/) - Physical implementation details
