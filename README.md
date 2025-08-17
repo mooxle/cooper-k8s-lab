@@ -40,7 +40,8 @@ This is fundamentally a **learning project**. I'm using this repository to:
 
 The project will grow organically. Current areas:
 
-- **Hardware** - Physical components and 3D printed rack
+- **[Hardware](docs/hardware/)** - Physical components and 3D printed rack
+  - [3D Printed Rack](docs/hardware/3d-printed-rack.md) - Custom Lab-Rax build with Bambu P1S
 - **Infrastructure** - Proxmox setup and networking
 - **Kubernetes** - Container orchestration layer
 - **Automation** - Making it all reproducible
@@ -48,11 +49,17 @@ The project will grow organically. Current areas:
 
 ## 🚀 Current Status
 
-**Phase 1: Foundation**
-- [x] Concept definition
-- [ ] 3D printing custom rack
-- [ ] Hardware procurement
-- [ ] Initial documentation
+```
+🖨️ 3D Printing    ████████░░ 🟡 Active     (Base rack printing)
+🔧 Hardware       ██░░░░░░░░ 🔴 Planning   (Sourcing components)  
+💾 Proxmox        ░░░░░░░░░░ ⚪ Waiting    (Hardware dependent)
+🌐 Networking     ░░░░░░░░░░ ⚪ Waiting    (Proxmox dependent)
+🚀 Kubernetes     ░░░░░░░░░░ ⚪ Waiting    (Infrastructure dependent)
+🔒 Security       ░░░░░░░░░░ ⚪ Waiting    (Base platform dependent)
+```
+
+**Status Legend:**
+🟢 Complete • 🟡 Active • 🔴 Planning • ⚪ Waiting
 
 *"I'm not insane, my mother had me tested. I'm just building infrastructure."*
 
