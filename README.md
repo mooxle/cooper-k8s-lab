@@ -22,7 +22,7 @@
 | Section | Description | Key Documents |
 |---------|-------------|---------------|
 | **🎯 [About](docs/about/)** | Project vision and background | [Project Vision](docs/about/project-vision.md) |
-| **🔧 [Hardware](docs/hardware/)** | Physical components and assembly | [3D Printed Rack](docs/hardware/3d-printed-rack.md) • [Components Specs](docs/hardware/rack-components.md) • [Mini PC Selection](docs/hardware/mini-pc-selection.md) • [Shopping List](docs/hardware/shopping-list.md) |
+| **🔧 [Hardware](docs/hardware/)** | Physical components and assembly | [3D Printed Rack](docs/hardware/3d-printed-rack.md) • [Components Specs](docs/hardware/rack-components.md) • [Mini PC Selection](docs/hardware/mini-pc-selection.md) • [Switch Selection](docs/hardware/switch-selection.md) • [Shopping List](docs/hardware/shopping-list.md) |
 | **📸 [Photos](docs/photos/)** | Visual build progress | [Progress Timeline](docs/photos/README.md) |
 | **📖 [Learning](docs/learning/)** | Tools, workflow, and technology learning | [Technology Learning](docs/learning/technology_learning.md) • [Toolset Evolution](docs/learning/toolset-evolution.md) • [AI Workflow](docs/learning/claude-workflow.md) • [Lessons Learned](docs/learning/lessons-learned.md) |
 | **🏗️ [Infrastructure](docs/infrastructure/)** | Proxmox, networking, and automation | [Kubernetes Platform Strategy](docs/infrastructure/kubernetes-platform-strategy.md) |

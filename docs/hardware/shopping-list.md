@@ -10,10 +10,12 @@
 | **Networking** | Keystone modules | €33.99 | ✅ [Ordered](#order-2) |
 | **Power** | Power strip 1U | €19.99 | ✅ [Ordered](#order-3) |
 | **3D Printing** | ~474g filament used | €6.64 | 🟡 [In Progress](#3d-printing) |
+| **Switch** | D-Link DGS-1100-08V2 | €40.29 | ✅ [Ordered](#order-4) |
+| **Patch Cables** | 20x Orange cables | €36.80 | ✅ [Ordered](#order-4) |
 | **Mini PCs** | - | €0.00 | ⚪ Pending |
 | **Storage** | - | €0.00 | ⚪ Pending |
 | **Cables/Misc** | - | €0.00 | ⚪ Pending |
-| **Total Spent** | | **€92.11** | 🚀 |
+| **Total Spent** | | **€169.20** | 🚀 |
 
 ## 📦 Orders
 
@@ -52,6 +54,18 @@
 **Purpose**: 1U rack-mount power distribution  
 **Specs**: 4-outlet, 10-inch form factor, rear mounting
 
+### Order #4 - Network Equipment
+**Date**: August 17, 2025  
+**Total**: €77.09  
+
+| Item | Qty | Price |
+|------|-----|-------|
+| D-Link DGS-1100-08V2 Managed Switch | 1x | €40.29 |
+| Patch Cables Orange 0.5m | 10x | €18.90 |
+| Patch Cables Orange 0.25m | 10x | €17.90 |
+
+**Purpose**: Core network infrastructure for K8s lab  
+**Specs**: 8-port Gigabit managed switch with CLI + 20 patch cables
 
 ### 3D Printing - Material Usage
 
@@ -70,6 +84,6 @@
 ---
 
 **Last Updated**: August 17, 2025  
-**Total Project Cost**: €89.42
+**Total Project Cost**: €169.20
 
 *"Every purchase is a step closer to the theoretically perfect lab setup."*
