@@ -1,7 +1,7 @@
 # Cooper'n'80s Kubernetes Homelab
 
 <p align="center">
-  <img src="assets/cooper-n-80s_500px.png" alt="Cooper'n'80s Logo" width="300"/>
+  <img src="assets/logo.png" alt="Cooper'n'80s Logo" width="300"/>
 </p>
 
 > *"In theory, theory and practice are the same. In practice, they are not."* - Attributed to Einstein (and every homelab builder ever)
@@ -27,12 +27,6 @@ This is fundamentally a **learning project**. I'm using this repository to:
 - Build knowledge step by step
 - Create a reference for future me
 - Share discoveries with the community
-
-**My Setup & Tools:**
-- **Development Environment**: macOS with standard dev tools
-- **AI Assistant**: Claude AI for research, planning, and documentation support
-- **3D Printer**: Bambu Lab P1S for custom rack components
-- **Documentation**: GitHub for version control and community sharing
 
 **Scientific Method Applied:**
 1. **Hypothesis** - What I think will work
@@ -81,5 +75,14 @@ Documentation: MIT License
 
 *"Bazinga! Now let's see if this actually works in practice."*
 
-**Current Version**: v0.1.0 (Just Getting Started)  
-**Last Updated**: [Date]
+**Current Version**: v0.1.0 (Just Getting Started)
+
+## 🛠️ Created With
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Created%20with-macOS-000000?style=for-the-badge&logo=apple&logoColor=white" alt="Created with macOS"/>
+  <img src="https://img.shields.io/badge/AI%20Assistant-Claude-FF6B35?style=for-the-badge&logo=anthropic&logoColor=white" alt="AI Assistant Claude"/>
+  <img src="https://img.shields.io/badge/3D%20Printer-Bambu%20P1S-00A8FF?style=for-the-badge&logo=bambulab&logoColor=white" alt="Bambu P1S"/>
+</p>
+
+*In the spirit of the classic "Created with a Mac" - because some things never go out of style.*
