@@ -25,7 +25,7 @@
 | **🔧 [Hardware](docs/hardware/)** | Physical components and assembly | [3D Printed Rack](docs/hardware/3d-printed-rack.md) • [Components Specs](docs/hardware/rack-components.md) • [Mini PC Selection](docs/hardware/mini-pc-selection.md) • [Shopping List](docs/hardware/shopping-list.md) |
 | **📸 [Photos](docs/photos/)** | Visual build progress | [Progress Timeline](docs/photos/README.md) |
 | **📖 [Learning](docs/learning/)** | Tools, workflow, and technology learning | [Technology Learning](docs/learning/technology_learning.md) • [Toolset Evolution](docs/learning/toolset-evolution.md) • [AI Workflow](docs/learning/claude-workflow.md) • [Lessons Learned](docs/learning/lessons-learned.md) |
-| **🏗️ [Infrastructure](docs/infrastructure/)** | Proxmox, networking, and automation | *Coming soon* |
+| **🏗️ [Infrastructure](docs/infrastructure/)** | Proxmox, networking, and automation | [Kubernetes Platform Strategy](docs/infrastructure/kubernetes-platform-strategy.md) |
 | **🚀 [Kubernetes](docs/kubernetes/)** | Container orchestration and services | *Coming soon* |
 
 ## 🎯 Project Overview
