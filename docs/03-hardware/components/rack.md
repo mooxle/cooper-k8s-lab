@@ -84,18 +84,52 @@
 
 ## 🎨 Custom Design Elements
 
-### Side Panel Ventilation
+### Custom Side Panel Ventilation
 
-**Inspiration**: mklements' hex pattern designs  
-**Modifications**: 
-- 5U panel with embedded Cooper'n'80s logo
-- Additional 1.5U panels for 8U total height
-- Enhanced ventilation for thermal management
-- Custom coloring in Bambu Studio (black base + orange accents)
+> *"As Sheldon Cooper would say: 'It's not just ventilation... it's an elegant equation of airflow, symmetry, and personal branding.'"*
 
-**Files**: 
-- [`5U_Sidepanel_Logo.stl`](../../../assets/5U_Sidepanel_Logo.stl)
-- [`1_5U_Sidepanel.stl`](../../../assets/1_5U_Sidepanel.stl)
+**Design Foundation**: Building upon mklements' proven hexagon ventilation patterns
+
+#### Source Models & Attribution
+
+| Original Model | Author | Purpose | Link |
+|----------------|--------|---------|------|
+| **5U Sidepanels with Hex Pattern Ventilation** | AlanMG_3D | Ventilation inspiration | [MakerWorld](https://makerworld.com/de/models/1577920-5u-sidepanels-with-hex-pattern-ventilation?from=email_notification#profileId-1703572) |
+| **5U Hexpattern Extension Panel** | AlanMG_3D | Base geometry for modifications | [MakerWorld](https://makerworld.com/de/models/1618034-5u-hexpattern-extention-panel#profileId-1708066) |
+
+#### Cooper'n'80s Modifications
+
+**Design Process**:
+1. **Base Model**: Used AlanMG_3D's 5U hexpattern extension panel as foundation
+2. **Logo Integration**: Embedded custom Cooper'n'80s logo using Tinkercad
+3. **Height Adaptation**: Created additional 1.5U elements for 8U total rack height
+4. **Enhanced Ventilation**: Added extra ventilation slots in 1.5U panels
+5. **Color Customization**: Applied dual-color scheme in Bambu Lab Studio
+
+**Visual Design Preview**:
+
+| 5U Sidepanel with Logo | 1.5U Sidepanel | Logo Strips for Case |
+|:----------------------:|:--------------:|:-------------------:|
+| ![5U Sidepanel Logo](../../../assets/5U_Sidepanel_Logo.png) | ![1.5U Sidepanel](../../../assets/1_5U_Sidepanel.png) | ![Logo Strips](../../../assets/Logos_long_case.png) |
+| Main side panel with integrated Cooper'n'80s logo | Additional ventilation panels for 8U height | Long-format strips for exterior branding |
+
+**Specific Changes**:
+- **5U Panel**: Original hex pattern + integrated Cooper'n'80s logo cutout
+- **1.5U Panels**: New design with additional ventilation for optimal airflow
+- **Logo Strips**: Extended branding elements for case exterior mounting
+- **Material Strategy**: Black base structure + orange accent elements
+- **Functional Enhancement**: Improved thermal management through expanded ventilation area
+
+#### Design Tools & Workflow
+- **Modification Platform**: Tinkercad for logo integration and panel adaptation
+- **Print Preparation**: Bambu Lab Studio for dual-color configuration
+- **Quality Approach**: Maintained mklements' proven ventilation geometry while adding custom elements
+
+#### Final Assets
+- [`5U_Sidepanel_Logo.stl`](../../../assets/5U_Sidepanel_Logo.stl) - Modified with logo integration
+- [`1_5U_Sidepanel.stl`](../../../assets/1_5U_Sidepanel.stl) - Custom height extension panels
+
+**Philosophy**: Standing on the shoulders of giants (mklements) while adding precisely calculated personal touches for optimal form and function.
 
 ### Branding Elements
 
@@ -148,10 +182,15 @@ Functional Mounts:    ~100g Black PETG (estimated)
 Total Estimate:       ~1172g mixed materials (~€16.50)
 ```
 
+### Assembly Progress
+
+![Frame Components Complete](../assembly/photos/frame-parts_800.png)
+*All printed frame components ready for assembly - Base posts, extension posts, side joiners, extension connectors, and Cooper'n'80s branding elements*
+
 ### Assembly Phases
-1. **✅ Base Frame** - 5U base structure completed
-2. **🟡 Extensions** - 3U extension printing in progress  
-3. **⚪ Custom Elements** - Side panels and branding pending
+1. **✅ Base Frame** - All structural components printed and ready
+2. **🟡 Hardware Assembly** - M6 bolts arriving for frame assembly  
+3. **⚪ Custom Elements** - Side panels and additional branding pending
 4. **⚪ Integration** - Component mounting and final assembly
 
 ## 🔧 Equipment Mounting

@@ -6,6 +6,16 @@
 
 > Enterprise-grade Kubernetes lab for hands-on architectural learning
 
+---
+
+### 📺 Latest Episodes (Project Blog)
+**[S01E02 - The Great Restructuring](docs/99-appendix/project-journal.md#s01e02---the-great-restructuring)** *(Aug 18)* - Repository engineering & frame completion  
+**[S01E01 - The Repository Genesis](docs/99-appendix/project-journal.md#s01e01---the-repository-genesis)** *(Aug 17)* - Project launch & initial manufacturing  
+
+**[📖 Full Project Journal](docs/99-appendix/project-journal.md)** - *Complete episode guide with Cooper'scher commentary*
+
+---
+
 ## 🎯 Project Overview
 
 Enterprise Architect's learning laboratory combining **theoretical knowledge** with **practical implementation**. Built to bridge the gap between architecture decisions and operational reality.
@@ -13,6 +23,14 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 **Current Focus**: 3D-printed 8U rack with 3-node Kubernetes cluster  
 **Learning Goal**: Master enterprise infrastructure patterns through hands-on experience  
 **Approach**: Scientific method applied to infrastructure architecture
+
+### 🏗️ Current Build Progress
+
+<p align="center">
+  <img src="docs/03-hardware/assembly/photos/frame-parts_800.png" alt="3D Printed Frame Components" width="600"/>
+  <br>
+  <em>All frame components printed and ready for assembly - featuring custom Cooper'n'80s branding</em>
+</p>
 
 ## 📚 Documentation
 
@@ -33,13 +51,20 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 ## 📊 Current Status
 
 ```
-🖨️ Hardware     ████████░░ 🟡 3D printing in progress
-🌐 Networking   ██████░░░░ 🟡 Equipment ordered, topology defined  
+🖨️ Hardware     ████████▓▓ 🟡 Frame components printed, assembly pending
+🌐 Networking   ████░░░░░░ 🟡 Equipment ordered, topology defined  
 ⚙️ Software     ██░░░░░░░░ ⚪ Pending hardware completion
 🚀 K8s Cluster  ░░░░░░░░░░ ⚪ Awaiting infrastructure
 ```
 
-**Next**: Complete rack assembly → Source Mini PCs → Deploy Proxmox
+**Latest Progress**: All 3D-printed frame components complete with Cooper'n'80s branding  
+**Next**: Hardware assembly (M6 bolts arriving) → Network equipment delivery → Source Mini PCs
+
+### 🎯 Recent Milestones
+- ✅ **Repository Restructure**: Professional documentation hierarchy
+- ✅ **3D Printing Complete**: Base frame, extensions, and custom branding elements  
+- 🟡 **Network Equipment**: D-Link switch and patch cables ordered
+- 🟡 **Assembly Ready**: Hardware components awaiting M6 mounting bolts
 
 ## 🎯 Core Architecture
 
