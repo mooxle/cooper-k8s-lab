@@ -9,13 +9,13 @@
 | **Rack Hardware** | M6 nuts & screws | €31.49 | ✅ [Ordered](#order-1) |
 | **Networking** | Keystone modules | €33.99 | ✅ [Ordered](#order-2) |
 | **Power** | Power strip 1U | €19.99 | ✅ [Ordered](#order-3) |
-| **3D Printing** | ~474g filament used | €6.64 | 🟡 [In Progress](#3d-printing) |
+| **3D Printing** | ~576g filament used | €8,06 | 🟡 [In Progress](#3d-printing) |
 | **Switch** | D-Link DGS-1100-08V2 | €40.29 | ✅ [Ordered](#order-4) |
 | **Patch Cables** | 20x Orange cables | €36.80 | ✅ [Ordered](#order-4) |
 | **Mini PCs** | - | €0.00 | ⚪ Pending |
 | **Storage** | - | €0.00 | ⚪ Pending |
 | **Cables/Misc** | - | €0.00 | ⚪ Pending |
-| **Total Spent** | | **€169.20** | 🚀 |
+| **Total Spent** | | **€170,62** | 🚀 |
 
 ## 📦 Orders
 
@@ -74,10 +74,10 @@
 
 | Component | Weight | Cost | Status |
 |-----------|--------|------|--------|
-| **Frame** | 473.80g | €6.64 | 🟡 In Progress |
+| **Frame** | 576.22g | €8,06 | 🟡 In Progress |
 | **Side and Top Panels** | - | - | ⚪ Pending |
 | **Inserts** | - | - | ⚪ Pending |
-| **Total Used** | **473.80g** | **€6.64** | 🟡 In Progress |
+| **Total Used** | **473.80g** | **€8.06** | 🟡 In Progress |
 
 **Notes**: Cost calculated based on filament price €27.98/2kg
 

@@ -12,7 +12,7 @@
 🖨️ 3D Printing    ████████░░ 🟡 Active     (Base rack printing)
 🔧 Hardware       ████░░░░░░ 🟡 Active     (i5-10500T/512GB/32GB specs defined)  
 📋 Infrastructure ███░░░░░░░ 🟡 Planning   (Path A vs B strategy complete)
-🌐 Networking     ░░░░░░░░░░ ⚪ Waiting    (Infrastructure deployment dependent)
+🌐 Networking     ███░░░░░░░ 🟡 Plannnig    (DLink Switch Selected, Topology Architecture)
 🚀 Kubernetes     ░░░░░░░░░░ ⚪ Waiting    (Infrastructure dependent)
 🔒 Security       ░░░░░░░░░░ ⚪ Waiting    (Platform dependent)
 ```
