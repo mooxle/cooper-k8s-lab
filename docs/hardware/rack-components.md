@@ -42,16 +42,18 @@
 
 | Component | Quantity | Material | Color | Status |
 |-----------|----------|----------|-------|--------|
-| Base Posts | 4 | PLA Matte | Black | 🟡 Printing |
-| Base Panels | 6 | PLA Matte | Black | 🟡 Printing |
-| Extension Posts | 4 | PLA Matte | Black | ⚪ Pending |
-| Extension Panels | 6 | PLA Matte | Black | ⚪ Pending |
-| Side Joiners | 4 | PLA Matte | Black | ⚪ Pending |
+| Base Posts | 4 | PLA Matte | Black |  ✅  Completed |
+| Extension Posts | 4 | PLA Matte | Black |  ✅  Completed |
+| Side Joiners | 4 | PLA Matte | Black |  ✅  Completed |
+| Extention Post Connectors  | 4 | PLA Matte | Black |  ✅  Completed |
+| Horizontal Joiners - Solid | 2 | PLA Matte | Black | ⚪ Pending |
+| Horizontal Joiners - Grid | 2 | PLA Matte | Orange | ⚪ Pending |
+| Handles | 2 | PLA Matte | Orange | ⚪ Pending |
+| Foot | 2 | PLA Matte | Orange | ⚪ Pending |
 
 ### Custom Components
 | Component | Quantity | Material | Color | Purpose |
 |-----------|----------|----------|-------|---------|
-| Handles/Grips | 8 | PLA Matte | Orange | Brand accent + function |
 | Cooper'n'80s Logo | 1 | PLA Matte | Orange/Black | Top branding |
 | Mini PC Mounts | 3 | PETG | Black | Equipment mounting |
 | Switch Mount | 1 | PETG | Black | Equipment mounting |
