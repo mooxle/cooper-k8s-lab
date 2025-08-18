@@ -2,6 +2,30 @@
 
 > Detailed component list and specifications for the Cooper'n'80s 8U rack build.
 
+---
+
+## Table of Contents
+- [Component Overview](#component-overview)
+- [Rack Layout](#rack-layout-8u-total)
+- [Zones](#zones)
+- [3D Printed Components](#3d-printed-components)
+  - [Base Rack System](#base-rack-system)
+  - [Custom Components](#custom-components)
+  - [Custom Side Panels](#custom-side-panels)
+  - [Logo Elements](#logo-elements)
+  - [Patch Panel](#patch-panel)
+- [Hardware Components](#hardware-components)
+  - [Networking](#networking)
+  - [Power Distribution](#power-distribution)
+  - [Mounting Hardware](#mounting-hardware)
+- [Assembly Specifications](#assembly-specifications)
+  - [Mounting Standards](#mounting-standards)
+  - [Cable Management](#cable-management)
+  - [Material Specifications](#material-specifications)
+- [Component Status Tracking](#component-status-tracking)
+
+---
+
 ## 📊 Component Overview
 
 | Category | Component | Source | Status | Notes |
@@ -12,6 +36,8 @@
 | **Keystone Jacks** | [deleyCON Cat7 Metal](#networking) | deleyCON | ✅ Ordered | 10 Gbps capability |
 | **Power Strip** | [DIGITUS DN-95418](#power-distribution) | DIGITUS | ✅ Ordered | 4-outlet, 1HE |
 | **Hardware** | [M6 Bolts & Nuts](#mounting-hardware) | eBay (khs_2005) | ✅ Ordered | Stainless steel |
+
+---
 
 ## 🏗️ Rack Layout (8U Total)
 
@@ -34,9 +60,12 @@
 - **Power Zone** (Rear 1U): Centralized power distribution
 - **Expansion Zone** (4U-6U): Reserved for future components
 
+---
+
 ## 🖨️ 3D Printed Components
 
 ### Base Rack System
+
 **Designer**: Michael Klements (mklements)  
 **Source**: [Lab-Rax 10" Bolted Version](https://makerworld.com/de/models/1464819-lab-rax-10-server-rack-bolted-version-5u)
 
@@ -51,14 +80,61 @@
 | Handles | 2 | PLA Matte | Orange | ⚪ Pending |
 | Foot | 2 | PLA Matte | Orange | ⚪ Pending |
 
+---
+
 ### Custom Components
-| Component | Quantity | Material | Color | Purpose |
-|-----------|----------|----------|-------|---------|
-| Cooper'n'80s Logo | 1 | PLA Matte | Orange/Black | Top branding |
-| Mini PC Mounts | 3 | PETG | Black | Equipment mounting |
-| Switch Mount | 1 | PETG | Black | Equipment mounting |
+
+| Component           | Quantity | Material  | Color        | Purpose                |
+|---------------------|----------|-----------|-------------|------------------------|
+| Cooper'n'80s Logo   | 1        | PLA Matte | Orange/Black| Top branding           |
+| Mini PC Mounts      | 3        | PETG      | Black       | Equipment mounting     |
+| Switch Mount        | 1        | PETG      | Black       | Equipment mounting     |
+| Custom Side Panels  | 2+2      | PLA Matte | Black/Orange| Ventilation & branding |
+
+---
+
+### Custom Side Panels
+
+To give the rack a personal touch and improve ventilation, I designed custom side panels inspired by existing community models.
+
+#### Inspiration & Base Work
+
+| Model Name                                   | Author         | Link                                                                 | Notes                       |
+|-----------------------------------------------|----------------|----------------------------------------------------------------------|-----------------------------|
+| 5U Hexpattern Extension Panel                 | mklements      | [View Model](https://makerworld.com/de/models/1618034-5u-hexpattern-extention-panel#profileId-1708066) | Used as base for 5U panel   |
+| 5U Sidepanels with Hex Pattern Ventilation    | mklements      | [View Model](https://makerworld.com/de/models/1577920-5u-sidepanels-with-hex-pattern-ventilation?from=email_notification#profileId-1703572) | Inspiration for ventilation |
+
+#### Modifications
+
+- Since my rack has **8U**, I used the **5U hexpattern** as a base and embedded my own **logo**.  
+- I created two additional **1.5U elements** with extra ventilation slots.  
+- All modifications were done with **Tinkercad**.  
+- In **Bambu Lab Studio**, I applied custom coloring for the final print.
+
+#### Files
+
+The final STL models are stored in the repository under [`assets/`](../assets):
+
+- [`5U_Sidepanel_Logo.stl`](../assets/5U_Sidepanel_Logo.stl)  
+- [`1_5U_Sidepanel.stl`](../assets/1_5U_Sidepanel.stl)
+
+#### Preview
+
+| 5U Sidepanel Logo | 1.5U Sidepanel |
+|:-----------------:|:--------------:|
+| <img src="../../assets/5U_Sidepanel_Logo.png" alt="5U Sidepanel Logo Preview" width="150"/> | <img src="../../assets/1_5U_Sidepanel.png" alt="1.5U Sidepanel Preview" width="150"/> |
+
+*Visual preview of custom side panels used for the Cooper'n'80s rack.*
+
+#### Fun Fact
+
+> As Sheldon Cooper would say:  
+> *"It's not just a rack… it's an elegant equation of airflow, symmetry, and personal branding."*
+
+---
 
 ### Logo Elements
+
 **Available Assets**: 
 - `assets/Cooper'n80s.stl` - Single color 3D print file
 - `assets/Cooper'n80s.3mf` - Dual color 3D print file  
@@ -71,11 +147,16 @@
 
 **Mounting Location**: Top ventilation rail position for prominent visibility
 
-<img src="../photos/3d-printing/logo_3dprint_preview.png" alt="Logo Preview" alignment="center" width="150"/>
+| Cooper'n'80s Logo |
+|:-----------------:|
+| <img src="../photos/3d-printing/logo_3dprint_preview.png" alt="Logo Preview" width="150"/> |
 
 *Cooper'n'80s logo - available in multiple formats for documentation and 3D printing*
 
+---
+
 ### Patch Panel
+
 **Source**: [10-Keystone Patch Panel](https://makerworld.com/de/models/907994-patchpanel-for-10-keystones-10-rack)
 
 | Component | Quantity | Material | Color | Notes |
@@ -83,9 +164,12 @@
 | Panel Frame | 1 | PLA Matte | Black | 1U front mount |
 | Keystone Holders | 10 | PLA Matte | Black | Integrated design |
 
+---
+
 ## 🔧 Hardware Components
 
 ### Networking
+
 **Keystone Jacks**: deleyCON Cat7 Metal Coupling  
 **Model**: Keystone-to-Keystone coupler  
 **Specs**: 600 MHz, 10 Gbps capability  
@@ -94,7 +178,10 @@
 **Color**: Silver  
 **Source**: [deleyCON Official](https://www.deleycon.de/deleycon-cat-7-kupplung-keystone-metall-2x-rj45-buchse-verbinder-fuer-rj45-patchkabel-600-mhz-10-gbps-lan-dsl-ethernet-und-nutzbar-als-keystone-silber/)
 
+---
+
 ### Power Distribution
+
 **Model**: DIGITUS DN-95418  
 **Type**: 4-outlet power strip  
 **Form Factor**: 1HE (1U) rack-mountable  
@@ -103,36 +190,47 @@
 **Mounting**: Rear rack position  
 **Cable**: Integrated power cord
 
+---
+
 ### Mounting Hardware
+
 **Bolts**: M6×12mm flanged screws (black zinc plated)  
 **Nuts**: M6 hex nuts (stainless steel DIN 934)  
 **Quantity**: 100 screws, 50 nuts  
 **Source**: eBay (khs_2005)  
 **Status**: Ordered (€31.49)
 
+---
+
 ## 📐 Assembly Specifications
 
 ### Mounting Standards
+
 - **Rack Units**: Standard 1U = 44.45mm (1.75")
 - **Mounting Holes**: 10-inch rack standard spacing
 - **Bolt Pattern**: M6 metric threading
 - **Clearance**: Minimum 15mm between components for airflow
 
 ### Cable Management
+
 - **Patch Panel**: Front-to-rear cable routing
 - **Power**: Rear-mounted strip with front access
 - **Data Cables**: Dedicated cable management clips
 - **Service Access**: Tool-free component removal where possible
 
 ### Material Specifications
+
 - **Structural Components**: PLA Matte (strength adequate for static loads)
 - **Heat-Sensitive Mounts**: PETG (better thermal resistance)
 - **Accent Components**: PLA Matte Orange (brand consistency)
 - **Hardware**: Stainless steel (corrosion resistance)
 
+---
+
 ## 🔄 Component Status Tracking
 
 ### Current Orders
+
 - [x] **M6 Hardware** - Ordered Aug 17 (€31.49)
 - [x] **Keystone Jacks** - Ordered
 - [x] **Power Strip** - DIGITUS DN-95418 Ordered
@@ -140,6 +238,7 @@
 - [ ] **Network Switch** - Selection pending
 
 ### 3D Printing Progress
+
 - [x] **Base Frame** - 281.69g printed
 - [ ] **Extension Components** - Pending
 - [ ] **Custom Mounts** - Design pending
@@ -151,4 +250,4 @@
 **Last Updated**: August 17, 2025  
 **Total Components**: 15 categories across 4 major systems
 
-*"Precise component specification enables reliable assembly and future maintenance."*
+> *Precise component specification enables reliable assembly and future maintenance.*
