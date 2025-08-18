@@ -9,13 +9,13 @@
 | **Rack Hardware** | M6 nuts & screws | €31.49 | ✅ [Ordered](#order-1) |
 | **Networking** | Keystone modules | €33.99 | ✅ [Ordered](#order-2) |
 | **Power** | Power strip 1U | €19.99 | ✅ [Ordered](#order-3) |
-| **3D Printing** | ~576g filament used | €8,06 | 🟡 [In Progress](#3d-printing) |
+| **3D Printing** | ~631g filament used | €8.83 | 🟡 [In Progress](#3d-printing) |
 | **Switch** | D-Link DGS-1100-08V2 | €40.29 | ✅ [Ordered](#order-4) |
 | **Patch Cables** | 20x Orange cables | €36.80 | ✅ [Ordered](#order-4) |
 | **Mini PCs** | - | €0.00 | ⚪ Pending |
 | **Storage** | - | €0.00 | ⚪ Pending |
 | **Cables/Misc** | - | €0.00 | ⚪ Pending |
-| **Total Spent** | | **€170,62** | 🚀 |
+| **Total Spent** | | **€171.39** | 🚀 |
 
 ## 📦 Orders
 
@@ -70,20 +70,20 @@
 ### 3D Printing - Material Usage
 
 **Material**: PLA Matte (2kg spool @ €27.98 = €0.014/g)  
-**Cost**: €6.64 (473.80g × €0.014)
+**Cost**: €8.83 (630.50g × €0.014)
 
 | Component | Weight | Cost | Status |
 |-----------|--------|------|--------|
-| **Frame** | 576.22g | €8,06 | 🟡 In Progress |
+| **Frame** | 630.50g | €8.83 | 🟡 In Progress |
 | **Side and Top Panels** | - | - | ⚪ Pending |
 | **Inserts** | - | - | ⚪ Pending |
-| **Total Used** | **473.80g** | **€8.06** | 🟡 In Progress |
+| **Total Used** | **630.50g** | **€8.83** | 🟡 In Progress |
 
 **Notes**: Cost calculated based on filament price €27.98/2kg
 
 ---
 
-**Last Updated**: August 17, 2025  
-**Total Project Cost**: €169.20
+**Last Updated**: August 18, 2025  
+**Total Project Cost**: €171.39
 
 *"Every purchase is a step closer to the theoretically perfect lab setup."*
