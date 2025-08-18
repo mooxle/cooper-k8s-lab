@@ -81,6 +81,52 @@
 
 **Notes**: Cost calculated based on filament price €27.98/2kg
 
+## 🎯 Budget Planning
+
+### Mini PC Target
+- **Budget**: €300-400 total (€100-130 per unit)
+- **Target**: 3x Intel i5-10500T systems
+- **Source**: Used market (eBay, refurbishers)
+- **Status**: Monitoring for deals
+
+### Future Components
+- **Storage expansion**: NAS for shared storage (€200-300)
+- **Monitoring hardware**: Small display or status panel (€50-100)
+- **Network expansion**: Additional switch ports if needed (€40-80)
+
+## 📈 Cost Analysis
+
+### Total Project Investment
+```
+Completed Purchases:   €172.67
+Mini PCs (estimated):  €350.00
+Future expansion:      €100.00
+Total Project:         €622.67
+```
+
+### Cost vs Commercial Alternatives
+```
+Our Lab Setup:         €622.67
+Commercial 8U Rack:    €200-400
+3x Refurb Servers:     €600-1200
+Managed Switch:        €200-400
+Commercial Total:      €1000-2000+
+
+Savings:              €400-1400+
+```
+
+### Value Proposition
+- **Custom Design**: Exactly fits requirements
+- **Learning Value**: Hands-on experience with every component
+- **Flexibility**: Easy to modify and expand
+- **Aesthetics**: Professional appearance with personal branding
+
+## 🔗 Related Documentation
+
+- **[Hardware Components](components/)** - Detailed specifications
+- **[3D Printing](assembly/3d-printing.md)** - Build progress and material usage
+- **[Network Design](../02-design/network-topology.md)** - How purchases support architecture
+
 ---
 
 **Last Updated**: August 18, 2025  
