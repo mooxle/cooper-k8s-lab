@@ -5,24 +5,32 @@
 ---
 
 ## Table of Contents
-- [Component Overview](#component-overview)
-- [Rack Layout](#rack-layout-8u-total)
-- [Zones](#zones)
-- [3D Printed Components](#3d-printed-components)
-  - [Base Rack System](#base-rack-system)
-  - [Custom Components](#custom-components)
-  - [Custom Side Panels](#custom-side-panels)
-  - [Logo Elements](#logo-elements)
-  - [Patch Panel](#patch-panel)
-- [Hardware Components](#hardware-components)
-  - [Networking](#networking)
-  - [Power Distribution](#power-distribution)
-  - [Mounting Hardware](#mounting-hardware)
-- [Assembly Specifications](#assembly-specifications)
-  - [Mounting Standards](#mounting-standards)
-  - [Cable Management](#cable-management)
-  - [Material Specifications](#material-specifications)
-- [Component Status Tracking](#component-status-tracking)
+- [Rack Components - Technical Specifications](#rack-components---technical-specifications)
+  - [Table of Contents](#table-of-contents)
+  - [📊 Component Overview](#-component-overview)
+  - [🏗️ Rack Layout (8U Total)](#️-rack-layout-8u-total)
+    - [Equipment Distribution](#equipment-distribution)
+    - [Zones](#zones)
+  - [🖨️ 3D Printed Components](#️-3d-printed-components)
+    - [Base Rack System](#base-rack-system)
+    - [Custom Components](#custom-components)
+    - [Custom Side Panels](#custom-side-panels)
+      - [Inspiration \& Base Work](#inspiration--base-work)
+      - [Modifications](#modifications)
+      - [Files](#files)
+      - [Preview](#preview)
+      - [Fun Fact](#fun-fact)
+    - [Logos](#logos)
+      - [Preview](#preview-1)
+    - [Patch Panel](#patch-panel)
+  - [🔧 Hardware Components](#-hardware-components)
+    - [Networking](#networking)
+    - [Power Distribution](#power-distribution)
+    - [Mounting Hardware](#mounting-hardware)
+  - [📐 Assembly Specifications](#-assembly-specifications)
+    - [Mounting Standards](#mounting-standards)
+    - [Cable Management](#cable-management)
+    - [Material Specifications](#material-specifications)
 
 ---
 
@@ -84,12 +92,15 @@
 
 ### Custom Components
 
-| Component           | Quantity | Material  | Color        | Purpose                |
-|---------------------|----------|-----------|-------------|------------------------|
-| Cooper'n'80s Logo   | 1        | PLA Matte | Orange/Black| Top branding           |
-| Mini PC Mounts      | 3        | PETG      | Black       | Equipment mounting     |
-| Switch Mount        | 1        | PETG      | Black       | Equipment mounting     |
-| Custom Side Panels  | 2+2      | PLA Matte | Black/Orange| Ventilation & branding |
+| Component                  | Quantity | Material  | Color        | Purpose                |
+|----------------------------|----------|-----------|-------------|------------------------|
+| Cooper'n'80s Logo          | 1        | PLA Matte | Orange/Black| Top branding   
+| Cooper'n'80s Strip Logo    | 2        | PLA Matte | Orange/Black| Branding for side strips|        |
+| Mini PC Mounts             | 3        | PETG      | Black       | Equipment mounting     |
+| Switch Mount               | 1        | PETG      | Black       | Equipment mounting     |
+| Custom Side Panel (5U)     | 2        | PLA Matte | Black/Orange| Ventilation & branding |
+| Custom Side Panel (1.5U)   | 4        | PLA Matte | Black/Orange| Ventilation & branding |
+
 
 ---
 
@@ -133,25 +144,33 @@ The final STL models are stored in the repository under [`assets/`](../assets):
 
 ---
 
-### Logo Elements
+### Logos
 
-**Available Assets**: 
-- `assets/Cooper'n80s.stl` - Single color 3D print file
-- `assets/Cooper'n80s.3mf` - Dual color 3D print file  
-- `assets/cooper-n-80s.svg` - Vector source (scalable)
-- `assets/cooper-n-80s_BW.png` - Documentation variant
+This section covers all logo elements used for branding the Cooper'n'80s rack, including 3D printed logos for the top rail and long-format strips for exterior mounting.
 
-**Print Options**:
-- **Single Color**: Black PLA Matte (professional, subtle branding)
-- **Dual Color**: Black base + Orange accent (full brand consistency)
+**Available Assets:**  
+- [`Cooper'n80s.stl`](../../assets/Cooper'n80s.stl) — Single color 3D print file  
+- [`Cooper'n80s.3mf`](../../assets/Cooper'n80s.3mf) — Dual color 3D print file  
+- [`cooper-n-80s.svg`](../../assets/cooper-n-80s.svg) — Vector source (scalable)  
+- [`cooper-n-80s_BW.png`](../../assets/cooper-n-80s_BW.png) — Documentation variant  
+- [`Logos_long_case.png`](../../assets/Logos_long_case.png) — Preview image for exterior strips  
+- [`Cooper'n'80s_long.3mf`](../../assets/Cooper'n%2780s_long.3mf) — 3D print file for exterior strips
 
-**Mounting Location**: Top ventilation rail position for prominent visibility
+**Print Options:**  
+- **Single Color:** Black PLA Matte (professional, subtle branding)  
+- **Dual Color:** Black base + Orange accent (full brand consistency)
 
-| Cooper'n'80s Logo |
-|:-----------------:|
-| <img src="../photos/3d-printing/logo_3dprint_preview.png" alt="Logo Preview" width="150"/> |
+**Mounting Locations:**  
+- **Top ventilation rail:** Prominent visibility for 3D logo  
+- **Case exterior:** Long-format strips for additional branding
 
-*Cooper'n'80s logo - available in multiple formats for documentation and 3D printing*
+#### Preview
+
+| Cooper'n'80s Logo | Logo Strips (Case Exterior) |
+|:----------------------------:|:---------------------------:|
+| <img src="../photos/3d-printing/logo_3dprint_preview.png" alt="Logo Preview" width="150"/> | <img src="../../assets/Logos_long_case.png" alt="Logo Strips for Case Exterior" width="300"/> |
+
+*Left: Cooper'n'80s logo for top rail. Right: Screenshot of two long Cooper'n'80s logos intended for exterior mounting.*
 
 ---
 
@@ -224,26 +243,6 @@ The final STL models are stored in the repository under [`assets/`](../assets):
 - **Heat-Sensitive Mounts**: PETG (better thermal resistance)
 - **Accent Components**: PLA Matte Orange (brand consistency)
 - **Hardware**: Stainless steel (corrosion resistance)
-
----
-
-## 🔄 Component Status Tracking
-
-### Current Orders
-
-- [x] **M6 Hardware** - Ordered Aug 17 (€31.49)
-- [x] **Keystone Jacks** - Ordered
-- [x] **Power Strip** - DIGITUS DN-95418 Ordered
-- [ ] **Mini PCs** - Selection pending
-- [ ] **Network Switch** - Selection pending
-
-### 3D Printing Progress
-
-- [x] **Base Frame** - 281.69g printed
-- [ ] **Extension Components** - Pending
-- [ ] **Custom Mounts** - Design pending
-- [ ] **Patch Panel** - Pending
-- [ ] **Orange Accents** - Pending
 
 ---
 
