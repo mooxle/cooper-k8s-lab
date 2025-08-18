@@ -1,7 +1,7 @@
 # Cooper'n'80s - Enterprise Kubernetes Homelab
 
 <p align="center">
-  <img src="assets/cooper-n-80s_500px.png" alt="Cooper'n'80s Logo" width="300"/>
+  <img src="assets/banner.png" alt="Cooper'n'80s Logo" />
 </p>
 
 > Enterprise-grade Kubernetes lab for hands-on architectural learning
