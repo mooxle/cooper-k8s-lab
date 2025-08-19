@@ -4,16 +4,16 @@
 
 ## 📊 Project Dashboard
 
-**Current Status (S01E02)**: Frame complete, assembly pending | **Invested**: €172.67 | **Next**: M6 bolts → assembly
+**Current Status (S01E03)**: Frame assembled, components delivered | **Invested**: €249.76 | **Next**: Equipment mounting → automation
 
 | Category | Progress | Next Milestone |
 |----------|----------|----------------|
-| **🖨️ Hardware** | ████████▓▓ 80% | M6 bolts → frame assembly |
+| **🖨️ Hardware** | ██████████ 90% | Equipment mounting brackets |
 | **📚 Documentation** | ████████░░ 80% | Implementation sections |
-| **💰 Procurement** | ████░░░░░░ 35% | Mini PC sourcing |
-| **🚀 Implementation** | ███░░░░░░░ 30% | Hands-on deployment |
+| **💰 Procurement** | ███████░░░ 70% | Mini PC deal finalization |
+| **🚀 Implementation** | ████░░░░░░ 40% | Proxmox automation planning |
 
-**🔮 Next Episode**: S01E03 - "The Assembly Protocol" - *Hardware assembly, equipment delivery, system integration*
+**🔮 Next Episode**: S01E04 - "The Equipment Integration" - *Switch mounting, patch panel printing, Mini PC procurement*
 
 ---
 
@@ -21,7 +21,57 @@
 
 *In the spirit of The Big Bang Theory - where every breakthrough deserves proper documentation and every setback teaches us something valuable about the universe.*
 
-**Navigation**: [Latest Episode ↓](#s01e02---the-great-restructuring) | [Episode S01E01 ↓](#s01e01---the-repository-genesis)
+**Navigation**: [Latest Episode ↓](#s01e03---the-assembly-protocol) | [Previous Episodes ↓](#s01e02---the-great-restructuring)
+
+---
+
+## 🎬 Episode S01E03 - "The Assembly Protocol"
+**Tuesday, August 19, 2025**
+
+### 📋 Episode Summary
+In which our protagonist discovers that theory and practice diverge in fascinating ways, particularly when flanged screws meet carefully designed mounting holes, but engineering adaptability triumphs over rigid adherence to original specifications.
+
+### 🔧 Assembly Breakthrough
+- **✅ Frame Construction**: First physical assembly completed successfully
+- **🎯 Hardware Reality Check**: M6 flanged screws sit on surface rather than recessed - aesthetically superior outcome
+- **📏 Engineering Adaptation**: Top/bottom panels temporarily omitted for better assembly access
+- **🔄 Iterative Approach**: Hex-pattern crossbeams lack panel mounting provisions - design evolution opportunity
+
+![Hardware Preparation](../03-hardware/assembly/photos/assembly_01.png) ![Assembly in Progress](../03-hardware/assembly/photos/assembly_02.png) ![Complete Frame Structure](../03-hardware/assembly/photos/assembly_03.png)
+*Left: M6 flanged bolts and precision-engineered frame components ready for assembly. Center: Frame construction with Cooper'n'80s branding integration. Right: Complete 8U structure showcasing professional rack-mount aesthetics*
+
+### 🔍 Lessons Learned
+- **Flanged Screw Advantage**: Surface mounting provides cleaner aesthetic than anticipated
+- **Foot Hardware Issue**: Need 4x smaller-head screws for proper foot mounting
+- **Access Strategy**: Panel-free assembly superior for equipment integration phase
+- **Design Evolution**: Real-world assembly reveals optimization opportunities
+
+### 📦 Equipment Delivery Milestone
+- **✅ Network Infrastructure**: D-Link switch, patch cables, and keystone modules delivered
+- **🔌 Power Planning**: Current 4-outlet PDU insufficient - expansion strategy required
+- **🖨️ Next Print Queue**: Patch panel for keystone modules, D-Link switch mounting bracket
+- **💾 Storage Strategy**: Separate floor/mounting system needed for Mini PC power supplies
+
+### 💻 Mini PC Procurement Update
+- **🤝 Business Contact**: Established relationship with supplier for competitive pricing
+- **📊 Quantity Planning**: 3x units targeted for optimal cluster configuration
+- **💰 Budget Optimization**: Commercial relationship enables better cost structure
+
+### 🤖 Automation Research
+- **🔬 Proxmox Deployment**: Investigating automated installation strategies
+- **📋 Infrastructure as Code**: Planning template-driven deployment approach
+- **⚡ Zero-Touch Goal**: Minimize manual configuration through systematic automation
+
+### 🎯 Cooper Quote of the Day
+> *"The fascinating thing about engineering is that when reality disagrees with your specifications, reality is usually suggesting a better approach - you just have to be scientifically open to the evidence."*
+
+### 📊 Episode Metrics
+| Metric | Progress | Details |
+|--------|----------|---------|
+| **Physical Assembly** | 🔧 Frame complete | Ready for equipment mounting |
+| **Equipment Status** | 📦 Network gear delivered | Switch/cables/keystones ready |
+| **Procurement** | 💻 Mini PCs pending | Business relationship established |
+| **Next Goal** | 🖨️ Mounting hardware | Equipment integration preparation |
 
 ---
 

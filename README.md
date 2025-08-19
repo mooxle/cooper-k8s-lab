@@ -1,16 +1,16 @@
 # Cooper'n'80s - Enterprise Kubernetes Homelab
 
 <p align="center">
-  <img src="assets/banner.png" alt="Cooper'n'80s Logo" />
+  <img src="assets/banner.png" alt="Cooper'n'80s Banner" width="800"/>
 </p>
 
 > Enterprise-grade Kubernetes lab for hands-on architectural learning
 
 ---
 
-### 📺 Latest Episodes (Project Blog)
+### 📺 Latest Episodes
+**[S01E03 - The Assembly Protocol](docs/99-appendix/project-journal.md#s01e03---the-assembly-protocol)** *(Aug 19)* - Frame assembly & equipment delivery  
 **[S01E02 - The Great Restructuring](docs/99-appendix/project-journal.md#s01e02---the-great-restructuring)** *(Aug 18)* - Repository engineering & frame completion  
-**[S01E01 - The Repository Genesis](docs/99-appendix/project-journal.md#s01e01---the-repository-genesis)** *(Aug 17)* - Project launch & initial manufacturing  
 
 **[📖 Full Project Journal](docs/99-appendix/project-journal.md)** - *Complete episode guide with Cooper'scher commentary*
 
@@ -27,9 +27,9 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 ### 🏗️ Current Build Progress
 
 <p align="center">
-  <img src="docs/03-hardware/assembly/photos/frame-parts_800.png" alt="3D Printed Frame Components" width="600"/>
+  <img src="docs/03-hardware/assembly/photos/assembly_03.png" alt="Assembled Cooper'n'80s Rack Frame" width="600"/>
   <br>
-  <em>All frame components printed and ready for assembly - featuring custom Cooper'n'80s branding</em>
+  <em>Complete 8U rack frame with Cooper'n'80s branding - ready for equipment integration</em>
 </p>
 
 ## 📚 Documentation
@@ -38,9 +38,9 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 |---------|-------|---------------|
 | **[🎯 Vision](docs/01-vision/)** | Why & What | [Architecture](docs/01-vision/architecture.md) • [Learning Goals](docs/01-vision/learning-goals.md) |
 | **[📐 Design](docs/02-design/)** | Architecture Decisions | [Network Topology](docs/02-design/network-topology.md) • [K8s Strategy](docs/02-design/kubernetes-strategy.md) |
-| **[🔧 Hardware](docs/03-hardware/)** | Physical Components | [Components](docs/03-hardware/components/) • [3D Printing](docs/03-hardware/assembly/3d-printing.md) • [Shopping List](docs/03-hardware/shopping-list.md) |
-| **[⚙️ Implementation](docs/04-implementation/)** | Code & Configuration | [Path A: Proxmox](docs/04-implementation/path-a-proxmox/) • [Path B: OKD](docs/04-implementation/path-b-okd/) |
-| **[🔍 Operations](docs/05-operations/)** | Running the Lab | [Monitoring](docs/05-operations/monitoring.md) • [Troubleshooting](docs/05-operations/troubleshooting.md) |
+| **[🔧 Hardware](docs/03-hardware/)** | Physical Components | [Components Overview](docs/03-hardware/components/) • [Assembly Progress](docs/03-hardware/assembly/) • [Shopping List](docs/03-hardware/shopping-list.md) |
+| **[⚙️ Implementation](docs/04-implementation/)** | Code & Configuration | *Coming Soon* - Terraform, Ansible, K8s manifests |
+| **[🔍 Operations](docs/05-operations/)** | Running the Lab | *Coming Soon* - Monitoring, troubleshooting, maintenance |
 
 ## 🚀 Quick Start
 
@@ -65,6 +65,12 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 - ✅ **3D Printing Complete**: Base frame, extensions, and custom branding elements  
 - 🟡 **Network Equipment**: D-Link switch and patch cables ordered
 - 🟡 **Assembly Ready**: Hardware components awaiting M6 mounting bolts
+
+### 📺 Latest Episodes
+**S01E02** - The Great Restructuring *(Aug 18)* - Repository engineering & frame completion  
+**S01E01** - The Repository Genesis *(Aug 17)* - Project launch & initial manufacturing  
+
+**[📖 Full Project Journal](docs/99-appendix/project-journal.md)** - *Complete episode guide with Cooper'scher commentary*
 
 ## 🎯 Core Architecture
 
@@ -104,6 +110,19 @@ This lab applies the **scientific method** to infrastructure:
 
 Documentation: MIT License  
 3D Models: Creative Commons Attribution-ShareAlike 4.0
+
+---
+
+## 🛠️ Made With
+
+<p align="center">
+  <strong>Built with passion for precision and an unreasonable attention to detail</strong>
+</p>
+
+<p align="center">
+  💻 <strong>Made with a Mac</strong> • 🖨️ <strong>Bambu Lab P1S</strong> + <strong>Bambu Studio</strong><br>
+  📝 <strong>Visual Studio Code</strong> • 🤖 <strong>Claude AI</strong> • 🌐 <strong>MakerWorld</strong>
+</p>
 
 ---
 

@@ -6,16 +6,15 @@
 
 | Category | Items | Total Cost | Status |
 |----------|-------|------------|--------|
-| **Rack Hardware** | M6 nuts & screws | €31.49 | ✅ [Ordered](#order-1) |
-| **Networking** | Keystone modules | €33.99 | ✅ [Ordered](#order-2) |
-| **Power** | Power strip 1U | €19.99 | ✅ [Ordered](#order-3) |
-| **3D Printing** | ~722g filament used | €10.11 | 🟡 [In Progress](#3d-printing) |
-| **Switch** | D-Link DGS-1100-08V2 | €40.29 | ✅ [Ordered](#order-4) |
-| **Patch Cables** | 20x Orange cables | €36.80 | ✅ [Ordered](#order-4) |
-| **Mini PCs** | - | €0.00 | ⚪ Pending |
-| **Storage** | - | €0.00 | ⚪ Pending |
-| **Cables/Misc** | - | €0.00 | ⚪ Pending |
-| **Total Spent** | | **€172.67** | 🚀 |
+| **Rack Hardware** | M6 nuts & screws | €31.49 | ✅ [Delivered & Used](#order-1) |
+| **Networking** | Keystone modules | €33.99 | ✅ [Delivered](#order-2) |
+| **Power** | Power strip 1U | €19.99 | ✅ [Delivered](#order-3) |
+| **3D Printing** | ~722g filament used | €10.11 | ✅ [Complete](#3d-printing) |
+| **Switch** | D-Link DGS-1100-08V2 | €40.29 | ✅ [Delivered](#order-4) |
+| **Patch Cables** | 20x Orange cables | €36.80 | ✅ [Delivered](#order-4) |
+| **Mini PCs** | 3x i5-10500T systems | €0.00 | 🟡 In Negotiation |
+| **Additional Hardware** | Foot screws, power expansion | €0.00 | ⚪ Pending |
+| **Total Invested** | | **€172.67** | 🚀 |
 
 ## 📦 Orders
 
@@ -83,11 +82,17 @@
 
 ## 🎯 Budget Planning
 
-### Mini PC Target
-- **Budget**: €300-400 total (€100-130 per unit)
-- **Target**: 3x Intel i5-10500T systems
-- **Source**: Used market (eBay, refurbishers)
-- **Status**: Monitoring for deals
+### Mini PC Procurement Update
+- **Status**: 🟡 Active negotiation with commercial supplier
+- **Target**: 3x Intel i5-10500T systems with 16GB RAM minimum
+- **Strategy**: Business relationship for competitive pricing
+- **Timeline**: Pending final specifications and pricing confirmation
+
+### Outstanding Requirements
+- **Foot Hardware**: 4x smaller-head screws for proper foot mounting
+- **Power Expansion**: Additional outlets beyond current 4-outlet PDU
+- **Equipment Mounting**: 3D printing materials for switch brackets and patch panel
+- **Power Supply Floor**: Mounting solution for Mini PC power adapters
 
 ### Future Components
 - **Storage expansion**: NAS for shared storage (€200-300)
