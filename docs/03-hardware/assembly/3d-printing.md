@@ -65,10 +65,11 @@
 |-----------|----------|--------|--------|-------|
 | Mini PC Mounts (3x) | Black PETG | ~90g | ⚪ | Heat-resistant mounting |
 | Switch Mount | Black PETG | ~30g | ⚪ | Equipment bracket |
-| Patch Panel Frame | Black PLA Matte | ~50g | ⚪ | Keystone housing |
+| Patch Panel Frame | Black PLA Matte | ~50g | ⚪ | 0.5U keystone housing |
+| Keystone Blank Covers (4x) | Orange PLA Matte | 10g | ⚪ | Ports 8-11 concealment |
 | Front Covers 1U (2x) | Black PLA Matte | ~60g | ⚪ | Power floor concealment |
 | Front Covers 2U (2x) | Black PLA Matte | ~80g | ⚪ | Cable management concealment |
-| PDU Floor Insert | Black PLA Matte | ~100g | ⚪ | 3x PSU organization |
+| Netzteil Floor Insert | Black PLA Matte | ~100g | ⚪ | 3x PSU organization |
 
 ## 🎨 Material Strategy
 
@@ -159,7 +160,13 @@
 
 **Total Project Estimate**: ~1,292g mixed materials (~€18.41)
 
-
+### Cost Efficiency
+```
+Material Cost: €18.41
+Commercial 8U Rack: €200-400
+Custom Features: Priceless
+Cost Savings: 95%+ vs commercial solution
+```
 
 ## 🎯 Current Status
 

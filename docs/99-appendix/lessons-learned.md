@@ -53,7 +53,19 @@
 - Handles require reprinting with corrected orientation
 - Wrong orientation resulted in poor surface finish
 - Lesson: Test print orientation for non-structural decorative elements
+  
+**Logo Mounting Orientation Error**
+- Hex design crossbar with logo mounted incorrectly - logo was glued instead of properly oriented
+- Design has groove for top plate - now positioned on wrong side
+- Solution: Reprint required for proper logo integration and structural fit
+- Lesson: Carefully check component orientation before assembly, especially branded elements
 
+**Patch Panel Port Calculation**
+- 12-port panel over-specified for 8-port switch configuration
+- Only need 8 active ports plus 1-2 spares maximum
+- Solution: [klayf Keystone Blank Covers](https://makerworld.com/de/models/1265159-keystone-blank-insert-cover-for-petg-pla?from=search#profileId-1293411) in orange PLA
+- Result: 4x orange blanks become intentional design feature showing expansion capacity
+- Lesson: Over-engineering can become design opportunity with creative solutions
 
 ---
 

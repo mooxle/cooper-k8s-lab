@@ -58,6 +58,29 @@ Overlay (Virtual):     Software-Defined Networks
 **Source**: [mklements 1/2U 12-Port Keystone Panel](https://makerworld.com/de/models/1293816-1-2u-12-port-keystone-panel-for-10-rack#profileId-1324489)
 **Advantage**: 0.5U height provides optimal equipment spacing and improved thermal management
 
+**Port Layout Configuration:**
+
+**Patch Panel Visual:**
+```
+┌───┬───┬───┬───┬───┬───┬───┬───┬───┬────┬────┬────┐
+│ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 10 │ 11 │ 12 │
+├───┼───┼───┼───┼───┼───┼───┼───┼───┼────┼────┼────┤
+│🔌 │🔌 │🔌 │🔌 │🔌 │🔌 │🔌 │🟠 │🟠 │ 🟠 │ 🟠 │ 🔌 │
+└───┴───┴───┴───┴───┴───┴───┴───┴───┴────┴────┴────┘
+```
+
+**Port Assignments:**
+- **Ports 1-3**: Mini PC Nodes (10.0.1.10-12)
+- **Ports 4-6**: Reserved for expansion
+- **Port 7**: Admin/Laptop (10.0.1.100)
+- **Ports 8-11**: **Orange blank covers** (future expansion)
+- **Port 12**: **Uplink** to home network
+
+**Keystone Blank Covers**: [klayf Keystone Blank Insert](https://makerworld.com/de/models/1265159-keystone-blank-insert-cover-for-petg-pla?from=search#profileId-1293411)
+- **Material**: Orange PLA for brand consistency
+- **Purpose**: Cover unused ports 8-11, visual expansion indicator
+- **Design**: Professional blank covers, 24min print time
+
 ### Keystone Modules: deleyCON Cat7 Metal
 
 **Specifications**:
@@ -85,16 +108,35 @@ Overlay (Virtual):     Software-Defined Networks
 ┌──────┬─────────────────┬──────────────┬──────────────────┐
 │ Port │ Device          │ IP Address   │ Configuration    │
 ├──────┼─────────────────┼──────────────┼──────────────────┤
-│  1   │ Uplink          │ -            │ Untagged VLAN 10 │
-│  2   │ Mini PC Node 1  │ 10.0.1.10    │ Untagged VLAN 10 │
-│  3   │ Mini PC Node 2  │ 10.0.1.11    │ Untagged VLAN 10 │
-│  4   │ Mini PC Node 3  │ 10.0.1.12    │ Untagged VLAN 10 │
+│  1   │ Mini PC Node 1  │ 10.0.1.10    │ Untagged VLAN 10 │
+│  2   │ Mini PC Node 2  │ 10.0.1.11    │ Untagged VLAN 10 │
+│  3   │ Mini PC Node 3  │ 10.0.1.12    │ Untagged VLAN 10 │
+│  4   │ Reserved        │ DHCP         │ Untagged VLAN 10 │
 │  5   │ Reserved        │ DHCP         │ Untagged VLAN 10 │
 │  6   │ Reserved        │ DHCP         │ Untagged VLAN 10 │
-│  7   │ Reserved        │ DHCP         │ Untagged VLAN 10 │
-│  8   │ Admin/Laptop    │ 10.0.1.100   │ Untagged VLAN 10 │
+│  7   │ Admin/Laptop    │ 10.0.1.100   │ Untagged VLAN 10 │
+│  8   │ Uplink          │ -            │ Untagged VLAN 10 │
 └──────┴─────────────────┴──────────────┴──────────────────┘
 ```
+
+### Patch Panel to Switch Mapping
+
+| Patch Panel Port | Switch Port | Device | IP Address | Cable |
+|:----------------:|:-----------:|--------|------------|-------|
+| 1 | 1 | Mini PC Node 1 | 10.0.1.10 | 0.25m Orange |
+| 2 | 2 | Mini PC Node 2 | 10.0.1.11 | 0.5m Orange |
+| 3 | 3 | Mini PC Node 3 | 10.0.1.12 | 0.5m Orange |
+| 4 | 4 | Reserved | DHCP | - |
+| 5 | 5 | Reserved | DHCP | - |
+| 6 | 6 | Reserved | DHCP | - |
+| 7 | 7 | Admin/Laptop | 10.0.1.100 | 0.5m Orange |
+| 8-11 | - | **🟠 Blank Covers** | - | - |
+| 12 | 8 | **Uplink** | - | 1-2m to home network |
+
+**Visual Separation Strategy**:
+- **Active Equipment**: Ports 1-7 (silver keystones)
+- **Expansion Zone**: Ports 8-11 (orange blank covers)
+- **Infrastructure**: Port 12 (uplink, separated for clarity)
 
 ### Network Addressing
 
