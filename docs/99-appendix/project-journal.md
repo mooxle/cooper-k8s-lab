@@ -4,7 +4,7 @@
 
 ## 📊 Project Dashboard
 
-**Current Status (S01E03)**: Frame assembled, components delivered | **Invested**: €172.76 | **Next**: Equipment mounting → automation
+**Current Status (S01E03)**: Frame assembled, components delivered | **Invested**: €172.67 | **Next**: Equipment mounting → automation
 
 | Category | Progress | Next Milestone |
 |----------|----------|----------------|
