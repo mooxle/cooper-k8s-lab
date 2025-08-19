@@ -52,10 +52,11 @@ Overlay (Virtual):     Software-Defined Networks
 
 ### Patch Panel: 3D-Printed Keystone
 
-**Design**: Custom 1U rack-mount panel  
-**Capacity**: 10x keystone modules  
+**Design**: Custom 0.5U rack-mount panel  
+**Capacity**: 12x keystone modules  
 **Material**: Black PLA Matte  
-**Source**: [MakerWorld Community Design](https://makerworld.com/de/models/907994-patchpanel-for-10-keystones-10-rack)
+**Source**: [mklements 1/2U 12-Port Keystone Panel](https://makerworld.com/de/models/1293816-1-2u-12-port-keystone-panel-for-10-rack#profileId-1324489)
+**Advantage**: 0.5U height provides optimal equipment spacing and improved thermal management
 
 ### Keystone Modules: deleyCON Cat7 Metal
 
@@ -178,8 +179,8 @@ Total Network:        €114.08
 ## 🔧 Physical Integration
 
 ### Rack Mounting
-- **Switch Position**: 7U (near top for cable management)
-- **Patch Panel**: 8U (top position for easy access)  
+- **Switch Position**: 7.5U (optimal spacing with 0.5U patch panel)
+- **Patch Panel**: 8U (0.5U form factor for space efficiency)  
 - **Cable Runs**: 0.25-0.5m lengths minimize cable bulk
 - **Management**: Rear access for power and uplink
 

@@ -66,6 +66,9 @@
 | Mini PC Mounts (3x) | Black PETG | ~90g | ⚪ | Heat-resistant mounting |
 | Switch Mount | Black PETG | ~30g | ⚪ | Equipment bracket |
 | Patch Panel Frame | Black PLA Matte | ~50g | ⚪ | Keystone housing |
+| Front Covers 1U (2x) | Black PLA Matte | ~60g | ⚪ | Power floor concealment |
+| Front Covers 2U (2x) | Black PLA Matte | ~80g | ⚪ | Cable management concealment |
+| PDU Floor Insert | Black PLA Matte | ~100g | ⚪ | 3x PSU organization |
 
 ## 🎨 Material Strategy
 

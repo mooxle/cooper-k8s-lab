@@ -33,29 +33,32 @@
 
 ```
 ╔══════════════════════════════╗
-║ 8U │ 🔌 Patch Panel          ║
-╠══════════════════════════════╣  
-║ 7U │ 🌐 L2/L3 Switch         ║
+║ 8U │ 🔌 Patch Panel (0.5U)   ║
 ╠══════════════════════════════╣
-║ 6U │ *Future Expansion*      ║
+║ 7.5U│ 🌐 D-Link Switch       ║
 ╠══════════════════════════════╣
-║ 5U │ *Future Expansion*      ║
+║ 6.5U│ *Future Expansion*     ║
 ╠══════════════════════════════╣
-║ 4U │ *Future Expansion*      ║
+║ 5.5U│ *Future Expansion*     ║
 ╠══════════════════════════════╣
-║ 3U │ 🖥️ Mini PC Node #3      ║
+║ 4.5U│ 🖥️ Mini PC Node #3    ║
 ╠══════════════════════════════╣
-║ 2U │ 🖥️ Mini PC Node #2      ║
+║ 3.5U│ 🖥️ Mini PC Node #2    ║
 ╠══════════════════════════════╣
-║ 1U │ 🖥️ Mini PC Node #1      ║ ⚡ Power (Rear)
+║ 2.5U│ 🖥️ Mini PC Node #1    ║
+╠══════════════════════════════╣
+║ 2U  │ 📦 Hidden Storage      ║ ← Front Cover
+╠══════════════════════════════╣
+║ 1U  │ ⚡ Power Floor         ║ ← Front Cover
 ╚══════════════════════════════╝
+          PDU rear-mounted
 ```
 
 ### Zone Organization
-- **Compute Zone** (1U-3U): Mini PC nodes with custom mounts
-- **Expansion Zone** (4U-6U): Reserved for future components
-- **Network Zone** (7U-8U): Switch and connectivity
-- **Power Zone** (Rear 1U): Centralized power distribution
+- **Equipment Zone** (2.5U-8U): Visible components - Mini PCs, switch, patch panel
+- **Hidden Zone** (1U-2U): Power supplies, cable management behind front covers
+- **Rear Zone**: PDU power distribution and cable routing
+- **Thermal Design**: Heat sources at bottom, natural convection cooling
 
 ## 🖨️ Print Specifications
 
@@ -188,10 +191,10 @@ Total Estimate:       ~1172g mixed materials (~€16.50)
 *All printed frame components ready for assembly - Base posts, extension posts, side joiners, extension connectors, and Cooper'n'80s branding elements*
 
 ### Assembly Phases
-1. **✅ Base Frame** - All structural components printed and ready
-2. **🟡 Hardware Assembly** - M6 bolts arriving for frame assembly  
+1. **✅ Base Frame** - All structural components assembled
+2. **✅ Hardware Assembly** - Frame construction completed with M6 bolts
 3. **⚪ Custom Elements** - Side panels and additional branding pending
-4. **⚪ Integration** - Component mounting and final assembly
+4. **⚪ Equipment Integration** - Component mounting and cable management
 
 ## 🔧 Equipment Mounting
 
