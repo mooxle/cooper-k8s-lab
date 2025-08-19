@@ -6,7 +6,6 @@
 
 **Decision**: D-Link DGS-1100-08V2 managed L2 switch + existing home router VLAN  
 **Strategy**: L2 switching + existing infrastructure for routing  
-**Cost**: €40 vs €150+ for L3 solutions  
 **Result**: Clean separation of concerns with overlay networks handling complexity
 
 > *"Why buy a Swiss Army knife when you already own the tools and just need a good blade?"*
@@ -165,7 +164,7 @@ http://10.0.1.2
 - **Internet Access**: Home network routing + ISP latency
 - **Overlay Networks**: +2-5ms for VXLAN encapsulation
 
-## 💰 Cost Analysis
+## 💰 Component Summary
 
 ### Network Components
 ```
@@ -175,16 +174,6 @@ Patch Cables:         €36.80
 3D Printed Panel:     ~€3.00 (material)
 Total Network:        €114.08
 ```
-
-### Alternative Comparison
-```
-L3 Router Solution:   €150-300
-Premium Managed:      €80-150  
-Unmanaged Switch:     €20-30
-Selected Solution:    €40
-```
-
-**Savings**: €110+ reinvested in compute hardware
 
 ## 🔧 Physical Integration
 
@@ -207,4 +196,4 @@ Selected Solution:    €40
 
 ---
 
-**Philosophy**: *"Perfect is the enemy of good, and overkill is the enemy of budget. Sometimes the smartest architecture uses what you already have."*
+**Philosophy**: *"Perfect is the enemy of good. Sometimes the smartest architecture uses what you already have."*

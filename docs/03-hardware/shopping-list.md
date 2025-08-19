@@ -80,51 +80,7 @@
 
 **Notes**: Cost calculated based on filament price €27.98/2kg
 
-## 🎯 Budget Planning
 
-### Mini PC Procurement Update
-- **Status**: 🟡 Active negotiation with commercial supplier
-- **Target**: 3x Intel i5-10500T systems with 16GB RAM minimum
-- **Strategy**: Business relationship for competitive pricing
-- **Timeline**: Pending final specifications and pricing confirmation
-
-### Outstanding Requirements
-- **Foot Hardware**: 4x smaller-head screws for proper foot mounting
-- **Power Expansion**: Additional outlets beyond current 4-outlet PDU
-- **Equipment Mounting**: 3D printing materials for switch brackets and patch panel
-- **Power Supply Floor**: Mounting solution for Mini PC power adapters
-
-### Future Components
-- **Storage expansion**: NAS for shared storage (€200-300)
-- **Monitoring hardware**: Small display or status panel (€50-100)
-- **Network expansion**: Additional switch ports if needed (€40-80)
-
-## 📈 Cost Analysis
-
-### Total Project Investment
-```
-Completed Purchases:   €172.67
-Mini PCs (estimated):  €350.00
-Future expansion:      €100.00
-Total Project:         €622.67
-```
-
-### Cost vs Commercial Alternatives
-```
-Our Lab Setup:         €622.67
-Commercial 8U Rack:    €200-400
-3x Refurb Servers:     €600-1200
-Managed Switch:        €200-400
-Commercial Total:      €1000-2000+
-
-Savings:              €400-1400+
-```
-
-### Value Proposition
-- **Custom Design**: Exactly fits requirements
-- **Learning Value**: Hands-on experience with every component
-- **Flexibility**: Easy to modify and expand
-- **Aesthetics**: Professional appearance with personal branding
 
 ## 🔗 Related Documentation
 

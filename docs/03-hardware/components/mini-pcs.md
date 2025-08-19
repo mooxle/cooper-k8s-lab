@@ -136,8 +136,7 @@ Pod Capacity: ~200-250 pods across cluster
 ### Current Status
 - **Status**: ⚪ Pending procurement
 - **Target**: 3x identical Mini PCs
-- **Budget**: €300-400 total (€100-130 per unit)
-- **Source**: Used market (eBay, refurbishers)
+- **Source**: Commercial supplier relationship established
 
 ### Selection Criteria
 1. **CPU verification** - Confirm i5-10500T specifically

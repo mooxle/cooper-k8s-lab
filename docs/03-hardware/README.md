@@ -63,8 +63,7 @@
 ## 💰 Budget Overview
 
 **Total Spent**: €172.67  
-**Committed**: €300-400 (Mini PCs pending)  
-**Target Budget**: <€600 total project cost
+
 
 **[Detailed Shopping List](shopping-list.md)** - Complete purchase tracking
 

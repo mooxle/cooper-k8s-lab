@@ -295,7 +295,6 @@ iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
 - **Automation-friendly**: SSH access to switch, consistent addressing
 
 ### Cost Efficiency
-- **Avoided duplication**: €110+ saved vs L3 router solution
 - **Used existing assets**: Home router already VLAN-capable
 - **Future-proof**: Design supports both architectural paths
 

@@ -156,13 +156,7 @@
 
 **Total Project Estimate**: ~1,292g mixed materials (~€18.41)
 
-### Cost Efficiency
-```
-Material Cost: €18.41
-Commercial 8U Rack: €200-400
-Custom Features: Priceless
-Cost Savings: 95%+ vs commercial solution
-```
+
 
 ## 🎯 Current Status
 
