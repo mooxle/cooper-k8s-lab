@@ -28,9 +28,9 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 ### 🏗️ Current Build Progress
 
 <p align="center">
-  <img src="docs/03-hardware/assembly/photos/assembly_03.png" alt="Assembled Cooper'n'80s Rack Frame" width="600"/>
+  <img src="docs/03-hardware/assembly/photos/20_08_rack_front.png" alt="Cooper'n'80s Enterprise Infrastructure" width="600"/>
   <br>
-  <em>Complete 8U rack frame with Cooper'n'80s branding - ready for equipment integration</em>
+  <em>Complete enterprise infrastructure platform with integrated branding and network equipment</em>
 </p>
 
 ## 📚 Documentation
