@@ -25,6 +25,147 @@
 
 ---
 
+## 🎬 Episode S01E04 - "The Hardware Breakthrough"
+**Wednesday, August 20, 2025**
+
+### 📋 Episode Summary
+In which our protagonist achieves the crucial hardware milestone, navigates the inevitable 3D printing iterations with scientific precision, and implements an enterprise-grade dual-repository strategy that would make any IT architect proud.
+
+### 🖥️ **MAJOR HARDWARE BREAKTHROUGH: Mini PCs Ordered!**
+
+**💻 Dell OptiPlex 3080 Micro Specifications:**
+- **CPU**: Intel Core i5-10500T (6C/12T) ✅ 
+- **Memory**: 32GB DDR4 (upgrade from planned 16GB!) ✅
+- **Storage**: 512GB SSD ✅
+- **Network**: Integrated WLAN + Gigabit Ethernet ✅
+- **OS**: Windows 11 Pro (will be replaced with Linux) ✅
+- **Quantity**: 3x identical units for perfect cluster symmetry ✅
+
+**🤝 Supplier Relationship Success:**
+- Excellent support from business contact
+- Professional procurement process
+- Future dedicated spotlight planned for supplier recognition
+
+### 🖨️ 3D Printing Lessons & Iterations
+
+**Engineering Reality Check** - Real-world 3D printing requires iteration:
+
+#### **Print Orientation Challenges:**
+- **Handles**: Wrong orientation resulted in poor surface finish
+- **Solution**: Reprinted with corrected orientation
+- **Lesson**: Test print orientation for decorative elements
+
+#### **Component Sizing Issues:**
+- **D-Link Bracket**: Initially sized for different D-Link model
+- **Problem**: Too large for DGS-1100-08V2
+- **Engineering Solution**: Custom scaling in X- and Z-axis
+- **Result**: Perfect fit achieved via parametric adjustment
+- **Asset**: Custom file `DGS_1100-08vs_new.3mf` saved for future use
+
+#### **Assembly Orientation Errors:**
+- **Orange Crossbeam + Logo**: Mounted incorrectly (wrong side)
+- **Impact**: Logo positioning and structural groove misaligned
+- **Solution**: Complete reprint of orange crossbeam with logo
+- **Status**: Reprinted components ready for proper assembly
+
+#### **Completed Manufacturing:**
+- ✅ **Side Panels**: Custom Cooper'n'80s ventilation panels completed
+- ✅ **Structural Elements**: All frame components functional
+- ⚪ **Final Assembly Pending**: Handles and feet (awaiting hardware store screws)
+
+### 🔒 Infrastructure Evolution: Dual Repository Strategy
+
+**Enterprise-Grade Information Architecture Implemented:**
+
+#### **Repository Separation:**
+- **🌐 cooper-n-80s (Public - GitHub)**: Learning documentation, sanitized templates
+- **🔒 cooper-ops (Private - Forgejo Self-hosted)**: Real operational data and automation
+
+#### **Security Implementation:**
+- **Private Git Server**: Forgejo on LXC container (git.sammet.me)
+- **SSH Authentication**: ed25519 key management
+- **Data Classification**: Sensitive operational data properly protected
+
+#### **CMDB Architecture:**
+- **Enterprise YAML Structures**: NetBox migration-ready CMDB
+- **Asset Management**: Complete device lifecycle tracking
+- **Template Generation**: Public templates derived from private operational data
+
+### 🛠️ Operational Infrastructure
+
+#### **Git Server Deployment:**
+- **Platform**: Forgejo in Docker Compose on LXC
+- **Features**: SSH + HTTPS access, private repository hosting
+- **Integration**: VS Code workspace with both repositories
+- **Workflow**: Separate commit streams for public/private content
+
+#### **CMDB Enhancement:**
+- **Network Infrastructure**: Complete D-Link switch and patch panel documentation
+- **Asset Tracking**: Serial numbers, procurement costs, lifecycle management
+- **NetBox Readiness**: Enterprise DCIM/IPAM compatible structure
+
+### 🎯 Current Hardware Status
+
+```
+🖨️ 3D Printing     ████████░░ 85% - Final assembly components pending
+🖥️ Mini PCs        ██████████ 100% - ORDERED! Dell OptiPlex 3080 Micro
+🌐 Networking      ████████░░ 80% - Switch delivered, mounting pending
+🔧 Integration     ██████░░░░ 60% - Rack assembly nearly complete
+```
+
+### 📊 Updated Cluster Specifications
+
+**Massive Memory Upgrade Impact:**
+```
+Original Plan:  3x 16GB = 48GB total cluster memory
+Actual Order:   3x 32GB = 96GB total cluster memory
+Performance:    2x memory capacity = significantly higher VM density
+Pod Capacity:   Estimated 300-400 pods (vs 150-250 originally planned)
+```
+
+**Cost-Benefit Analysis:**
+- **Memory doubling** enables much more realistic enterprise workload simulation
+- **Future-proofing** for advanced scenarios and multiple paradigm testing
+- **Professional procurement** through established business relationship
+
+### 🔬 Scientific Discoveries
+
+#### **3D Printing Methodology:**
+- **Iteration is Normal**: Complex assemblies require multiple print cycles
+- **Parametric Design**: Custom scaling enables component adaptation
+- **Print Orientation**: Critical for aesthetic components
+- **Documentation**: Asset management of custom modifications essential
+
+#### **Enterprise Repository Patterns:**
+- **Data Classification**: Critical for security and compliance
+- **Template Generation**: Public learning value without operational risk
+- **Multi-Repository Workflows**: VS Code workspace management highly effective
+
+### 🎭 Cooper Quote of the Day
+> *"The fascinating thing about real-world engineering is that theory provides the foundation, but practice requires systematic iteration, precise documentation, and an acceptance that the first attempt is rarely the final solution."*
+
+### 📊 Episode Metrics
+| Metric | Progress | Details |
+|--------|----------|---------|
+| **Hardware Procurement** | 🎉 COMPLETE | 3x Dell OptiPlex 3080 Micro ordered |
+| **3D Printing Accuracy** | 🔄 Iterative | Multiple components reprinted for precision |
+| **Repository Architecture** | ✅ Implemented | Dual-repo strategy operational |
+| **CMDB Maturity** | 📈 Enhanced | Enterprise-grade structure achieved |
+
+### 🚀 Next Episode Preview
+**S01E05 - "The Great Integration"** - *Mini PC delivery, final assembly, first boot, and the moment when theoretical architecture meets silicon reality.*
+
+---
+
+### 📝 Planned Content Updates
+- **📸 Rack Photography**: Current assembly state documentation
+- **🏢 Supplier Spotlight**: Business relationship and procurement experience  
+- **📦 Mini PC Unboxing**: Detailed hardware validation and setup
+- **🔧 Final Assembly**: Complete integration documentation
+
+**Hardware delivery expected**: Early next week  
+**Full operational cluster**: Target end of August 2025
+
 ## 🎬 Episode S01E03 - "The Assembly Protocol"
 **Tuesday, August 19, 2025**
 

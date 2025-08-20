@@ -9,8 +9,9 @@
 ---
 
 ### 📺 Latest Episodes
+**[S01E04 - The Hardware Breakthrough](docs/99-appendix/project-journal.md#s01e04---the-hardware-breakthrough)** *(Aug 20)* - Mini PC procurement & dual repository strategy  
 **[S01E03 - The Assembly Protocol](docs/99-appendix/project-journal.md#s01e03---the-assembly-protocol)** *(Aug 19)* - Frame assembly & equipment delivery  
-**[S01E02 - The Great Restructuring](docs/99-appendix/project-journal.md#s01e02---the-great-restructuring)** *(Aug 18)* - Repository engineering & frame completion  
+**[S01E02 - The Great Restructuring](docs/99-appendix/project-journal.md#s01e02---the-great-restructuring)** *(Aug 18)* - Repository engineering & frame completion
 
 **[📖 Full Project Journal](docs/99-appendix/project-journal.md)** - *Complete episode guide with Cooper'scher commentary*
 

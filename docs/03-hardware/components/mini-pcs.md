@@ -134,9 +134,10 @@ Pod Capacity: ~200-250 pods across cluster
 ## 🛒 Procurement Strategy
 
 ### Current Status
-- **Status**: ⚪ Pending procurement
-- **Target**: 3x identical Mini PCs
-- **Source**: Commercial supplier relationship established
+- **Status**: ✅ **ORDERED** - Dell OptiPlex 3080 Micro
+- **Specifications**: 3x i5-10500T, **32GB RAM**, 512GB NVMe
+- **Supplier**: Business contact relationship
+- **Delivery**: Expected early next week
 
 ### Selection Criteria
 1. **CPU verification** - Confirm i5-10500T specifically

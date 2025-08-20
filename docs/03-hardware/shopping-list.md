@@ -12,7 +12,7 @@
 | **3D Printing** | ~722g filament used | €10.11 | ✅ [Complete](#3d-printing) |
 | **Switch** | D-Link DGS-1100-08V2 | €40.29 | ✅ [Delivered](#order-4) |
 | **Patch Cables** | 20x Orange cables | €36.80 | ✅ [Delivered](#order-4) |
-| **Mini PCs** | 3x i5-10500T systems | €0.00 | 🟡 In Negotiation |
+| **Mini PCs** | 3x Dell OptiPlex 3080 Micro | €TBD | ✅ [Ordered](#mini-pcs) |
 | **Additional Hardware** | Foot screws, power expansion | €0.00 | ⚪ Pending |
 | **Total Invested** | | **€172.67** | 🚀 |
 
@@ -80,6 +80,17 @@
 
 **Notes**: Cost calculated based on filament price €27.98/2kg
 
+### Mini PCs - Dell OptiPlex 3080 Micro
+**Date**: August 20, 2025  
+**Supplier**: Business Contact  
+**Total**: TBD  
+
+| Item | Qty | Specs |
+|------|-----|-------|
+| Dell OptiPlex 3080 Micro | 3x | i5-10500T, 32GB DDR4, 512GB SSD |
+
+**Purpose**: Primary compute nodes for K8s cluster  
+**Upgrade**: 32GB RAM (vs planned 16GB) = 2x memory capacity
 
 
 ## 🔗 Related Documentation
