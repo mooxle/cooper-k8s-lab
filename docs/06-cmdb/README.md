@@ -1,128 +1,198 @@
-# Dual Repository Strategy
+# CMDB Templates
 
-> **S01E04 Update**: Cooper'n'80s now operates with a dual-repository approach for optimal security and learning value.
+> Enterprise-grade Configuration Management Database templates for infrastructure documentation
 
-## 🏗️ Repository Architecture
+## 🎯 Purpose
 
-### 🌐 **cooper-n-80s (Public - GitHub)**
-- **Purpose**: Learning documentation, tutorials, and sanitized templates
-- **Audience**: Community, learning, knowledge sharing
-- **Content**: Architecture decisions, build guides, sanitized examples
-- **Security**: No sensitive operational data
+These templates demonstrate **enterprise CMDB patterns** used in the Cooper'n'80s infrastructure project. They provide sanitized, reusable examples for:
 
-### 🔒 **cooper-ops (Private - Self-hosted)**
-- **Purpose**: Real operational data and automation
-- **Audience**: Internal lab operations only
-- **Content**: Actual CMDB data, real configurations, automation scripts
-- **Security**: Real MAC addresses, IPs, credentials, procurement details
+- **NetBox Migration**: Ready-to-use service definitions
+- **Enterprise Documentation**: Professional infrastructure templates
+- **Learning Resources**: Real-world CMDB structure examples
+- **Compliance Frameworks**: Audit-ready documentation patterns
 
-## 🔄 Workflow Integration
+## 📋 Template Catalog
 
-### Data Flow
+### Infrastructure Services
+
+| Template | Purpose | Enterprise Use Case |
+|----------|---------|-------------------|
+| **[vault-service.yaml.template](vault-service.yaml.template)** | HashiCorp Vault secrets management | Enterprise secrets management platforms |
+| **[infrastructure-overview.yaml.template](infrastructure-overview.yaml.template)** | Unified platform documentation | Container orchestration platforms |
+| **[git-service.yaml.template](git-service.yaml.template)** | Git server and repository management | Version control infrastructure |
+
+### Network Infrastructure
+
+| Template | Purpose | Enterprise Use Case |
+|----------|---------|-------------------|
+| **[network-infrastructure.yaml.template](../../02-design/network-topology.md)** | Network topology and addressing | Physical and logical network documentation |
+| **[hardware-inventory.yaml.template](hardware-inventory.yaml.template)** | Physical hardware tracking | Asset management and lifecycle tracking |
+
+## 🏗️ Template Structure
+
+### Standard Sections
+
+Each template includes enterprise-standard sections:
+
+```yaml
+service:
+  # Service Identification
+  name: "service-identifier"
+  display_name: "Human Readable Name"
+  service_type: "classification"
+  criticality: "business-impact-level"
+  
+  # Technical Configuration
+  deployment: {}      # Platform and deployment info
+  network: {}         # Network configuration
+  storage: {}         # Data persistence
+  security: {}        # Access control and encryption
+  
+  # Operational Excellence
+  backup: {}          # Data protection strategy
+  monitoring: {}      # Health checks and metrics
+  dependencies: {}    # Service relationships
+  integrations: {}    # System integrations
+  
+  # Change Management
+  change_control: {}  # Audit trail and approvals
+  roadmap: {}         # Future enhancements
 ```
-Real Infrastructure → cooper-ops (private CMDB)
-                   ↓ sanitization
-Template Generation → cooper-n-80s (public docs)
-```
 
-### Repository Syncing
-- **Templates**: Real CMDB structures → Sanitized public templates
-- **Documentation**: Lessons learned → Public knowledge base
-- **Code**: Automation scripts (secrets externalized) → Public examples
+### Enterprise Compliance
 
-## 📁 Content Mapping
+Templates include fields for:
+- **Audit Trails**: Change management and approval workflows
+- **Security Documentation**: Access control and encryption standards
+- **Business Continuity**: Backup and recovery procedures
+- **Performance Monitoring**: SLA tracking and health checks
 
-| Content Type | Public Repo | Private Repo |
-|--------------|-------------|--------------|
-| **Architecture** | ✅ Full documentation | ⚪ Implementation notes |
-| **CMDB Templates** | ✅ Sanitized schemas | ❌ Private |
-| **Real CMDB Data** | ❌ Never | ✅ Operational data |
-| **Hardware Specs** | ✅ Generic specs | ✅ Serial numbers, MACs |
-| **Network Design** | ✅ Topology diagrams | ✅ Real IP addresses |
-| **Automation** | ✅ Code examples | ✅ Real configurations |
-| **Lessons Learned** | ✅ Community value | ✅ Internal notes |
+## 🔧 Usage Instructions
 
-## 🔐 Security Guidelines
+### 1. Template Customization
 
-### Never Commit to Public Repo
-- Real MAC addresses or serial numbers
-- Internal IP addresses and network credentials  
-- SSH keys, certificates, or API tokens
-- Procurement costs or supplier relationships
-- Personal or business-sensitive information
-
-### Safe for Public Repo
-- Sanitized configuration templates
-- Architecture diagrams and decision rationale
-- Generic hardware specifications
-- Learning methodologies and best practices
-- Troubleshooting guides (with sanitized examples)
-
-## 🛠️ Development Workflow
-
-### Multi-Repository Setup
 ```bash
-# Directory structure
-~/cooper-lab/
-├── cooper-n-80s/          # Public repository (GitHub)
-│   ├── docs/06-cmdb/
-│   │   ├── README.md       # CMDB strategy documentation
-│   │   ├── templates/      # Sanitized YAML templates
-│   │   └── migration/      # NetBox migration guides
-│   └── ...
-└── cooper-ops/             # Private repository (Self-hosted)
-    ├── cmdb/
-    │   ├── physical/       # Real hardware inventory
-    │   └── logical/        # VM and container tracking
-    ├── secrets/            # Encrypted certificates and keys
-    └── automation/         # Real Infrastructure as Code
+# Copy template to your environment
+cp vault-service.yaml.template my-vault-service.yaml
+
+# Replace placeholder values
+sed -i 's/EXAMPLE/mycompany/g' my-vault-service.yaml
+sed -i 's/YYYY-MM-DD/2025-08-20/g' my-vault-service.yaml
 ```
 
-### VS Code Workspace
-```json
-{
-  "folders": [
-    { "path": "./cooper-n-80s" },
-    { "path": "./cooper-ops" }
-  ],
-  "name": "Cooper'n'80s Lab Workspace"
-}
+### 2. NetBox Integration
+
+These templates map directly to NetBox data models:
+
+```python
+# NetBox service creation from template
+from netbox import NetBoxAPI
+
+# Parse template YAML
+service_config = yaml.load(template_file)
+
+# Create NetBox service
+service = nb.extras.services.create({
+    'name': service_config['service']['name'],
+    'protocol': service_config['network']['external_ports'][0]['protocol'],
+    'ports': [p['port'] for p in service_config['network']['external_ports']]
+})
 ```
 
-## 🎯 Benefits
+### 3. Infrastructure as Code
 
-### **Security First**
-- Sensitive operational data properly protected
-- Public learning value without operational risk
-- Clear separation of concerns
+Templates integrate with automation tools:
 
-### **Learning Optimized**
-- Templates demonstrate enterprise patterns
-- Real implementation drives authentic documentation
-- Community can benefit from architectural decisions
-
-### **Enterprise Patterns**
-- Mirrors real-world public/private repository strategies
-- Demonstrates proper data classification
-- Shows effective CMDB template development
-
-## 🚀 Getting Started
-
-### For Learning (Public Repository)
-```bash
-git clone https://github.com/maxsammet/cooper-n-80s.git
-cd cooper-n-80s/docs/06-cmdb/
-# Review templates and documentation
+```yaml
+# Ansible integration
+- name: Deploy service from CMDB template
+  include_vars: "{{ service_template }}"
+  docker_compose:
+    project_name: "{{ service.name }}"
+    definition: "{{ service.deployment }}"
 ```
 
-### For Operations (Private Repository)
-```bash
-# Access requires cooper-ops repository permissions
-git clone git@git.sammet.me:maxsammet/cooper-ops.git
-cd cooper-ops/cmdb/
-# Real operational data and automation
-```
+## 📊 Template Categories
+
+### By Service Type
+
+- **secrets-management**: Vault, key management systems
+- **version-control**: Git servers, repository management
+- **monitoring**: Prometheus, Grafana, observability
+- **orchestration**: Docker Compose, Kubernetes platforms
+
+### By Criticality Level
+
+- **critical**: Zero-downtime requirements, immediate escalation
+- **high**: Business-hours support, planned maintenance windows
+- **medium**: Best-effort support, extended maintenance windows
+- **low**: Minimal support requirements, development services
+
+### By Environment
+
+- **production**: Live customer-facing services
+- **staging**: Pre-production validation environment
+- **development**: Developer sandbox and testing
+
+## 🔗 Integration Points
+
+### Enterprise Systems
+
+Templates support integration with:
+
+- **NetBox**: Infrastructure documentation and IPAM
+- **ServiceNow**: ITSM and change management
+- **Terraform**: Infrastructure as Code provisioning
+- **Ansible**: Configuration management automation
+- **Prometheus**: Monitoring and alerting systems
+
+### Cooper'n'80s Specific
+
+Templates reflect patterns used in:
+
+- **Dual Repository Strategy**: Public learning + private operations
+- **Scientific Methodology**: Hypothesis-driven infrastructure decisions
+- **Enterprise Standards**: Production-grade patterns at lab scale
+
+## 🎯 Learning Value
+
+### For Students
+
+- **Enterprise Patterns**: Real-world infrastructure documentation
+- **Best Practices**: Professional change management and security
+- **Tool Integration**: How CMDB connects to automation
+- **Compliance**: Audit-ready documentation standards
+
+### For Professionals
+
+- **Template Library**: Reusable patterns for common services
+- **Migration Examples**: NetBox and enterprise tool integration
+- **Security Standards**: Encryption, access control, key management
+- **Operational Excellence**: Monitoring, backup, incident response
+
+## 🛠️ Contributing
+
+### Template Improvements
+
+1. **Fork and modify** templates for your environment
+2. **Submit pull requests** with improvements or new patterns
+3. **Share experiences** with template usage in different contexts
+4. **Suggest new templates** for common infrastructure patterns
+
+### Quality Standards
+
+- **Sanitized Data**: No sensitive information in public templates
+- **Enterprise Compliance**: Include all required documentation sections
+- **Real-World Tested**: Templates based on actual working infrastructure
+- **Documentation**: Clear usage instructions and integration examples
+
+## 📄 License
+
+Templates: MIT License - Free for commercial and personal use  
+Documentation: Creative Commons Attribution-ShareAlike 4.0
 
 ---
 
-*"As Sheldon would say: 'The beauty of a properly architected information system is that it provides both transparency for collaboration and confidentiality for operations - like quantum mechanics, but with better documentation.'"*
+**Template Philosophy**: *"The best infrastructure documentation is the kind that serves both learning and operational excellence - templates that teach while they automate."*
+
+**Cooper'n'80s Integration**: These templates are derived from real operational infrastructure, providing authentic enterprise patterns with educational value.

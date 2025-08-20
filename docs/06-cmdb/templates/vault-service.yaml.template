@@ -1,0 +1,185 @@
+# HashiCorp Vault Service Template
+# Cooper'n'80s Enterprise CMDB Template
+# 
+# Purpose: Demonstrate enterprise secrets management service definition
+# Usage: Template for NetBox migration and enterprise CMDB systems
+# Note: Replace EXAMPLE values with real operational data
+
+service:
+  # Service Identification
+  name: "cooper-vault"
+  display_name: "Cooper'n'80s Vault"
+  service_type: "secrets-management"
+  criticality: "high"  # Options: low, medium, high, critical
+  environment: "production"  # Options: dev, staging, production
+  
+  # Deployment Information
+  deployment:
+    platform: "docker-compose"
+    container_name: "cooper-vault"
+    image: "hashicorp/vault:1.15"
+    deployment_date: "YYYY-MM-DD"
+    deployment_method: "unified-compose-stack"
+    
+  # Network Configuration
+  network:
+    hostname: "vault.EXAMPLE.com"
+    internal_ip: "172.20.0.X"  # Docker network assignment
+    external_ports:
+      - port: 8200
+        protocol: "HTTP"
+        purpose: "API and UI access"
+    dns_records:
+      - name: "vault.EXAMPLE.com"
+        type: "A"
+        target: "10.0.1.X"  # Real server IP
+        
+  # Storage Configuration
+  storage:
+    persistent_volumes:
+      - path: "/opt/EXAMPLE-infrastructure/vault/data"
+        type: "bind-mount"
+        purpose: "vault-data"
+        backup_included: true
+      - path: "/opt/EXAMPLE-infrastructure/vault/logs"
+        type: "bind-mount"
+        purpose: "vault-logs"
+        backup_included: true
+    configuration:
+      - path: "/home/EXAMPLE/config/vault-config"
+        type: "bind-mount"
+        purpose: "vault-configuration"
+        
+  # Security Configuration
+  security:
+    authentication:
+      methods:
+        - type: "token"
+          description: "Root token authentication"
+      access_control:
+        - policy: "root"
+          description: "Administrative access"
+        - policy: "EXAMPLE-admin"
+          description: "Lab administrative access"
+        - policy: "EXAMPLE-readonly"
+          description: "Read-only access for monitoring"
+    encryption:
+      at_rest: true
+      in_transit: false  # TODO: TLS implementation
+      key_management: "vault-internal"
+    secrets:
+      unseal_keys:
+        total_shares: 5
+        threshold: 3
+        storage: "password-manager-system"
+      root_token:
+        storage: "password-manager-system"
+        rotation_policy: "manual"
+        
+  # Backup Configuration
+  backup:
+    strategy: "container-level-backup"  # Options: file, container, vm, cloud
+    frequency: "24h"  # Options: hourly, daily, weekly
+    retention: "multiple-restore-points"
+    geographic_distribution: 3
+    recovery_time_objective: "1h"
+    recovery_point_objective: "24h"
+    
+  # Monitoring Configuration
+  monitoring:
+    health_checks:
+      - endpoint: "http://vault.EXAMPLE.com:8200/v1/sys/health"
+        interval: "30s"
+        timeout: "10s"
+    metrics:
+      - type: "prometheus"
+        endpoint: "/v1/sys/metrics"
+        enabled: true
+    logging:
+      level: "info"
+      format: "json"
+      destination: "/vault/logs/vault.log"
+      rotation: "24h"
+      retention: "7d"
+      
+  # Dependencies
+  dependencies:
+    required_services:
+      - service: "docker"
+        type: "runtime"
+      - service: "EXAMPLE-infrastructure-network"
+        type: "network"
+    optional_services:
+      - service: "EXAMPLE-git-server"
+        type: "integration"
+        purpose: "git-secrets-integration"
+        
+  # Integration Points
+  integrations:
+    current:
+      - system: "EXAMPLE-secrets-kv"
+        type: "kv-store"
+        purpose: "centralized-secrets"
+    planned:
+      - system: "kubernetes-external-secrets"
+        type: "secrets-provider"
+        purpose: "k8s-integration"
+      - system: "terraform"
+        type: "secrets-provider"
+        purpose: "infrastructure-automation"
+      - system: "ansible"
+        type: "secrets-provider"
+        purpose: "configuration-management"
+        
+  # Operational Information
+  operations:
+    startup_command: "vault server -config=/vault/config/vault.hcl"
+    restart_policy: "unless-stopped"
+    resource_limits:
+      memory: "512MB"
+      cpu: "0.5"
+    maintenance_window: "sunday-02:00-04:00"
+    
+  # Documentation References
+  documentation:
+    operational_procedures: "vault/README.md"
+    backup_procedures: "vault/backup-procedures.md"
+    security_policies: "vault/policies/"
+    runbooks: "vault/runbooks/"
+    
+  # Change Management
+  change_control:
+    last_updated: "YYYY-MM-DD"
+    last_updated_by: "EXAMPLE-admin"
+    change_reason: "EXAMPLE-deployment-reason"
+    approval_required: false  # Lab environment
+    
+  # Future Enhancements
+  roadmap:
+    short_term:
+      - item: "TLS encryption implementation"
+        priority: "high"
+        target_date: "YYYY-MM-DD"
+      - item: "PKI secrets engine"
+        priority: "medium"
+        target_date: "YYYY-MM-DD"
+    long_term:
+      - item: "Auto-unseal with cloud KMS"
+        priority: "low"
+        target_date: "YYYY-MM-DD"
+      - item: "HA deployment"
+        priority: "low"
+        target_date: "YYYY-QX"
+
+# Template Usage Notes:
+# 1. Replace all EXAMPLE placeholders with actual values
+# 2. Update network configurations for your environment
+# 3. Customize security policies based on requirements
+# 4. Adjust backup strategy to match infrastructure
+# 5. Modify monitoring endpoints for your setup
+#
+# NetBox Migration:
+# - service.name → Device/Service name
+# - network.* → IP Address Management (IPAM)
+# - storage.* → Device storage tracking
+# - dependencies → Service dependencies mapping
