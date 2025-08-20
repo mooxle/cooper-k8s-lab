@@ -1,0 +1,137 @@
+# Cooper'n'80s Network Infrastructure Template
+# Public template - sanitized for documentation purposes
+# Real operational data maintained in private cooper-ops repository
+
+network_infrastructure:
+  
+  # Device Inventory (NetBox: dcim.device)
+  devices:
+    lab_switch:
+      # Device Identification
+      name: "cooper-lab-switch-01"
+      manufacturer: "D-Link"
+      model: "DGS-1100-08V2"
+      serial_number: "EXAMPLE_SERIAL_001"  # Real serial in private repo
+      asset_tag: "CL-SW-001"
+      
+      # Physical Location
+      site: "cooper-homelab"
+      rack: "cooper-rack-8u"
+      rack_position: 7.5
+      rack_face: "front"
+      
+      # Management & Status
+      management_ip: "10.0.1.X/24"  # Real IP in private repo
+      status: "active"
+      role: "access-switch"
+      platform: "dlink-dgs"
+      
+      # Procurement & Lifecycle
+      delivered: "2025-08-XX"
+      warranty_expiry: "YYYY-MM-DD"
+      procurement_cost: "XX.XX"
+      currency: "EUR"
+      
+      # Technical Specifications
+      specifications:
+        port_count: 8
+        port_type: "1000BASE-T"
+        management: ["web-ui", "ssh", "snmp"]
+        power_consumption: "6W"
+        dimensions: "280 x 180 x 44mm"
+        mounting: "rack-1u"
+
+    patch_panel:
+      name: "cooper-patch-panel-01"
+      manufacturer: "3D-printed"
+      model: "mklements 0.5U 12-port"
+      asset_tag: "CL-PP-001"
+      
+      site: "cooper-homelab"
+      rack: "cooper-rack-8u"
+      rack_position: 8.0
+      rack_face: "front"
+      
+      status: "active"
+      role: "patch-panel"
+      
+      specifications:
+        port_count: 12
+        port_type: "keystone-rj45"
+        keystone_type: "deleyCON Cat7 Metal"
+        delivered: "2025-08-XX"
+
+  # Network Interfaces (NetBox: dcim.interface)
+  interfaces:
+    lab_switch_port_1:
+      device: "lab_switch"
+      name: "GigabitEthernet1"
+      type: "1000base-t"
+      enabled: true
+      description: "Connection to node-01"
+      
+    lab_switch_port_8:
+      device: "lab_switch"
+      name: "GigabitEthernet8"
+      type: "1000base-t"
+      enabled: true
+      description: "Uplink to home network"
+
+  # Cable Connections (NetBox: dcim.cable)
+  cables:
+    node_connection_example:
+      id: "CL-CBL-XXX"
+      a_termination:
+        device: "lab_switch"
+        interface: "GigabitEthernetX"
+      b_termination:
+        device: "cooper-node-XX"
+        interface: "eth0"
+      type: "cat6"
+      length: 0.25
+      length_unit: "m"
+      color: "orange"
+      status: "connected"
+
+  # VLAN Configuration (NetBox: ipam.vlan)
+  vlans:
+    vlan_10:
+      vid: 10
+      name: "kubernetes-lab"
+      description: "Cooper'n'80s Kubernetes Lab Network"
+      status: "active"
+      role: "production"
+      tenant: "cooper-lab"
+      
+  # IP Prefixes (NetBox: ipam.prefix)
+  prefixes:
+    lab_management:
+      prefix: "10.0.1.0/24"
+      vlan: 10
+      status: "active"
+      role: "management"
+      description: "Lab Management Network"
+      
+  # IP Addresses (NetBox: ipam.ipaddress)
+  ip_addresses:
+    switch_management:
+      address: "10.0.1.X/24"  # Real IP in private repo
+      status: "active"
+      role: "loopback"
+      assigned_object_type: "device"
+      assigned_object: "lab_switch"
+      dns_name: "switch.cooper.lab"
+      
+    node_management_example:
+      address: "10.0.1.XX/24"  # Real IPs in private repo
+      status: "reserved"
+      role: "loopback"
+      assigned_object_type: "device"  
+      assigned_object: "cooper-node-XX"
+      dns_name: "node-XX.cooper.lab"
+
+# Template Notes:
+# - Replace XX/EXAMPLE values with real data in private repository
+# - Serial numbers, MAC addresses, real IPs sanitized for public consumption
+# - Complete structure preserved for learning and template purposes
+# - NetBox migration mappings documented for enterprise patterns

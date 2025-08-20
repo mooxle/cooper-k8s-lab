@@ -41,6 +41,7 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 | **[🔧 Hardware](docs/03-hardware/)** | Physical Components | [Components Overview](docs/03-hardware/components/) • [Assembly Progress](docs/03-hardware/assembly/) • [Shopping List](docs/03-hardware/shopping-list.md) |
 | **[⚙️ Implementation](docs/04-implementation/)** | Code & Configuration | *Coming Soon* - Terraform, Ansible, K8s manifests |
 | **[🔍 Operations](docs/05-operations/)** | Running the Lab | *Coming Soon* - Monitoring, troubleshooting, maintenance |
+| **[🗄️ CMDB](docs/06-cmdb/)** | Configuration Management | [Dual Repository Strategy](docs/06-cmdb/) • [Network Templates](docs/06-cmdb/templates/) |
 
 ## 🚀 Quick Start
 
