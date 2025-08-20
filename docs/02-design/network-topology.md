@@ -75,11 +75,10 @@
                     │ L2 Switch     │
                     └─┬──┬──┬──┬──┬─┘
                       │  │  │  │  │
-                 Port 2  3  4  5  6-7
-                      │  │  │  │  │
-                 Untagged VLAN 10  Reserve
-                      │  │  │
-                      ▼  ▼  ▼
+                 Port 2  3  4  5  6-7-8
+                      │     │  │  │
+              Admin───┘     │  │  │  Reserve
+                           ▼  ▼  ▼
           ┌─────────┐ ┌─────────┐ ┌─────────┐
           │Proxmox 1│ │Proxmox 2│ │Proxmox 3│
           │Node     │ │Node     │ │Node     │
@@ -91,16 +90,16 @@
            Mini PC 1   Mini PC 2   Mini PC 3
 ```
 
-### Port Assignment & Configuration
-
 | Port | Device | IP Address | Configuration | Purpose |
 |------|--------|------------|---------------|---------|
 | 1 | Uplink | - | Untagged VLAN 10 | Connection to home network |
-| 2 | Mini PC Node 1 | 10.0.1.10 | Untagged VLAN 10 | Primary control node |
-| 3 | Mini PC Node 2 | 10.0.1.11 | Untagged VLAN 10 | Worker node |
-| 4 | Mini PC Node 3 | 10.0.1.12 | Untagged VLAN 10 | Worker node |
-| 5-7 | Reserved | DHCP | Untagged VLAN 10 | Future expansion |
-| 8 | Admin/Laptop | 10.0.1.100 | Untagged VLAN 10 | Management access |
+| 2 | Admin/Laptop | 10.0.1.100 | Untagged VLAN 10 | Management access |
+| 3 | Reserved | DHCP | Untagged VLAN 10 | Future expansion |
+| 4 | Mini PC Node 1 | 10.0.1.10 | Untagged VLAN 10 | Primary control node |
+| 5 | Mini PC Node 2 | 10.0.1.11 | Untagged VLAN 10 | Worker node |
+| 6 | Mini PC Node 3 | 10.0.1.12 | Untagged VLAN 10 | Worker node |
+| 7 | Reserved | DHCP | Untagged VLAN 10 | Future expansion |
+| 8 | Reserved | DHCP | Untagged VLAN 10 | Future expansion |
 
 ## 🏠 Home Network Integration
 
