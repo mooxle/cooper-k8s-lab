@@ -4,16 +4,16 @@
 
 ## 📊 Project Dashboard
 
-**Current Status (S01E03)**: Frame assembled, components delivered | **Invested**: €172.67 | **Next**: Equipment mounting → automation
+**Current Status (S01E04)**: Mini PCs ordered, dual repository operational | **Invested**: €172.67 | **Next**: Hardware delivery → integration
 
 | Category | Progress | Next Milestone |
 |----------|----------|----------------|
-| **🖨️ Hardware** | ██████████ 90% | Equipment mounting brackets |
-| **📚 Documentation** | ████████░░ 80% | Implementation sections |
-| **💰 Procurement** | ███████░░░ 70% | Mini PC deal finalization |
-| **🚀 Implementation** | ████░░░░░░ 40% | Proxmox automation planning |
+| **🖨️ Hardware** | ██████████ 95% | Mini PC delivery and mounting |
+| **📚 Documentation** | ████████▓▓ 85% | CMDB templates and dual-repo docs |
+| **💰 Procurement** | ██████████ 100% | All major components ordered |
+| **🚀 Implementation** | ██████░░░░ 60% | Automation planning and CMDB |
 
-**🔮 Next Episode**: S01E04 - "The Equipment Integration" - *Switch mounting, patch panel printing, Mini PC procurement*
+**🔮 Next Episode**: S01E05 - "The Great Integration" - *Mini PC delivery, final assembly, first boot*
 
 ---
 
@@ -21,7 +21,7 @@
 
 *In the spirit of The Big Bang Theory - where every breakthrough deserves proper documentation and every setback teaches us something valuable about the universe.*
 
-**Navigation**: [Latest Episode ↓](#s01e03---the-assembly-protocol) | [Previous Episodes ↓](#s01e02---the-great-restructuring)
+**Navigation**: [Latest Episode ↓](#s01e04---the-hardware-breakthrough) | [Previous Episodes ↓](#s01e03---the-assembly-protocol)
 
 ---
 
