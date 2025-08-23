@@ -65,15 +65,15 @@ Overlay (Virtual):     Software-Defined Networks
 ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬────┬────┬────┐
 │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 10 │ 11 │ 12 │
 ├───┼───┼───┼───┼───┼───┼───┼───┼───┼────┼────┼────┤
-│🔌 │🟠 │🟠 │🟠 │🟠 │🔌 │🔌 │🔌 │🟠 │ 🟠 │ 🟠 │ 🟠 │
+│🔌 │🔌 │🔌 │🔌 │🔌 │🔌 │🔌 │🟠 │🟠 │ 🟠 │ 🟠 │🔌 │
 └───┴───┴───┴───┴───┴───┴───┴───┴───┴────┴────┴────┘
 ```
 
 **Port Assignments:**
-- **Port 1**: **Uplink** to home network
-- **Ports 2-5**: **Orange blank covers** (reserved/future expansion)
-- **Ports 6-8**: Mini PC Nodes (10.0.1.10-12)
-- **Ports 9-12**: **Orange blank covers** (future expansion)
+- **Ports 1-3**: Mini PC Nodes (10.0.1.10-12)
+- **Ports 4-7**: **Reserved** for future expansion (silver keystones)
+- **Ports 8-11**: **🟠 Orange blank covers** (visual expansion indicator)
+- **Port 12**: **Uplink** to home network (DGS-1210 Port 18)
 
 **Keystone Blank Covers**: [klayf Keystone Blank Insert](https://makerworld.com/de/models/1265159-keystone-blank-insert-cover-for-petg-pla?from=search#profileId-1293411)
 - **Material**: Orange PLA for brand consistency
@@ -107,14 +107,14 @@ Overlay (Virtual):     Software-Defined Networks
 ┌──────┬─────────────────┬──────────────┬──────────────────┐
 │ Port │ Device          │ IP Address   │ Configuration    │
 ├──────┼─────────────────┼──────────────┼──────────────────┤
-│  1   │ Uplink          │ -            │ Untagged VLAN 10 │
-│  2   │ Admin/Laptop    │ 10.0.1.100   │ Untagged VLAN 10 │
-│  3   │ Reserved        │ DHCP         │ Untagged VLAN 10 │
-│  4   │ Mini PC Node 1  │ 10.0.1.10    │ Untagged VLAN 10 │
-│  5   │ Mini PC Node 2  │ 10.0.1.11    │ Untagged VLAN 10 │
-│  6   │ Mini PC Node 3  │ 10.0.1.12    │ Untagged VLAN 10 │
+│  1   │ Mini PC Node 1  │ 10.0.1.10    │ Untagged VLAN 10 │
+│  2   │ Mini PC Node 2  │ 10.0.1.11    │ Untagged VLAN 10 │
+│  3   │ Mini PC Node 3  │ 10.0.1.12    │ Untagged VLAN 10 │
+│  4   │ Reserved        │ DHCP         │ Untagged VLAN 10 │
+│  5   │ Reserved        │ DHCP         │ Untagged VLAN 10 │
+│  6   │ Reserved        │ DHCP         │ Untagged VLAN 10 │
 │  7   │ Reserved        │ DHCP         │ Untagged VLAN 10 │
-│  8   │ Reserved        │ DHCP         │ Untagged VLAN 10 │
+│  8   │ Uplink          │ -            │ Untagged VLAN 10 │
 └──────┴─────────────────┴──────────────┴──────────────────┘
 ```
 
@@ -122,12 +122,12 @@ Overlay (Virtual):     Software-Defined Networks
 
 | Patch Panel Port | Switch Port | Device | IP Address | Cable | Status |
 |:----------------:|:-----------:|--------|------------|-------|--------|
-| 1 | 1 | **Uplink** | - | 1-2m to home network | Active |
-| 2-5 | - | **🟠 Blank Covers** | - | - | Reserved |
-| 6 | 4 | Mini PC Node 1 | 10.0.1.10 | 0.25m Orange | Planned |
-| 7 | 5 | Mini PC Node 2 | 10.0.1.11 | 0.5m Orange | Planned |
-| 8 | 6 | Mini PC Node 3 | 10.0.1.12 | 0.5m Orange | Planned |
-| 9-12 | - | **🟠 Blank Covers** | - | - | Future |
+| 1 | 1 | Mini PC Node 1 | 10.0.1.10 | 0.25m Orange | Planned |
+| 2 | 2 | Mini PC Node 2 | 10.0.1.11 | 0.5m Orange | Planned |
+| 3 | 3 | Mini PC Node 3 | 10.0.1.12 | 0.5m Orange | Planned |
+| 4-7 | - | **Reserved** | - | - | Future expansion |
+| 8-11 | - | **🟠 Blank Covers** | - | - | Visual indicators |
+| 12 | 8 | **Uplink** | - | 1-2m to DGS-1210 | Active |
 
 **Direct Switch Connections:**
 | Switch Port | Device | Cable | Notes |
@@ -137,9 +137,10 @@ Overlay (Virtual):     Software-Defined Networks
 | 7-8 | Reserved | - | Available for expansion |
 
 **Visual Separation Strategy**:
-- **Active Equipment**: Ports 1-7 (silver keystones)
-- **Expansion Zone**: Ports 8-11 (orange blank covers)
-- **Infrastructure**: Port 12 (uplink, separated for clarity)
+- **Active Equipment**: Ports 1-3 + 12 (silver keystones)
+- **Reserved Expansion**: Ports 4-7 (silver keystones, ready for use)
+- **Visual Indicators**: Ports 8-11 (orange blank covers)
+- **Uplink Separation**: Port 12 dedicated for home network connection
 
 ### Network Addressing
 

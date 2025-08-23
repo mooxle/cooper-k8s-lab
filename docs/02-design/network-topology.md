@@ -92,14 +92,14 @@
 
 | Port | Device | IP Address | Configuration | Purpose |
 |------|--------|------------|---------------|---------|
-| 1 | Uplink | - | Untagged VLAN 10 | Connection to home network |
-| 2 | Admin/Laptop | 10.0.1.100 | Untagged VLAN 10 | Management access |
-| 3 | Reserved | DHCP | Untagged VLAN 10 | Future expansion |
-| 4 | Mini PC Node 1 | 10.0.1.10 | Untagged VLAN 10 | Primary control node |
-| 5 | Mini PC Node 2 | 10.0.1.11 | Untagged VLAN 10 | Worker node |
-| 6 | Mini PC Node 3 | 10.0.1.12 | Untagged VLAN 10 | Worker node |
+| 1 | Mini PC Node 1 | 10.0.1.10 | Untagged VLAN 10 | Control+Worker node |
+| 2 | Mini PC Node 2 | 10.0.1.11 | Untagged VLAN 10 | Worker node |
+| 3 | Mini PC Node 3 | 10.0.1.12 | Untagged VLAN 10 | Worker node |
+| 4 | Reserved | DHCP | Untagged VLAN 10 | Future expansion |
+| 5 | Reserved | DHCP | Untagged VLAN 10 | Future expansion |
+| 6 | Reserved | DHCP | Untagged VLAN 10 | Future expansion |
 | 7 | Reserved | DHCP | Untagged VLAN 10 | Future expansion |
-| 8 | Reserved | DHCP | Untagged VLAN 10 | Future expansion |
+| 8 | Uplink | - | Untagged VLAN 10 | Connection to home network |
 
 ## 🏠 Home Network Integration
 
@@ -187,6 +187,42 @@ Fritz!Box / Home Router:
 - **DNS Forwarding**: External DNS resolution
 - **Optional VPN**: Remote access to lab
 
+## 🌐 Network Services (NEW - Implemented)
+
+### DNS Infrastructure
+**Cooper DNS Stack**: Deployed at 192.168.1.23
+- **Authoritative DNS**: PowerDNS serving cooper.lab domain
+- **Recursive DNS**: Full resolution with upstream forwarding to Pi-hole
+- **Dynamic DNS**: Automatic record creation from DHCP leases
+- **Web Management**: PowerDNS Admin interface
+
+### DHCP Services
+**Enterprise DHCP**: Kea DHCP4 with DDNS integration
+- **IP Pool**: 10.0.1.100-200 (100 addresses available)
+- **Gateway**: 10.0.1.1 (existing router VLAN interface)
+- **DNS**: 192.168.1.23 (Cooper DNS stack)
+- **Domain**: cooper.lab (automatic registration)
+
+### Service Discovery
+**cooper.lab Domain**: All lab devices automatically registered
+- **A Records**: hostname.cooper.lab → IP address
+- **PTR Records**: IP address → hostname.cooper.lab  
+- **SOA Authority**: PowerDNS authoritative server
+- **Upstream**: External queries forwarded to Pi-hole (192.168.1.99)
+
+### Network Flow
+```
+Lab Device DHCP Request (10.0.1.0/24)
+        ↓ DHCP Relay
+Router forwards to 192.168.1.23
+        ↓ IP Assignment
+Kea DHCP assigns from pool 10.0.1.100-200
+        ↓ DDNS Update
+Automatic DNS record creation in cooper.lab
+        ↓ Service Discovery
+Device accessible via hostname.cooper.lab
+```
+
 ## 🔄 Traffic Flow Examples
 
 ### Pod-to-Pod Communication (Cross-Node)
@@ -256,28 +292,29 @@ iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
 ```
 ╔══════════════════════════════╗
 ║ 8U │ 🔌 Patch Panel          ║ ← Keystone modules
+║    │ 📦 Cover/Free          ║ ← Upper half expansion
 ╠══════════════════════════════╣
 ║ 7U │ 🌐 D-Link Switch        ║ ← [1][2][3][4][5][6][7][8]
 ╠══════════════════════════════╣
-║ 6U │ *Future Expansion*      ║
+║ 6U │ 📦 Cover/Free          ║ ← Future expansion
 ╠══════════════════════════════╣
-║ 5U │ *Future Expansion*      ║
+║ 5U │ 🖥️ Mini PC Node #3      ║ ── 0.5m orange cable
 ╠══════════════════════════════╣
-║ 4U │ *Future Expansion*      ║
+║ 4U │ 🖥️ Mini PC Node #2      ║ ── 0.5m orange cable  
 ╠══════════════════════════════╣
-║ 3U │ 🖥️ Mini PC Node #3      ║ ── 0.5m orange cable
+║ 3U │ 🖥️ Mini PC Node #1      ║ ── 0.25m orange cable
 ╠══════════════════════════════╣
-║ 2U │ 🖥️ Mini PC Node #2      ║ ── 0.5m orange cable  
+║ 2U │ 📦 Cover/Free          ║ ← Cable management
 ╠══════════════════════════════╣
-║ 1U │ 🖥️ Mini PC Node #1      ║ ── 0.25m orange cable
+║ 1U │ ⚡ Power Supply Tray    ║ ← Mini PC power organization
 ╚══════════════════════════════╝
 ```
 
 ### Cable Specifications
-- **Node connections**: 0.25-0.5m orange patch cables
-- **Uplink**: 1-2m cable to home network switch
-- **Management**: 0.5m cable for laptop connection
-- **Total**: 20x cables ordered (10x 0.25m, 10x 0.5m)
+- **Node connections**: 0.25-0.5m orange patch cables (Nodes → Switch)
+- **Uplink**: 1-2m cable to home network (DGS-1210 Port 18)
+- **Management**: Admin laptop connects via available switch ports
+- **Total**: 20x cables ordered (10x 0.25m, 10x 0.5m) - sufficient coverage
 
 ## 🎯 Design Benefits
 

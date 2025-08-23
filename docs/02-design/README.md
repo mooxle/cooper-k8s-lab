@@ -9,6 +9,7 @@
 | **[Network Topology](network-topology.md)** | Physical and logical network architecture | ✅ Defined |
 | **[Kubernetes Strategy](kubernetes-strategy.md)** | Two-paradigm implementation approach | ✅ Planned |
 | **[Security Concept](security-concept.md)** | Enterprise security patterns at lab scale | ⚪ Future |
+| **[Capability Model](capability-model.md)** | Enterprise capability mapping | ✅ Defined |
 
 ## 🎯 Design Philosophy
 

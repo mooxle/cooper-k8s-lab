@@ -29,36 +29,36 @@
 
 ## 📐 Rack Configuration (8U Total)
 
-### Equipment Layout
+### Equipment Layout (UPDATED)
 
 ```
 ╔══════════════════════════════╗
-║ 8U │ 🔌 Patch Panel (0.5U)   ║
+║ 8U │ 🔌 Patch Panel (0.5U)   ║ ← 12-port keystone panel
+║    │ 📦 Cover/Free (0.5U)    ║ ← Future expansion or cover
 ╠══════════════════════════════╣
-║ 7.5U│ 🌐 D-Link Switch       ║
+║ 7U │ 🌐 D-Link DGS-1100      ║ ← 8-port managed switch
 ╠══════════════════════════════╣
-║ 6.5U│ *Future Expansion*     ║
+║ 6U │ 📦 Cover/Free          ║ ← Future expansion zone
 ╠══════════════════════════════╣
-║ 5.5U│ *Future Expansion*     ║
+║ 5U │ 🖥️ Mini PC Node #3      ║ ← Dell OptiPlex 3080 Micro
 ╠══════════════════════════════╣
-║ 4.5U│ 🖥️ Mini PC Node #3    ║
+║ 4U │ 🖥️ Mini PC Node #2      ║ ← Dell OptiPlex 3080 Micro  
 ╠══════════════════════════════╣
-║ 3.5U│ 🖥️ Mini PC Node #2    ║
+║ 3U │ 🖥️ Mini PC Node #1      ║ ← Dell OptiPlex 3080 Micro
 ╠══════════════════════════════╣
-║ 2.5U│ 🖥️ Mini PC Node #1    ║
+║ 2U │ 📦 Cover/Free          ║ ← Cable management zone
 ╠══════════════════════════════╣
-║ 2U  │ 📦 Hidden Storage      ║ ← Front Cover
-╠══════════════════════════════╣
-║ 1U  │ ⚡ Power Floor         ║ ← Front Cover
+║ 1U │ ⚡ Mini PC Power Tray   ║ ← Dedicated power supply organization
 ╚══════════════════════════════╝
-          PDU rear-mounted
 ```
 
-### Zone Organization
-- **Equipment Zone** (2.5U-8U): Visible components - Mini PCs, switch, patch panel
-- **Hidden Zone** (1U-2U): Power supplies, cable management behind front covers
-- **Rear Zone**: PDU power distribution and cable routing
-- **Thermal Design**: Heat sources at bottom, natural convection cooling
+### Zone Organization (UPDATED)
+- **Network Infrastructure** (7.5U-8U): Switch and patch panel for connectivity
+- **Computing Cluster** (3U-5U): Three Mini PCs forming Kubernetes cluster
+- **Expansion Zone** (6U): Reserved for future equipment (NAS, monitoring, etc.)
+- **Cable Management** (2U): Hidden area for cable routing and organization  
+- **Power Management** (1U): Dedicated tray for Mini PC power adapters
+- **Rear Infrastructure**: PDU power distribution and uplink connections
 
 ## 🖨️ Print Specifications
 
@@ -70,12 +70,12 @@
 | Extension Posts | 4 | PLA Matte | Black | ✅ Completed |
 | Side Joiners | 4 | PLA Matte | Black | ✅ Completed |
 | Extension Connectors | 4 | PLA Matte | Black | ✅ Completed |
-| Horizontal Joiners - Solid | 2 | PLA Matte | Black | ⚪ Pending |
-| Horizontal Joiners - Grid | 2 | PLA Matte | Orange | ⚪ Pending |
-| Handles | 2 | PLA Matte | Orange | ⚪ Pending |
-| Feet | 2 | PLA Matte | Orange | ⚪ Pending |
+| Horizontal Joiners - Solid | 2 | PLA Matte | Black | ✅ Completed |
+| Horizontal Joiners - Grid | 2 | PLA Matte | Orange | ✅ Completed |
+| Handles | 2 | PLA Matte | Orange | ✅ Completed |
+| Feet | 2 | PLA Matte | Orange | ⚪ Pending hardware |
 
-### Custom Components
+### Custom Components (UPDATED)
 
 | Component | Quantity | Material | Color | Purpose |
 |-----------|----------|----------|-------|---------|
@@ -84,6 +84,9 @@
 | Custom Side Panels (5U) | 2 | PLA Matte | Black/Orange | Ventilation + branding |
 | Custom Side Panels (1.5U) | 4 | PLA Matte | Black/Orange | Ventilation + branding |
 | Mini PC Mounts | 3 | PETG | Black | Heat-resistant equipment mounting |
+| Power Supply Tray | 1 | PETG | Black | 1U power adapter organization |
+| Switch Mount | 1 | PETG | Black | D-Link DGS-1100-08V2 bracket |
+| Front Covers (1U) | 2 | PLA Matte | Black | 2U and 6U aesthetic panels |
 
 ## 🎨 Custom Design Elements
 
@@ -161,18 +164,28 @@
 
 ## 🌡️ Thermal Management
 
-### Airflow Design
+### Airflow Design (UPDATED)
 - **Ventilation**: Hex patterns in side panels for passive airflow
 - **Clearance**: Minimum 15mm between components
 - **Material Selection**: PETG for heat-sensitive mounting points
 - **Heat Isolation**: Thermal barriers between hot components
 
-### Component Spacing
+### Component Spacing (UPDATED)
 ```
-Mini PC Node 1  ←→  15mm clearance  ←→  Mini PC Node 2
-                ↕ 44.45mm (1U)
-Switch Position ←→  20mm clearance  ←→  Patch Panel
+Patch Panel (8U) ←→ 22mm spacing ←→ Switch (7U)
+Switch (7U) ←→ 44mm spacing ←→ Node 3 (5U) 
+Node 3 (5U) ←→ 44mm spacing ←→ Node 2 (4U)
+Node 2 (4U) ←→ 44mm spacing ←→ Node 1 (3U)
+Node 1 (3U) ←→ 44mm spacing ←→ Cable Mgmt (2U)
+Cable Mgmt (2U) ←→ 44mm spacing ←→ Power Tray (1U)
 ```
+
+**Thermal Strategy**:
+- **Heat Sources**: Mini PCs (3U-5U) generate most heat
+- **Airflow Pattern**: Bottom-to-top natural convection
+- **Cool Zone**: Power tray (1U) and cable management (2U) at bottom
+- **Hot Zone**: Computing nodes (3U-5U) in middle with maximum ventilation
+- **Infrastructure**: Network equipment (7U-8U) at top, minimal heat generation
 
 ## 📊 Build Progress
 
@@ -193,22 +206,45 @@ Total Estimate:       ~1172g mixed materials (~€16.50)
 ### Assembly Phases
 1. **✅ Base Frame** - All structural components assembled
 2. **✅ Hardware Assembly** - Frame construction completed with M6 bolts
-3. **⚪ Custom Elements** - Side panels and additional branding pending
-4. **⚪ Equipment Integration** - Component mounting and cable management
+3. **✅ Custom Elements** - Side panels and branding completed
+4. **⚪ Equipment Integration** - Component mounting and cable management pending
 
-## 🔧 Equipment Mounting
+## 🔧 Equipment Mounting (UPDATED)
 
 ### Mini PC Integration
+- **Node Positions**: 3U, 4U, 5U (Dell OptiPlex 3080 Micro)
 - **Mount Type**: Custom PETG brackets (heat resistance)
 - **Ventilation**: Open-frame design for airflow
 - **Access**: Front-loading with rear cable management
-- **Power**: Individual IEC connections, no shared power
+- **Power**: Individual adapters in dedicated 1U power tray
 
 ### Network Equipment
-- **Switch Mount**: Standard 1U rail mounting
-- **Patch Panel**: Front-mounted keystone panel  
+- **Switch Position**: 7U (D-Link DGS-1100-08V2)
+- **Patch Panel**: 8U (0.5U keystone panel)
 - **Cable Management**: Integrated clips and routing channels
 - **Service Access**: Tool-free panel removal
+
+### Power Distribution (NEW)
+**1U Power Tray Configuration**:
+```
+┌─────────────────────────────────────────────────┐
+│  [PSU 1]     [PSU 2]     [PSU 3]     [Cable]   │ 1U Tray
+│   Node 1     Node 2     Node 3      Mgmt       │
+└─────────────────────────────────────────────────┘
+       │          │          │          │
+       ▼          ▼          ▼          ▼
+   [IEC Cable][IEC Cable][IEC Cable][Power Strip]
+       │          │          │          │
+       └──────────┴──────────┴──────────┘
+                      │
+              Rear-mounted PDU
+```
+
+**Power Management**:
+- **Individual Power**: Each Mini PC has dedicated power adapter
+- **Tray Organization**: 3D-printed organizer for clean power management
+- **Cable Routing**: IEC cables from tray to rear PDU
+- **Isolation**: No shared power between nodes for reliability
 
 ## 🎯 Future Expansion
 
@@ -219,16 +255,17 @@ Total Estimate:       ~1172g mixed materials (~€16.50)
 - **Power Scaling**: Additional PDUs as required
 
 ### Planned Additions
-- NAS/Storage unit (potential 2U)
-- Network equipment upgrades
-- Monitoring displays or controls
-- Additional compute nodes
+- **NAS/Storage**: Potential 2U unit at 6U position
+- **Network Upgrades**: Additional switches or routers
+- **Monitoring**: Dedicated monitoring displays or hardware
+- **Additional Compute**: Extra nodes for cluster expansion
 
 ## 📚 Related Documentation
 
 - **[3D Printing Process](../assembly/3d-printing.md)** - Detailed build procedures
 - **[Components Overview](../README.md)** - Complete hardware list
 - **[Assembly Progress](../assembly/)** - Build status and photos
+- **[Network Integration](networking.md)** - Connectivity and switch mounting
 
 ## 🙏 Acknowledgments
 
@@ -242,4 +279,4 @@ Total Estimate:       ~1172g mixed materials (~€16.50)
 
 ---
 
-**Philosophy**: *"The rack design is theoretically sound thanks to proven engineering. Now let's see if the printer agrees with mklements' theory."*
+**Philosophy**: *"The rack design is theoretically sound thanks to proven engineering. Now let's see if the printer agrees with mklements' theory - and how our power management improvements enhance the original design."*
