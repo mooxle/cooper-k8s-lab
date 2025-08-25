@@ -9,10 +9,9 @@
 ---
 
 ### 📺 Latest Episodes
+**[S01E07 - The Great Integration](docs/99-appendix/project-journal.md#s01e07---the-great-integration)** *(Aug 25)* - Complete infrastructure assembly with all Dell OptiPlex nodes integrated  
 **[S01E06 - The Proxmox Automation Revolution](docs/99-appendix/project-journal.md#s01e06---the-proxmox-automation-revolution)** *(Aug 26)* - Complete Infrastructure as Code automation with 45-minute bare-metal deployment  
-**[S01E05 - The Network Foundation](docs/99-appendix/project-journal.md#s01e05---the-network-foundation)** *(Aug 23)* - Enterprise DNS/DHCP stack with cooper.lab domain  
-**[S01E04 - The Infrastructure Revolution](docs/99-appendix/project-journal.md#s01e04---the-infrastructure-revolution)** *(Aug 20)* - Enterprise platform deployment & Vault integration
----
+**[S01E05 - The Network Foundation](docs/99-appendix/project-journal.md#s01e05---the-network-foundation)** *(Aug 23)* - Enterprise DNS/DHCP stack with cooper.lab domain
 
 ## 🎯 Project Overview
 
@@ -25,9 +24,9 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 ### 🏗️ Current Build Progress
 
 <p align="center">
-  <img src="docs/03-hardware/assembly/photos/20_08_rack_front.png" alt="Cooper'n'80s Enterprise Rack" width="600"/>
+  <img src="docs/03-hardware/assembly/photos/25_08_rack_front.png" alt="Cooper'n'80s Complete Infrastructure Platform" width="600"/>
   <br>
-  <em>Complete enterprise infrastructure platform with integrated branding and network equipment</em>
+  <em>Complete Cooper'n'80s infrastructure platform with three Dell OptiPlex 3080 Micro nodes, enterprise networking, and production-ready automation</em>
 </p>
 
 ## 📚 Documentation

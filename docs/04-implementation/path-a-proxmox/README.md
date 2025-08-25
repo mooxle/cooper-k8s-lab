@@ -10,12 +10,15 @@
 **Security**: Enterprise-grade with Vault integration  
 **Methodology**: Infrastructure as Code with systematic validation
 
+
+
 ## 📋 Implementation Components
 
 | Document | Purpose | Status |
 |----------|---------|--------|
 | **[Deployment Guide](automated-deployment.md)** | Complete automation pipeline | ✅ Operational |
 | **[Auto-Install Process](autoinstall-process.md)** | Official Proxmox tooling workflow | ✅ Tested |
+| **[Cluster Formation](cluster-formation.md)** | Manual cluster creation procedures | ✅ Operational |
 | **[Terraform Integration](terraform/)** | Vault secrets and infrastructure | 🟡 In Progress |
 | **[Ansible Playbooks](ansible/)** | Post-deployment automation | 🟡 In Progress |
 

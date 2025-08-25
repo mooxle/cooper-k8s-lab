@@ -21,7 +21,12 @@ This section will contain comprehensive operational procedures for running and m
     ├── hardware-replacement.md # Physical component procedures
     └── performance-tuning.md   # Optimization and capacity planning
 ```
+### 📚 Current Documentation
 
+| Document | Purpose | Status |
+|----------|---------|--------|
+| **[Network Services Operations](network-services.md)** | DNS/DHCP operational procedures | ✅ Complete |
+| **[Network Services Troubleshooting](network-services-troubleshooting.md)** | Comprehensive debugging guide | ✅ Complete |
 ## 🎯 Operations Philosophy
 
 **Proactive Monitoring**: Comprehensive observability before problems occur  
