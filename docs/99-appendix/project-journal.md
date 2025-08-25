@@ -21,7 +21,7 @@
 ## 📺 Episode Guide
 
 ## 🎬 Episode S01E07 - "The Great Integration"
-**Sunday, August 25, 2025**
+**Sunday, August 24, 2025**
 
 ### 📋 Episode Summary
 In which our protagonist achieves the ultimate convergence of theoretical architecture and physical reality, transforming individual components into a unified, production-ready enterprise infrastructure platform that would make any theoretical physicist proud of its systematic perfection.
@@ -154,7 +154,7 @@ The theoretical has become practical. The architectural has become operational. 
 ---
 
 ## 🎬 Episode S01E06 - "The Proxmox Automation Revolution"
-**Monday, August 26, 2025**
+**Monday, August 24, 2025**
 
 ### 📋 Episode Summary
 In which our protagonist achieves the theoretically perfect Infrastructure-as-Code deployment, transforming bare-metal Mini PCs into fully automated, SSH-accessible Proxmox nodes with enterprise-grade security patterns and zero-touch deployment methodologies - proving that systematic engineering can indeed make hardware procurement feel like conducting a symphony.

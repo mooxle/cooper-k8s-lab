@@ -9,8 +9,8 @@
 ---
 
 ### 📺 Latest Episodes
-**[S01E07 - The Great Integration](docs/99-appendix/project-journal.md#s01e07---the-great-integration)** *(Aug 25)* - Complete infrastructure assembly with all Dell OptiPlex nodes integrated  
-**[S01E06 - The Proxmox Automation Revolution](docs/99-appendix/project-journal.md#s01e06---the-proxmox-automation-revolution)** *(Aug 26)* - Complete Infrastructure as Code automation with 45-minute bare-metal deployment  
+**[S01E07 - The Great Integration](docs/99-appendix/project-journal.md#s01e07---the-great-integration)** *(Aug 24)* - Complete infrastructure assembly with all Dell OptiPlex nodes integrated  
+**[S01E06 - The Proxmox Automation Revolution](docs/99-appendix/project-journal.md#s01e06---the-proxmox-automation-revolution)** *(Aug 24)* - Complete Infrastructure as Code automation with 45-minute bare-metal deployment  
 **[S01E05 - The Network Foundation](docs/99-appendix/project-journal.md#s01e05---the-network-foundation)** *(Aug 23)* - Enterprise DNS/DHCP stack with cooper.lab domain
 
 ## 🎯 Project Overview
