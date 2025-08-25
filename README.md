@@ -6,6 +6,12 @@
 
 > Enterprise-grade Kubernetes lab for hands-on architectural learning
 
+<p align="center">
+  <em>Hardware powered by</em>
+  <a href="#-partners--acknowledgments">
+    <img src="https://greendot.it/bilder/intern/shoplogo/greenDotITweb.png" alt="GreenDot IT" height="30" style="vertical-align: middle; margin-left: 8px;"/>
+  </a>
+</p>
 ---
 
 ### 📺 Latest Episodes
