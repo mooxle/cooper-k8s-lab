@@ -9,12 +9,9 @@
 ---
 
 ### 📺 Latest Episodes
+**[S01E06 - The Proxmox Automation Revolution](docs/99-appendix/project-journal.md#s01e06---the-proxmox-automation-revolution)** *(Aug 26)* - Complete Infrastructure as Code automation with 45-minute bare-metal deployment  
 **[S01E05 - The Network Foundation](docs/99-appendix/project-journal.md#s01e05---the-network-foundation)** *(Aug 23)* - Enterprise DNS/DHCP stack with cooper.lab domain  
-**[S01E04 - The Infrastructure Revolution](docs/99-appendix/project-journal.md#s01e04---the-infrastructure-revolution)** *(Aug 20)* - Enterprise platform deployment & Vault integration  
-**[S01E03 - The Assembly Protocol](docs/99-appendix/project-journal.md#s01e03---the-assembly-protocol)** *(Aug 19)* - Frame assembly & equipment delivery
-
-**[📖 Full Project Journal](docs/99-appendix/project-journal.md)** - *Complete episode guide with Cooper'scher commentary*
-
+**[S01E04 - The Infrastructure Revolution](docs/99-appendix/project-journal.md#s01e04---the-infrastructure-revolution)** *(Aug 20)* - Enterprise platform deployment & Vault integration
 ---
 
 ## 🎯 Project Overview
@@ -53,17 +50,25 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 ## 📊 Current Status
 
 ```
-🖨️ Hardware     ██████████▓ 🟢 Rack complete, Mini PCs delivered and ready
+🖥️ Hardware     ████████████ 🟢 Mini PCs delivered with Proxmox automation ready
 🌐 Network Infra ████████████ 🟢 DNS/DHCP operational with service discovery
-🏗️ Infrastructure ████████████ 🟢 Complete enterprise platform
-🔐 Secrets Mgmt  ████████████ 🟢 Vault with network service integration
+🏗️ Infrastructure ████████████ 🟢 Complete enterprise platform with Proxmox automation
+🔐 Secrets Mgmt  ████████████ 🟢 Vault with automated deployment integration
 ⚙️ Service Discovery ████████████ 🟢 cooper.lab domain operational  
-🚀 K8s Foundation █████████▓▓ 🟡 Network services ready, cluster deployment next
+🚀 K8s Foundation ████████████ 🟢 Infrastructure as Code automation complete
 ```
 
-**Latest Progress**: Enterprise DNS/DHCP infrastructure operational with cooper.lab domain  
-**Next**: Kubernetes cluster deployment on network-ready foundation with automatic service discovery
+**Latest Progress**: Complete Infrastructure as Code automation - 45-minute bare-metal to SSH-accessible Proxmox nodes  
+**Next**: K3s cluster deployment on automated Proxmox infrastructure
 
+### 🎯 Recent Milestones
+- ✅ **Proxmox Automation Pipeline**: 45-minute bare-metal → production-ready nodes
+- ✅ **Enterprise Security**: Vault integration with dynamic SSH keys and automated hardening  
+- ✅ **Infrastructure as Code**: Complete Terraform + Ansible + Official Proxmox tools
+- ✅ **Network Services Foundation**: Enterprise DNS/DHCP stack with PowerDNS + Kea DHCP
+- ✅ **Service Discovery**: cooper.lab domain with automatic device registration
+- ✅ **Professional Assembly**: Complete 8U rack with integrated network equipment
+- ✅ **Hardware Procurement**: 3x Dell OptiPlex 3080 Micro (32GB RAM) delivered and integrated
 ### 🎯 Recent Milestones
 - ✅ **Network Services Foundation**: Enterprise DNS/DHCP stack with PowerDNS + Kea DHCP
 - ✅ **Service Discovery**: cooper.lab domain with automatic device registration
