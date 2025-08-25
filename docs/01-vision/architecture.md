@@ -54,6 +54,88 @@ Hardware → OKD Baremetal → OKD Virtualization (KubeVirt)
 
 **Learning Value**: Cloud-native patterns, unified orchestration
 
+## 🔒 Storage & Network Foundation Architecture
+
+### Enterprise Storage Strategy (Implemented)
+**ZFS Encrypted Pools with Vault Integration**
+
+```
+Storage Stack:
+Hardware (NVMe SSD) → LVM Physical Volume → ZFS Encrypted Pool → Proxmox Integration
+```
+
+**Design Principles**:
+- **Encryption-First**: AES-256-GCM encryption at storage layer
+- **Key Management**: HashiCorp Vault with per-node unique keys
+- **Performance**: Hardware-accelerated encryption with compression
+- **Scalability**: ZFS snapshots, clones, and expandability
+- **Enterprise Integration**: Vault-managed key lifecycle
+
+**Technical Implementation**:
+```yaml
+Storage Configuration:
+  Pool: cooper-zfs per node
+  Encryption: AES-256-GCM 
+  Key Source: Vault (cooper-n-80s/environments/dev/zfs-keys/)
+  Key Format: 32-byte raw binary (SHA256-derived)
+  Compression: LZ4 for optimal performance/efficiency balance
+  Mount: /cooper-storage with Proxmox integration
+  Capacity: ~1TB total encrypted storage across cluster
+```
+
+**Security Architecture**:
+- **Key Isolation**: Unique encryption key per node (compromise isolation)
+- **Centralized Management**: Vault-controlled key lifecycle and rotation
+- **Audit Trail**: All key operations logged and monitored
+- **Zero-Trust**: Keys never exposed in plain text during automation
+
+### Advanced Network Architecture (Implemented)  
+**VXLAN + EVPN for Software-Defined Networking**
+
+```
+Network Control Plane:
+BGP EVPN (AS 65001) → Full-mesh iBGP → Distributed MAC/IP learning
+                    ↓
+VXLAN Data Plane (VNI 100) → Overlay L2 networks → VM connectivity
+```
+
+**Design Philosophy**:
+- **SDN Foundation**: Software-defined networking with centralized control
+- **Multi-Tenancy Ready**: VXLAN VNI segmentation for workload isolation  
+- **Enterprise Scale**: BGP-based control plane for large-scale deployments
+- **Performance**: Hardware-accelerated VXLAN where available
+- **Operational Intelligence**: EVPN eliminates flood-and-learn limitations
+
+**Technical Implementation**:
+```yaml
+Network Configuration:
+  Control Plane: BGP EVPN AS 65001
+  VTEPs: cooper-node-01/02/03 (10.0.1.10-12)
+  Data Plane: VXLAN VNI 100 on vmbr1
+  Route Targets: RT:65001:100
+  Integration: FRR + Proxmox bridge networking
+  Validation: Cross-node L2 connectivity confirmed
+```
+
+### Foundation Benefits for Both Paradigms
+
+**Path A (K8s ON Virtualization)**:
+- VMs deployed on encrypted storage with AES-256-GCM protection
+- VXLAN overlay provides network segmentation between VM workloads
+- K3s clusters benefit from enterprise-grade storage and networking foundation
+
+**Path B (Virtualization IN Kubernetes)**:
+- OKD deployed on encrypted ZFS with enterprise key management
+- KubeVirt VMs operate over VXLAN overlay networking
+- Unified orchestration with enterprise storage characteristics
+
+**Common Advantages**:
+- **Security**: Encryption-at-rest with centralized key management
+- **Network Intelligence**: BGP EVPN eliminates broadcast flooding
+- **Scalability**: Both paradigms benefit from enterprise-grade foundations
+- **Operational Excellence**: Consistent storage and network patterns
+- **Performance**: Hardware acceleration and intelligent caching
+
 ## 🧪 Scientific Method Application
 
 ### Hypothesis-Driven Architecture
@@ -126,6 +208,8 @@ Hardware → OKD Baremetal → OKD Virtualization (KubeVirt)
 - [Learning Goals](learning-goals.md) - Specific skills this architecture targets
 - [Network Topology](../02-design/network-topology.md) - How architecture translates to network design
 - [Kubernetes Strategy](../02-design/kubernetes-strategy.md) - Implementation approaches for both paths
+- [ZFS Storage Implementation](../04-implementation/path-a-proxmox/README.md#enterprise-foundation-implementation-new) - Encrypted storage foundation
+- [VXLAN/EVPN Networking](../02-design/network-topology.md#overlay-network-architecture-vxlanevpn) - Advanced overlay networking
 
 ---
 

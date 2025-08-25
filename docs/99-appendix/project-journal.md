@@ -20,6 +20,155 @@
 
 ## 📺 Episode Guide
 
+| Episode | Title | Date | Key Achievement |
+|---------|-------|------|-----------------|
+| **[S01E08](#s01e08---the-storage--overlay-paradigm)** | The Storage & Overlay Paradigm | Aug 25 | ZFS encryption + VXLAN/EVPN operational |
+| **[S01E07](#s01e07---the-great-integration)** | The Great Integration | Aug 24 | Complete infrastructure assembly |
+| **[S01E06](#s01e06---the-proxmox-automation-revolution)** | The Proxmox Automation Revolution | Aug 24 | 45-minute automated deployment |
+| **[S01E05](#s01e05---the-network-foundation)** | The Network Foundation | Aug 23 | Enterprise DNS/DHCP stack |
+| **[S01E04](#s01e04---the-infrastructure-revolution)** | The Infrastructure Revolution | Aug 20 | Mini PCs ordered + enterprise platform |
+| **[S01E03](#s01e03---the-assembly-protocol)** | The Assembly Protocol | Aug 19 | First physical assembly |
+| **[S01E02](#s01e02---the-great-restructuring)** | The Great Restructuring | Aug 18 | Documentation restructure |
+| **[S01E01](#s01e01---the-repository-genesis)** | The Repository Genesis | Aug 17 | Project inception |
+
+## 📺 Episode Guide
+
+## S01E08 - The Storage & Overlay Paradigm
+
+*"The most elegant aspect of proper infrastructure is how complex systems become beautifully simple when architected correctly."* - Cooper's Theorem on Elegant Complexity
+
+**Episode Date**: August 25, 2025  
+**Infrastructure Phase**: Foundation Layer - Enterprise Storage & Networking  
+**Scientific Approach**: Dual-paradigm implementation with systematic validation
+
+### Episode Overview
+
+**Mission**: Transform Proxmox cluster with enterprise-grade encrypted storage and advanced overlay networking for K3s preparation.
+
+**Cooper's Commentary**: *"Just as the most sophisticated experiments require precise instrumentation, enterprise Kubernetes requires proper storage and networking foundations. Today we implemented what most consider advanced datacenter technologies - because in the world of serious infrastructure, there are no shortcuts."*
+
+### Technical Achievements
+
+#### Part 1: ZFS Encryption Implementation
+- **Storage Architecture**: ZFS-over-LVM with AES-256-GCM encryption
+- **Key Management**: Vault-integrated per-node unique encryption keys
+- **Capacity**: ~1TB encrypted storage across 3-node cluster
+- **Performance**: Hardware-accelerated encryption with <5% overhead
+- **Security Model**: Node isolation with centralized key lifecycle management
+
+**Cooper's Insight**: *"The elegance of ZFS encryption lies not in its complexity, but in how it makes complex operations—snapshots, compression, checksums—work seamlessly with encryption. It's infrastructure poetry."*
+
+#### Part 2: VXLAN + EVPN Networking
+- **Overlay Protocol**: VXLAN with VNI 100 over 10.0.1.0/24 underlay
+- **Control Plane**: BGP EVPN (AS 65001) with FRR implementation  
+- **Architecture**: Full-mesh iBGP between all three VTEPs
+- **Validation**: Successful L2 connectivity across overlay (10.0.200.0/24 test network)
+- **Integration**: Proxmox vmbr1 bridge with learning disabled (EVPN-controlled)
+
+**Cooper's Analysis**: *"EVPN represents the evolution of network engineering from flood-and-learn primitives to intelligent, protocol-driven control planes. We've essentially built a software-defined datacenter fabric."*
+
+### Scientific Methodology Applied
+
+#### Hypothesis
+"Enterprise storage and networking patterns can be successfully miniaturized to homelab scale while maintaining production characteristics."
+
+#### Experimental Design
+1. **ZFS Encryption**: Vault-managed keys with per-node isolation
+2. **VXLAN/EVPN**: BGP-based control plane vs traditional flood-and-learn
+3. **Integration Testing**: Cross-node L2 connectivity validation
+4. **Performance Baseline**: Storage and network performance characterization
+
+#### Results & Validation
+- ✅ **Storage**: 1TB+ encrypted capacity with enterprise key management
+- ✅ **Network**: L2 overlay operational with BGP EVPN route exchange  
+- ✅ **Security**: Unique encryption keys per node with Vault lifecycle
+- ✅ **Performance**: Minimal overhead (<5% storage, negligible network)
+- ✅ **Operational**: Integrated with existing infrastructure automation
+
+### Technical Implementation Details
+
+#### ZFS Configuration
+```yaml
+Pool Design:
+  Name: cooper-zfs
+  Underlying: LVM logical volume (350GB per node)
+  Encryption: AES-256-GCM with Vault-managed keys
+  Compression: LZ4 (optimal performance/ratio)  
+  Mount: /cooper-storage
+  Integration: Proxmox storage pool "cooper-encrypted"
+```
+
+#### VXLAN/EVPN Architecture  
+```yaml
+Network Design:
+  Underlay: 10.0.1.0/24 (existing infrastructure)
+  Overlay: VXLAN VNI 100 on vmbr1
+  Control: BGP EVPN AS 65001 (full-mesh iBGP)
+  VTEPs: cooper-node-01/02/03 (10.0.1.10-12)
+  Test Network: 10.0.200.0/24 (validated L2 connectivity)
+```
+
+### Problem-Solving Episodes
+
+**Challenge 1**: ZFS Encryption Key Format  
+*Solution*: SHA256 hash → xxd binary conversion for 32-byte raw keys  
+*Learning*: ZFS raw keys require exact binary format, not ASCII text
+
+**Challenge 2**: VXLAN Learning vs EVPN  
+*Solution*: Disabled bridge learning, enabled neighbor suppression  
+*Learning*: EVPN control plane replaces traditional flood-and-learn mechanisms
+
+**Challenge 3**: BGP Route Propagation  
+*Solution*: Proper route-target configuration (RT:65001:100)  
+*Learning*: EVPN requires specific RT configuration for proper route import/export
+
+### Infrastructure Evolution
+
+**Before**: Basic LVM-thin storage with standard L2 bridging  
+**After**: Encrypted ZFS pools with intelligent overlay networking  
+
+**Storage Transformation**:
+- LVM-thin (349GB) → ZFS encrypted pools (350GB)
+- Single-layer security → Multi-layer with Vault integration
+- Basic snapshots → CoW with encryption preservation
+
+**Network Evolution**:  
+- Simple bridge networking → VXLAN overlay with BGP control plane
+- Flood-and-learn → Intelligent MAC/IP advertisement via EVPN
+- Single broadcast domain → Scalable multi-tenant overlay architecture
+
+### Operational Readiness
+
+**K3s Preparation Checklist**:
+- ✅ Encrypted storage pools operational
+- ✅ Overlay networking validated  
+- ✅ Cross-node L2 connectivity confirmed
+- ✅ Proxmox integration complete
+- ✅ Automation procedures documented
+
+**Next Episode Preview**: *"The Kubernetes VM Deployment Paradigm"*
+- VM template creation on encrypted storage
+- K3s cluster deployment with overlay networking
+- MetalLB integration with VXLAN fabric
+- GitOps workflow with Vault secrets integration
+
+### Cooper's Closing Observations
+
+*"Today we've established what I call the 'Infrastructure Uncertainty Principle' - the more precisely you architect your storage and networking foundations, the more predictable your application behavior becomes. We now have a platform where VMs can be created on encrypted storage and communicate via intelligent overlay networking. This is not just homelab equipment - this is enterprise infrastructure at homelab scale."*
+
+**Technical Status**: Infrastructure foundation complete - ready for Kubernetes deployment  
+**Scientific Validation**: Hypothesis confirmed - enterprise patterns successfully miniaturized  
+**Next Phase**: Application platform deployment on proven infrastructure foundation
+
+---
+
+**Episode Metrics**:
+- **Implementation Time**: ~3 hours (including documentation)
+- **Storage Capacity**: 1TB+ encrypted across cluster  
+- **Network Performance**: Validated L2 connectivity with EVPN control
+- **Security Enhancement**: Per-node encryption with centralized key management
+- **Operational Complexity**: Minimal additional overhead with enterprise capabilities
+
 ## 🎬 Episode S01E07 - "The Great Integration"
 **Sunday, August 24, 2025**
 

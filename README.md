@@ -9,6 +9,7 @@
 ---
 
 ### 📺 Latest Episodes
+**[S01E08 - The Storage & Overlay Paradigm](docs/99-appendix/project-journal.md#s01e08---the-storage--overlay-paradigm)** *(Aug 25)* - ZFS encrypted storage + VXLAN/EVPN overlay networking operational  
 **[S01E07 - The Great Integration](docs/99-appendix/project-journal.md#s01e07---the-great-integration)** *(Aug 24)* - Complete infrastructure assembly with all Dell OptiPlex nodes integrated  
 **[S01E06 - The Proxmox Automation Revolution](docs/99-appendix/project-journal.md#s01e06---the-proxmox-automation-revolution)** *(Aug 24)* - Complete Infrastructure as Code automation with 45-minute bare-metal deployment  
 **[S01E05 - The Network Foundation](docs/99-appendix/project-journal.md#s01e05---the-network-foundation)** *(Aug 23)* - Enterprise DNS/DHCP stack with cooper.lab domain
@@ -19,7 +20,8 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 
 **Current Focus**: Network services foundation with enterprise DNS/DHCP infrastructure  
 **Learning Goal**: Master enterprise infrastructure patterns through hands-on experience  
-**Approach**: Scientific method applied to infrastructure architecture
+**Approach**: Scientific method applied to infrastructure architecture  
+**Hardware Platform**: Dell OptiPlex infrastructure from [**GreenDot IT**](https://greendot.it) <a href="#-partners--acknowledgments"><img src="https://greendot.it/bilder/intern/shoplogo/greenDotITweb.png" alt="GreenDot IT" height="16" style="vertical-align: middle;"/></a>
 
 ### 🏗️ Current Build Progress
 
@@ -34,9 +36,9 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 | Section | Focus | Key Documents |
 |---------|-------|---------------|
 | **[🎯 Vision](docs/01-vision/)** | Why & What | [Architecture](docs/01-vision/architecture.md) • [Learning Goals](docs/01-vision/learning-goals.md) |
-| **[📐 Design](docs/02-design/)** | Architecture Decisions | [Network Topology](docs/02-design/network-topology.md) • [Network Services](docs/02-design/network-services.md) • [K8s Strategy](docs/02-design/kubernetes-strategy.md) • [Capability Model](docs/02-design/capability-model.md) • [Network Topology](docs/02-design/network-topology.md)|
+| **[📐 Design](docs/02-design/)** | Architecture Decisions | [Network Topology](docs/02-design/network-topology.md) • [Network Services](docs/02-design/network-services.md) • [K8s Strategy](docs/02-design/kubernetes-strategy.md) • [Capability Model](docs/02-design/capability-model.md) |
 | **[🔧 Hardware](docs/03-hardware/)** | Physical Components | [Components Overview](docs/03-hardware/components/) • [Assembly Progress](docs/03-hardware/assembly/) • [Shopping List](docs/03-hardware/shopping-list.md) |
-| **[⚙️ Implementation](docs/04-implementation/)** | Code & Configuration | [Network Services Foundation](docs/04-implementation/) • Infrastructure as Code |
+| **[⚙️ Implementation](docs/04-implementation/)** | Code & Configuration | [Path A: Proxmox + K3s](docs/04-implementation/path-a-proxmox/) • [ZFS Encrypted Storage](docs/04-implementation/path-a-proxmox/README.md#enterprise-foundation-implementation-new) • [VXLAN/EVPN Networking](docs/02-design/network-topology.md#overlay-network-architecture-vxlanevpn) |
 | **[🔍 Operations](docs/05-operations/)** | Running the Lab | [Network Services Operations](docs/05-operations/network-services.md) • Monitoring & troubleshooting |
 | **[🗄️ CMDB](docs/06-cmdb/)** | Configuration Management | [Dual Repository Strategy](docs/06-cmdb/) • [Network Templates](docs/06-cmdb/templates/) |
 
@@ -46,6 +48,18 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 **Want current status?** → Check the [progress indicators](#current-status) below  
 **Looking for specific info?** → Use the [documentation sections](#documentation) above
 
+## 🔗 Quick Reference
+
+### 🏗️ Implementation Status
+- **ZFS Encrypted Storage**: [Technical Details](docs/04-implementation/path-a-proxmox/README.md#enterprise-foundation-implementation-new) • [Episode Documentation](docs/99-appendix/project-journal.md#s01e08---the-storage--overlay-paradigm)
+- **VXLAN/EVPN Networking**: [Network Architecture](docs/02-design/network-topology.md#overlay-network-architecture-vxlanevpn) • [BGP Configuration Details](docs/99-appendix/project-journal.md#part-2-vxlanevpn-networking)
+- **Proxmox Automation**: [45-minute Pipeline](docs/04-implementation/path-a-proxmox/automated-deployment.md) • [Episode S01E06](docs/99-appendix/project-journal.md#s01e06---the-proxmox-automation-revolution)
+
+### 📚 Learning Resources
+- **Enterprise Patterns**: [Architecture Philosophy](docs/01-vision/architecture.md#storage--network-foundation-architecture) 
+- **Lessons Learned**: [Storage & Network](docs/99-appendix/lessons-learned.md#storage--network-implementation) • [All Technical Discoveries](docs/99-appendix/lessons-learned.md)
+- **Project Journal**: [Complete Episode Guide](docs/99-appendix/project-journal.md#episode-guide)
+
 ## 📊 Current Status
 
 ```
@@ -53,14 +67,18 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 🌐 Network Infra ████████████ 🟢 DNS/DHCP operational with service discovery
 🏗️ Infrastructure ████████████ 🟢 Complete enterprise platform with Proxmox automation
 🔐 Secrets Mgmt  ████████████ 🟢 Vault with automated deployment integration
+🔒 Storage       ████████████ 🟢 ZFS encrypted pools (AES-256-GCM) operational
+🌐 Network L2    ████████████ 🟢 VXLAN + EVPN overlay networking deployed
 ⚙️ Service Discovery ████████████ 🟢 cooper.lab domain operational  
 🚀 K8s Foundation ████████████ 🟢 Infrastructure as Code automation complete
 ```
 
-**Latest Progress**: Complete Infrastructure as Code automation - 45-minute bare-metal to SSH-accessible Proxmox nodes  
-**Next**: K3s cluster deployment on automated Proxmox infrastructure
+**Latest Progress**: ZFS encrypted storage pools + VXLAN/EVPN overlay networking operational  
+**Next**: K3s cluster deployment on encrypted storage with overlay networking
 
 ### 🎯 Recent Milestones
+- ✅ **ZFS Encrypted Storage**: 1TB+ encrypted storage with Vault-managed keys (AES-256-GCM)
+- ✅ **VXLAN + EVPN Networking**: BGP EVPN control plane with VNI 100 overlay (AS 65001)
 - ✅ **Proxmox Automation Pipeline**: 45-minute bare-metal → production-ready nodes
 - ✅ **Enterprise Security**: Vault integration with dynamic SSH keys and automated hardening  
 - ✅ **Infrastructure as Code**: Complete Terraform + Ansible + Official Proxmox tools
@@ -68,13 +86,6 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 - ✅ **Service Discovery**: cooper.lab domain with automatic device registration
 - ✅ **Professional Assembly**: Complete 8U rack with integrated network equipment
 - ✅ **Hardware Procurement**: 3x Dell OptiPlex 3080 Micro (32GB RAM) delivered and integrated
-### 🎯 Recent Milestones
-- ✅ **Network Services Foundation**: Enterprise DNS/DHCP stack with PowerDNS + Kea DHCP
-- ✅ **Service Discovery**: cooper.lab domain with automatic device registration
-- ✅ **Enterprise Infrastructure**: Unified platform with Forgejo Git + HashiCorp Vault
-- ✅ **Professional Assembly**: Complete 8U rack with integrated network equipment
-- ✅ **Hardware Procurement**: 3x Dell OptiPlex 3080 Micro (32GB RAM) delivered
-- ✅ **Operational Excellence**: Complete procedures and troubleshooting documentation
 
 ## 🏗️ Enterprise Infrastructure Platform
 
@@ -144,6 +155,31 @@ This lab applies the **scientific method** to infrastructure:
 
 Documentation: MIT License  
 3D Models: Creative Commons Attribution-ShareAlike 4.0
+
+---
+## 🤝 Partners & Acknowledgments
+
+<p align="center">
+  <strong>Cooper'n'80s is built with exceptional hardware and inspired by outstanding community contributions</strong>
+</p>
+
+### 🖥️ Hardware Partner
+<p align="center">
+  <a href="https://greendot.it" target="_blank">
+    <img src="https://greendot.it/bilder/intern/shoplogo/greenDotITweb.png" alt="GreenDot IT" height="60"/>
+  </a>
+</p>
+
+**Dell OptiPlex 3080 Micro nodes** sourced from **[GreenDot IT](https://greendot.it)** - professional business equipment supplier with excellent customer service and competitive enterprise pricing. The three i5-10500T systems with 32GB RAM each form the backbone of our infrastructure platform. **Vielen Dank** for the outstanding hardware and professional support!
+
+### 🎨 Design Inspiration  
+<p align="center">
+  <a href="https://makerworld.com/de/@mklements" target="_blank">
+    <img src="https://cdn.makerworld.com/model/us/0003/42/23/6c4f9b81c1ca3_680x680.png?x-oss-process=image/resize,w_680,h_680,m_fit" alt="MakerWorld Profile" height="60"/>
+  </a>
+</p>
+
+**Rack design foundations** inspired by exceptional work from **[@mklements](https://makerworld.com/de/@mklements)** on MakerWorld. The original rack concepts provided the architectural starting point that evolved into our custom Cooper'n'80s branded infrastructure platform.
 
 ---
 
