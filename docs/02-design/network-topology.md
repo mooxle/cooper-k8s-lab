@@ -2,6 +2,138 @@
 
 > Physical and logical network design for Cooper'n'80s Kubernetes lab
 
+```mermaid
+graph TB
+    %% Home Network Layer
+    subgraph HOME["🏠 Home Network (192.168.1.0/24)"]
+        ROUTER["Home Router<br/>192.168.1.1<br/>Gateway + NAT"]
+        DNS["DNS/DHCP Server<br/>192.168.1.23<br/>PowerDNS + Kea DHCP<br/>DDNS Enabled"]
+    end
+
+    %% Underlay Infrastructure
+    subgraph UNDERLAY["🌐 Underlay Network (10.0.1.0/24)"]
+        GW["Gateway<br/>10.0.1.1<br/>VLAN 10 Interface"]
+        SWITCH["D-Link DGS-1100-08<br/>L2 Switch<br/>VLAN 10"]
+    end
+
+    %% BGP EVPN Control Plane
+    subgraph CONTROL["📡 BGP EVPN Control Plane"]
+        BGP_MESH["iBGP Full Mesh<br/>AS 65001<br/>L2VPN EVPN Address Family"]
+    end
+
+    %% Cooper Nodes
+    subgraph NODES["🖥️ Cooper'n'80s Cluster Nodes"]
+        NODE1["cooper-node-01<br/>10.0.1.10<br/>Dell OptiPlex 3080"]
+        NODE2["cooper-node-02<br/>10.0.1.11<br/>Dell OptiPlex 3080"] 
+        NODE3["cooper-node-03<br/>10.0.1.12<br/>Dell OptiPlex 3080"]
+    end
+
+    %% Node Internal Components
+    subgraph N1_INT["Node-01 Internal"]
+        N1_MGMT["enp2s0 → vmbr0<br/>Management Interface"]
+        N1_VXLAN["vxlan100<br/>VNI 100, UDP/4789<br/>Local: 10.0.1.10<br/>Learning: OFF"]
+        N1_BRIDGE["vmbr1 Bridge<br/>L2 Overlay"]
+        N1_FRR["FRR BGP EVPN<br/>Router-ID: 10.0.1.10<br/>Neighbor Suppression: ON"]
+    end
+
+    subgraph N2_INT["Node-02 Internal"]
+        N2_MGMT["enp2s0 → vmbr0<br/>Management Interface"]
+        N2_VXLAN["vxlan100<br/>VNI 100, UDP/4789<br/>Local: 10.0.1.11<br/>Learning: OFF"]
+        N2_BRIDGE["vmbr1 Bridge<br/>L2 Overlay"]
+        N2_FRR["FRR BGP EVPN<br/>Router-ID: 10.0.1.11<br/>Neighbor Suppression: ON"]
+    end
+
+    subgraph N3_INT["Node-03 Internal"]
+        N3_MGMT["enp2s0 → vmbr0<br/>Management Interface"]
+        N3_VXLAN["vxlan100<br/>VNI 100, UDP/4789<br/>Local: 10.0.1.12<br/>Learning: OFF"]
+        N3_BRIDGE["vmbr1 Bridge<br/>L2 Overlay"]
+        N3_FRR["FRR BGP EVPN<br/>Router-ID: 10.0.1.12<br/>Neighbor Suppression: ON"]
+    end
+
+    %% Overlay Networks
+    subgraph OVERLAY["🔗 VXLAN Overlay Networks (VNI 100)"]
+        NET_SVI["10.0.2.0/24<br/>Node SVI Network<br/>(Bridge IPs)"]
+        NET_TEST["10.0.200.0/24<br/>Test Network<br/>nsA ↔ nsB Validation"]
+        RT["Route Target<br/>RT:65001:100"]
+    end
+
+    %% Physical Connections
+    ROUTER ---|"Routed Link"| GW
+    DNS ---|"DHCP Services"| GW
+    GW ---|"VLAN 10"| SWITCH
+    
+    SWITCH ---|"Gigabit Ethernet"| NODE1
+    SWITCH ---|"Gigabit Ethernet"| NODE2  
+    SWITCH ---|"Gigabit Ethernet"| NODE3
+
+    %% Node Internal Connections
+    NODE1 --- N1_MGMT
+    NODE2 --- N2_MGMT
+    NODE3 --- N3_MGMT
+
+    N1_VXLAN --- N1_BRIDGE
+    N2_VXLAN --- N2_BRIDGE
+    N3_VXLAN --- N3_BRIDGE
+
+    N1_FRR --- BGP_MESH
+    N2_FRR --- BGP_MESH
+    N3_FRR --- BGP_MESH
+
+    %% VXLAN Tunnels (Data Plane)
+    N1_VXLAN -.->|"VXLAN Tunnel<br/>Encapsulation"| N2_VXLAN
+    N1_VXLAN -.->|"VXLAN Tunnel<br/>Encapsulation"| N3_VXLAN
+    N2_VXLAN -.->|"VXLAN Tunnel<br/>Encapsulation"| N3_VXLAN
+
+    %% BGP EVPN Sessions (Control Plane)
+    N1_FRR ==>|"iBGP Session<br/>Type-2/Type-3 Routes"| N2_FRR
+    N1_FRR ==>|"iBGP Session<br/>Type-2/Type-3 Routes"| N3_FRR
+    N2_FRR ==>|"iBGP Session<br/>Type-2/Type-3 Routes"| N3_FRR
+
+    %% Overlay Network Access
+    N1_BRIDGE --- NET_SVI
+    N2_BRIDGE --- NET_SVI
+    N3_BRIDGE --- NET_SVI
+
+    N1_BRIDGE --- NET_TEST
+    N2_BRIDGE --- NET_TEST
+    N3_BRIDGE --- NET_TEST
+
+    BGP_MESH --- RT
+
+    %% Styling
+    classDef homeLayer fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    classDef underlayLayer fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef nodeLayer fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
+    classDef overlayLayer fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef controlLayer fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    classDef internalComp fill:#f5f5f5,stroke:#616161,stroke-width:1px
+
+    class HOME,ROUTER,DNS homeLayer
+    class UNDERLAY,GW,SWITCH underlayLayer
+    class NODES,NODE1,NODE2,NODE3 nodeLayer
+    class OVERLAY,NET_SVI,NET_TEST,RT overlayLayer
+    class CONTROL,BGP_MESH controlLayer
+    class N1_INT,N2_INT,N3_INT,N1_MGMT,N1_VXLAN,N1_BRIDGE,N1_FRR,N2_MGMT,N2_VXLAN,N2_BRIDGE,N2_FRR,N3_MGMT,N3_VXLAN,N3_BRIDGE,N3_FRR internalComp
+```
+
+## Network Architecture Summary
+
+### Control Plane vs Data Plane Separation
+- **Control Plane**: BGP EVPN (AS 65001) handles MAC/IP learning and distribution
+- **Data Plane**: VXLAN tunnels (VNI 100, UDP/4789) carry actual overlay traffic
+
+### Key Design Principles
+- **Underlay**: Traditional L3 routed network (10.0.1.0/24) provides reachability between VTEPs
+- **Overlay**: VXLAN provides L2 extension across L3 boundaries with intelligent control plane
+- **Route Types**: Type-2 (MAC/IP), Type-3 (IMET) for optimized forwarding and BUM handling
+- **Learning**: Traditional bridge learning disabled, replaced by BGP EVPN advertisements
+
+### Operational Benefits  
+- **Scalability**: BGP EVPN eliminates flooding limitations of traditional L2
+- **Multi-tenancy**: VNI segmentation enables multiple overlay networks
+- **Intelligence**: Control plane provides optimal forwarding decisions
+- **Enterprise Integration**: Standards-based protocols (BGP, VXLAN) for production deployment
+
 ## 🎯 Design Philosophy
 
 **Layer Separation**: Clean separation between physical L2 switching, logical L3 routing, and overlay networking for containers and VMs.
