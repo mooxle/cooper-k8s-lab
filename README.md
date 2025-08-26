@@ -15,10 +15,10 @@
 ---
 
 ### 📺 Latest Episodes
+**[S01E09 - The Network Services Integration](docs/99-appendix/project-journal.md#s01e09---the-network-services-integration)** *(Aug 26)* - DNS/DHCP migration to 10.0.1.23 + EVPN/VXLAN + TPM-backed ZFS encryption  
 **[S01E08 - The Storage & Overlay Paradigm](docs/99-appendix/project-journal.md#s01e08---the-storage--overlay-paradigm)** *(Aug 25)* - ZFS encrypted storage + VXLAN/EVPN overlay networking operational  
 **[S01E07 - The Great Integration](docs/99-appendix/project-journal.md#s01e07---the-great-integration)** *(Aug 24)* - Complete infrastructure assembly with all Dell OptiPlex nodes integrated  
-**[S01E06 - The Proxmox Automation Revolution](docs/99-appendix/project-journal.md#s01e06---the-proxmox-automation-revolution)** *(Aug 24)* - Complete Infrastructure as Code automation with 45-minute bare-metal deployment  
-**[S01E05 - The Network Foundation](docs/99-appendix/project-journal.md#s01e05---the-network-foundation)** *(Aug 23)* - Enterprise DNS/DHCP stack with cooper.lab domain
+**[S01E06 - The Proxmox Automation Revolution](docs/99-appendix/project-journal.md#s01e06---the-proxmox-automation-revolution)** *(Aug 24)* - Complete Infrastructure as Code automation with 45-minute bare-metal deployment
 
 ## 🎯 Project Overview
 
@@ -78,9 +78,38 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 ⚙️ Service Discovery ████████████ 🟢 cooper.lab domain operational  
 🚀 K8s Foundation ████████████ 🟢 Infrastructure as Code automation complete
 ```
+### Current Status
 
-**Latest Progress**: ZFS encrypted storage pools + VXLAN/EVPN overlay networking operational  
-**Next**: K3s cluster deployment on encrypted storage with overlay networking
+🌐 **Network Services**: ✅ **OPERATIONAL** - Complete DNS/DHCP stack at 10.0.1.23
+- PowerDNS authoritative + recursor with cooper.lab domain
+- Kea DHCP4 with dynamic DNS registration  
+- PowerDNS Admin interface at http://10.0.1.23:8082
+- Pi-hole integration with conditional forwarding
+
+🔗 **VXLAN Overlay**: ✅ **OPERATIONAL** - Enterprise networking patterns
+- EVPN/VXLAN mesh between all Proxmox nodes (vxlan100)
+- Tenant network isolation (10.0.10.0/24 via vmbr1)
+- Management network (10.0.1.0/24 via vmbr0) with static IPs
+- Full inter-node connectivity and VM networking ready
+
+🔐 **Storage Security**: ✅ **HARDENED** - TPM-backed ZFS encryption
+- Native ZFS encryption (AES-256-GCM) on cooper-zfs pool
+- TPM2 hardware-backed key management with auto-unlock
+- Systemd integration for seamless boot process
+- Key rotation strategy for both TPM objects and dataset keys
+
+🖥️ **Infrastructure**: ✅ **COMPLETE** - Production-ready platform
+- 3x Dell OptiPlex 3080 Micro (32GB RAM each) in custom 8U rack
+- Proxmox VE cluster with automated deployment pipeline  
+- SSH-only access with Vault credential management
+- Complete monitoring and operational procedures
+
+🚀 **Kubernetes Foundation**: ✅ **READY** - Enterprise infrastructure prepared
+- Service discovery via cooper.lab DNS domain
+- Network segmentation with VXLAN overlay networking
+- Automated node provisioning and configuration management
+- Security foundation with encrypted storage and hardened access
+
 
 ### 🎯 Recent Milestones
 - ✅ **ZFS Encrypted Storage**: 1TB+ encrypted storage with Vault-managed keys (AES-256-GCM)

@@ -446,41 +446,120 @@ bridge fdb show | grep vxlan100
 - **DNS Forwarding**: External DNS resolution
 - **Optional VPN**: Remote access to lab
 
-## 🌐 Network Services (NEW - Implemented)
+## 🌐 Network Services (CURRENT - Operational)
 
 ### DNS Infrastructure
-**Cooper DNS Stack**: Deployed at 192.168.1.23
+**Cooper DNS Stack**: Deployed at **10.0.1.23** (migrated from 192.168.1.23)
 - **Authoritative DNS**: PowerDNS serving cooper.lab domain
-- **Recursive DNS**: Full resolution with upstream forwarding to Pi-hole
+- **Recursive DNS**: Full resolution with upstream forwarding to Pi-hole (10.0.1.99)
 - **Dynamic DNS**: Automatic record creation from DHCP leases
-- **Web Management**: PowerDNS Admin interface
+- **Web Management**: PowerDNS Admin interface at http://10.0.1.23:8082
 
 ### DHCP Services
 **Enterprise DHCP**: Kea DHCP4 with DDNS integration
-- **IP Pool**: 10.0.1.100-200 (100 addresses available)
+- **Primary Pool**: 10.0.1.100-200 (100 addresses available)
+- **Overlay Pool**: 10.0.10.100-200 (VXLAN tenant network)
 - **Gateway**: 10.0.1.1 (existing router VLAN interface)
-- **DNS**: 192.168.1.23 (Cooper DNS stack)
+- **DNS**: 10.0.1.23 (Cooper DNS stack - migrated)
 - **Domain**: cooper.lab (automatic registration)
 
 ### Service Discovery
 **cooper.lab Domain**: All lab devices automatically registered
 - **A Records**: hostname.cooper.lab → IP address
 - **PTR Records**: IP address → hostname.cooper.lab  
+- **Zone Coverage**: 
+  - 1.0.10.in-addr.arpa (reverse for 10.0.1.0/24)
+  - 10.0.10.in-addr.arpa (reverse for 10.0.10.0/24)
 - **SOA Authority**: PowerDNS authoritative server
-- **Upstream**: External queries forwarded to Pi-hole (192.168.1.99)
+- **Upstream**: External queries forwarded to Pi-hole (10.0.1.99)
+
+### Recursor Forward Zones Configuration
+```
+--forward-zones=cooper.lab=172.20.1.10:53,1.0.10.in-addr.arpa=172.20.1.10:53,10.0.10.in-addr.arpa=172.20.1.10:53
+--forward-zones-recurse=.=10.0.1.99:53
+```
 
 ### Network Flow
 ```
-Lab Device DHCP Request (10.0.1.0/24)
-        ↓ DHCP Relay
-Router forwards to 192.168.1.23
-        ↓ IP Assignment
-Kea DHCP assigns from pool 10.0.1.100-200
+Lab Device DHCP Request (10.0.1.0/24 or 10.0.10.0/24)
+        ↓ Direct Request (LXC at 10.0.1.23)
+Kea DHCP assigns from appropriate pool
         ↓ DDNS Update
 Automatic DNS record creation in cooper.lab
         ↓ Service Discovery
 Device accessible via hostname.cooper.lab
 ```
+
+## 🔗 VXLAN Overlay Network (OPERATIONAL)
+
+### EVPN/VXLAN Implementation
+The Cooper Lab implements a **VXLAN mesh network** between all Proxmox nodes for tenant network isolation and enterprise networking patterns.
+
+**Architecture**:
+- **VXLAN ID**: 100 (vxlan100)
+- **Tenant Network**: 10.0.10.0/24 (isolated from management)
+- **Management Network**: 10.0.1.0/24 (vmbr0)
+- **Bridge Integration**: vxlan100 → vmbr1 (tenant bridge)
+
+### Per-Node Configuration Pattern
+
+#### Example: cooper-node-03 (10.0.1.12)
+```
+# Management bridge (underlay)
+auto vmbr0
+iface vmbr0 inet static
+    address 10.0.1.12/24
+    gateway 10.0.1.1
+    bridge-ports eno1
+    bridge-stp off
+    bridge-fd 0
+
+# VXLAN overlay for tenant network
+auto vxlan100
+iface vxlan100 inet manual
+    vxlan-id 100
+    vxlan-local-tunnelip 10.0.1.12
+    vxlan-remoteip 10.0.1.10
+    vxlan-remoteip 10.0.1.11
+    vxlan-port 4789
+
+# Tenant bridge
+auto vmbr1
+iface vmbr1 inet static
+    address 10.0.10.3/24
+    bridge-ports vxlan100
+    bridge-stp off
+    bridge-fd 0
+```
+
+### Node-Specific Addressing
+| Node | Management IP | Tenant Bridge IP | VXLAN Local IP |
+|------|---------------|------------------|----------------|
+| cooper-node-01 | 10.0.1.10/24 | 10.0.10.1/24 | 10.0.1.10 |
+| cooper-node-02 | 10.0.1.11/24 | 10.0.10.2/24 | 10.0.1.11 |
+| cooper-node-03 | 10.0.1.12/24 | 10.0.10.3/24 | 10.0.1.12 |
+
+### VXLAN Verification Commands
+```bash
+# Reload network configuration
+ifreload -a || systemctl restart networking
+
+# Verify bridge and VXLAN
+ip -4 addr show vmbr0 vmbr1
+bridge -c link show dev vmbr1 | grep vxlan100
+
+# Test inter-node connectivity
+ping -c2 10.0.10.2  # From any node to others
+
+# Check VXLAN mesh
+bridge fdb show dev vxlan100
+```
+
+### Enterprise Benefits
+- **Network Isolation**: Clean separation between management and tenant traffic
+- **Scalability**: Easy addition of new VLANs and overlay networks
+- **Security**: Tenant workloads cannot access management interfaces
+- **Flexibility**: Multiple tenant networks possible with different VXLAN IDs
 
 ## 🔄 Traffic Flow Examples
 

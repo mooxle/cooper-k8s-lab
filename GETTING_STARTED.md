@@ -32,6 +32,13 @@ Want to see the code and configs?
 Where does the project stand right now?  
 → Check the **[status indicators](README.md#current-status)** in the main README
 
+### Current Infrastructure Status
+
+🌐 **Network Services**: OPERATIONAL at 10.0.1.23 (ipam.cooper.lab)  
+🔗 **VXLAN Overlay**: Full EVPN/VXLAN mesh between nodes  
+🔐 **Storage Security**: TPM-backed ZFS encryption operational  
+🚀 **K8s Foundation**: Ready for cluster deployment
+
 ## 🚀 Quick Context
 
 **The Lab**: 3-node Kubernetes cluster in custom 3D-printed rack  

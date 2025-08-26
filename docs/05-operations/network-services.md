@@ -4,28 +4,58 @@
 
 ## 🎯 Service Overview
 
-The lab uses a comprehensive DNS/DHCP stack providing:
-- **Authoritative DNS**: cooper.lab domain management
-- **Recursive DNS**: Full resolution with upstream forwarding
-- **Dynamic DHCP**: Automatic IP assignment with DNS integration
-- **Web Management**: Administrative interfaces for operations
+The lab uses a comprehensive DNS/DHCP stack deployed in LXC container `ipam.cooper.lab` at **10.0.1.23** providing:
+- **Authoritative DNS**: cooper.lab domain management with SQLite backend
+- **Recursive DNS**: Full resolution with upstream forwarding to Pi-hole (10.0.1.99)
+- **Dynamic DHCP**: Automatic IP assignment for both management and tenant networks
+- **Web Management**: PowerDNS Admin at http://10.0.1.23:8082
 
 ## 🏗️ Architecture Summary
 
-### Component Stack
-- **PowerDNS Authoritative**: Domain authority with database backend
-- **PowerDNS Recursor**: Client-facing recursive resolver
-- **Kea DHCP4**: Dynamic IP assignment with DDNS
+### Component Stack (LXC Container: ipam.cooper.lab)
+- **PowerDNS Authoritative**: Domain authority with database backend (172.20.1.10:53)
+- **PowerDNS Recursor**: Client-facing recursive resolver (10.0.1.23:53)
+- **Kea DHCP4**: Dynamic IP assignment with DDNS integration
 - **DDNS Server**: Automatic DNS record creation
-- **Admin Interface**: Web-based management
+- **Admin Interface**: Web-based management and monitoring
 
 ### Network Integration
 ```
-Lab Network (10.0.1.0/24) → DNS/DHCP Stack → cooper.lab Domain
-├── DHCP Pool: 10.0.1.100-200
-├── Gateway: 10.0.1.1
-├── DNS Resolution: cooper.lab + upstream
-└── Service Discovery: Automatic registration
+Lab Networks (served by ipam.cooper.lab):
+├── Management: 10.0.1.0/24 → DHCP Pool: 10.0.1.100-200
+├── Tenant: 10.0.10.0/24 → DHCP Pool: 10.0.10.100-200
+├── Gateway: 10.0.1.1 (router VLAN interface)
+├── DNS Resolution: cooper.lab + upstream to Pi-hole
+└── Service Discovery: Automatic registration for all devices
+```
+
+### DNS Zones Configured
+- **Forward Zone**: cooper.lab (authoritative)
+- **Reverse Zones**: 
+  - 1.0.10.in-addr.arpa (10.0.1.0/24)
+  - 10.0.10.in-addr.arpa (10.0.10.0/24)
+
+### Key Configuration Elements
+```yaml
+# Recursor Forward Zones
+forward-zones: |
+  cooper.lab=172.20.1.10:53
+  1.0.10.in-addr.arpa=172.20.1.10:53
+  10.0.10.in-addr.arpa=172.20.1.10:53
+forward-zones-recurse: .=10.0.1.99:53
+
+# DHCP Reservations (Static assignments for reliable boot)
+reservations:
+  - hw-address: "a4:bb:6d:80:e6:b2"
+    ip-address: "10.0.1.10"
+    hostname: "cooper-node-01.cooper.lab"
+  - hw-address: "a4:bb:6d:80:f0:4f"
+    ip-address: "10.0.1.11"
+    hostname: "cooper-node-02.cooper.lab"
+  - hw-address: "a4:bb:6d:81:56:30"
+    ip-address: "10.0.1.12"
+    hostname: "cooper-node-03.cooper.lab"
+```
 ```
 
 ## 🔧 Essential Operations

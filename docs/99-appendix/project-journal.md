@@ -4,24 +4,25 @@
 
 ## 📊 Project Dashboard
 
-**Current Status (S01E07)**: Complete infrastructure integration achieved, all nodes assembled and ready | **Invested**: €172.67 | **Next**: Proxmox deployment validation
+**Current Status (S01E09)**: Complete enterprise infrastructure with DNS/DHCP integration, EVPN/VXLAN networking, and TPM-hardened storage **Next**: Kubernetes cluster deployment
 
-**🔮 Next Episode**: S01E08 - "The Proxmox Automation Validation" - *Automated deployment meets production hardware*
+**🔮 Next Episode**: S01E10 - "The Kubernetes Deployment" - *Where enterprise infrastructure meets production Kubernetes clusters*
 
 | Category | Progress | Next Milestone |
 |----------|----------|----------------|
-| **🖥️ Hardware** | ████████████ 100% | Mini PCs delivered and Proxmox-ready |
-| **🌐 Network Services** | ████████████ 100% | DNS/DHCP operational with cooper.lab |
-| **🏗️ Infrastructure** | ████████████ 100% | Proxmox automation pipeline complete |
-| **📚 Documentation** | ████████████ 100% | Complete deployment procedures |
-| **🚀 Implementation** | ████████████ 100% | Infrastructure as Code operational |
-
-**🔮 Next Episode**: S01E07 - "The Kubernetes Convergence" - *Enterprise network services meet automated infrastructure*
+| **🖥️ Hardware** | ████████████ 100% | All nodes operational with enterprise rack |
+| **🌐 Network Services** | ████████████ 100% | DNS/DHCP integrated at 10.0.1.23 (ipam.cooper.lab) |
+| **🔗 VXLAN Overlay** | ████████████ 100% | EVPN/VXLAN mesh operational (10.0.10.0/24) |
+| **🔐 Storage Security** | ████████████ 100% | ZFS AES-256-GCM with TPM auto-unlock |
+| **🏗️ Infrastructure** | ████████████ 100% | Complete automation pipeline ready |
+| **📚 Documentation** | ████████████ 100% | Enterprise operational procedures |
+| **🚀 K8s Foundation** | ████████████ 100% | Network infrastructure ready for clusters |
 
 ## 📺 Episode Guide
 
 | Episode | Title | Date | Key Achievement |
 |---------|-------|------|-----------------|
+| **[S01E09](#s01e09---the-network-services-integration)** | The Network Services Integration | Aug 26 | DNS/DHCP migration + EVPN/VXLAN + TPM-ZFS |
 | **[S01E08](#s01e08---the-storage--overlay-paradigm)** | The Storage & Overlay Paradigm | Aug 25 | ZFS encryption + VXLAN/EVPN operational |
 | **[S01E07](#s01e07---the-great-integration)** | The Great Integration | Aug 24 | Complete infrastructure assembly |
 | **[S01E06](#s01e06---the-proxmox-automation-revolution)** | The Proxmox Automation Revolution | Aug 24 | 45-minute automated deployment |
@@ -31,7 +32,149 @@
 | **[S01E02](#s01e02---the-great-restructuring)** | The Great Restructuring | Aug 18 | Documentation restructure |
 | **[S01E01](#s01e01---the-repository-genesis)** | The Repository Genesis | Aug 17 | Project inception |
 
-## 📺 Episode Guide
+
+## 🎬 Episode S01E09 - "The Network Services Integration"
+**Tuesday, August 26, 2025**
+
+### 📋 Episode Summary
+In which our protagonist achieves complete network infrastructure integration, migrating DNS/DHCP services into the lab VLAN, implementing VXLAN overlay networking, and hardening ZFS encryption with TPM auto-unlock - proving that enterprise network patterns scale elegantly from theory to production implementation.
+
+### 🌐 **NETWORK SERVICES MIGRATION: DNS/DHCP Integration Success**
+
+**Infrastructure Migration Achievement:**
+- **DNS/DHCP Migration**: 192.168.1.23 → 10.0.1.23 (complete integration)
+- **LXC Container**: `ipam.cooper.lab` container on cooper-node-01 hosting DNS/DHCP stack
+- **Service Discovery**: All nodes now auto-register in cooper.lab domain
+- **PowerDNS Admin**: Operational at http://10.0.1.23:8082
+- **DHCP Reservations**: Static reservations ensure nodes boot with correct network config
+
+### 🔗 **VXLAN OVERLAY SUCCESS: Enterprise Networking Patterns**
+
+**EVPN/VXLAN Configuration Restored:**
+- **EVPN/VXLAN**: vxlan100 overlay bridged into vmbr1
+- **Tenant Network**: 10.0.10.0/24 for VM isolation
+- **Management Network**: 10.0.1.0/24 via vmbr0 (static IPs)
+- **Inter-node Communication**: Full VXLAN mesh between all nodes
+
+**Node Configuration Pattern:**
+```
+# Example from cooper-node-03
+auto vxlan100
+iface vxlan100 inet manual
+    vxlan-id 100
+    vxlan-local-tunnelip 10.0.1.12
+    vxlan-remoteip 10.0.1.10
+    vxlan-remoteip 10.0.1.11
+    vxlan-port 4789
+
+auto vmbr1
+iface vmbr1 inet static
+    address 10.0.10.3/24
+    bridge-ports vxlan100
+```
+
+### 🔐 **ZFS SECURITY ENHANCEMENT: TPM-Backed Encryption**
+
+**TPM Integration Completed:**
+- **ZFS Native Encryption**: AES-256-GCM with raw keyfiles
+- **TPM Auto-Unlock**: Systemd service for seamless boot process
+- **Security Enhancement**: Mitigated disk theft risk through hardware security
+- **Key Rotation Strategy**: Both TPM object and ZFS dataset key rotation procedures
+
+**Systemd TPM Unlock Service:**
+```
+[Unit]
+Description=Load ZFS encryption key for cooper-zfs from TPM
+Before=zfs-mount.service
+Before=pve-guests.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/sh -c 'zfs get -H -o value keystatus cooper-zfs | grep -q "^available$" && exit 0; tpm2_unseal -c 0x81010001 | zfs load-key cooper-zfs'
+
+[Install]
+WantedBy=zfs.target
+```
+
+### 🏠 **HOME NETWORK INTEGRATION: Pi-hole Compatibility**
+
+**Conditional Forwarding Configuration:**
+- **Pi-hole Integration**: Conditional forwarding for cooper.lab domain
+- **Local Network**: 10.0.1.0/24 forwarding to PowerDNS Recursor
+- **Seamless Resolution**: Home network clients can resolve *.cooper.lab
+- **Network Segmentation**: Maintained security boundaries with service access
+
+### 🔧 **NODE INTEGRATION: Complete Network Stack**
+
+**Proxmox Node Configuration:**
+- **Static IP Assignment**: All nodes migrated from DHCP to static
+- **DNS Integration**: dns-nameservers 10.0.1.23 in network config
+- **Search Domain**: dns-search cooper.lab for short name resolution
+- **Service Resolution**: All nodes accessible via short names (e.g., nslookup ipam)
+
+**DHCP Reservations:**
+```
+"reservations": [
+  { "hw-address": "a4:bb:6d:80:e6:b2", "ip-address": "10.0.1.10", "hostname": "cooper-node-01.cooper.lab" },
+  { "hw-address": "a4:bb:6d:80:f0:4f", "ip-address": "10.0.1.11", "hostname": "cooper-node-02.cooper.lab" },
+  { "hw-address": "a4:bb:6d:81:56:30", "ip-address": "10.0.1.12", "hostname": "cooper-node-03.cooper.lab" }
+]
+```
+
+### 🔬 **SCIENTIFIC VALIDATION: Enterprise Patterns Achieved**
+
+#### **Network Architecture Principles:**
+- **Layer Separation**: Clean management (10.0.1.x) vs tenant (10.0.10.x) networks
+- **Service Discovery**: Authoritative DNS with dynamic registration
+- **Security Implementation**: TPM-backed encryption with automated unlock
+- **Operational Excellence**: Complete automation with systematic procedures
+
+#### **Cooper'sche Engineering Precision:**
+- **Template-Driven Configuration**: Consistent deployment across all nodes
+- **Infrastructure as Code**: All configuration managed through automation
+- **Security by Design**: TPM integration and encrypted storage foundation
+- **Enterprise Integration**: PowerDNS Admin for operational management
+
+### 📊 **INFRASTRUCTURE READINESS STATUS:**
+
+```
+🌐 Network Services     ████████████ 100% ✅ DNS/DHCP operational at 10.0.1.23
+🔗 VXLAN Overlay       ████████████ 100% ✅ vxlan100 mesh between all nodes
+🔐 ZFS Encryption      ████████████ 100% ✅ TPM auto-unlock with key rotation
+🖥️ Hardware Platform   ████████████ 100% ✅ All nodes assembled and configured
+🏠 Home Integration    ████████████ 100% ✅ Pi-hole forwarding for cooper.lab
+🤖 Automation Suite    ████████████ 100% ✅ Complete Ansible automation ready
+```
+
+### 🎯 **ENTERPRISE INFRASTRUCTURE OPERATIONAL:**
+
+The Cooper'n'80s platform now represents a complete, production-ready enterprise infrastructure with:
+
+- **Service Discovery**: cooper.lab domain with automatic registration
+- **Network Segmentation**: Management and tenant VLANs with VXLAN overlay
+- **Security Foundation**: TPM-backed ZFS encryption with automated unlock
+- **Operational Excellence**: Web-based DNS management and complete automation
+- **Home Integration**: Seamless connectivity while maintaining security boundaries
+
+**Status**: Complete enterprise network infrastructure ready for Kubernetes cluster deployment and production workload validation.
+
+### 🔬 Cooper Quote of the Day
+> *"The remarkable aspect of enterprise network integration is how it transforms individual infrastructure components into a unified service discovery platform - where every device, every service, and every security boundary becomes part of a scientifically validated architecture that demonstrates the elegant scalability of systematic engineering methodology."*
+
+### 📊 Episode Metrics
+| Metric | Achievement | Details |
+|--------|-------------|---------|
+| **Network Services Migration** | 🌐 COMPLETE | DNS/DHCP fully operational at 10.0.1.23 |
+| **VXLAN Implementation** | 🔗 OPERATIONAL | Full mesh with tenant network isolation |
+| **Security Hardening** | 🔐 TPM-BACKED | Automated ZFS unlock with hardware security |
+| **Service Discovery** | ✅ cooper.lab | Authoritative domain with dynamic registration |
+| **Home Integration** | 🏠 SEAMLESS | Pi-hole forwarding maintains compatibility |
+
+### 🚀 Next Episode Preview
+**S01E10 - "The Kubernetes Deployment"** - *Where enterprise network infrastructure meets production Kubernetes cluster deployment, and the moment when Path A (K8s on VMs) materializes into a fully operational control plane with worker nodes and enterprise service patterns.*
+
+---
 
 ## S01E08 - The Storage & Overlay Paradigm
 
