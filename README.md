@@ -15,16 +15,16 @@
 ---
 
 ### 📺 Latest Episodes
-**[S01E09 - The Network Services Integration](docs/99-appendix/project-journal.md#s01e09---the-network-services-integration)** *(Aug 26)* - DNS/DHCP migration to 10.0.1.23 + EVPN/VXLAN + TPM-backed ZFS encryption  
+**[S01E10 - The Vault Transit Paradigm](docs/99-appendix/project-journal.md#-episode-s01e10---the-vault-transit-paradigm)** *(Aug 30)* - Vault Transit integration with cross-node ZFS access and network stability engineering  
+**[S01E09 - The Network Services Integration](docs/99-appendix/project-journal.md#-episode-s01e09---the-network-services-integration)** *(Aug 26)* - DNS/DHCP migration to 10.0.1.23 + EVPN/VXLAN + TPM-backed ZFS encryption  
 **[S01E08 - The Storage & Overlay Paradigm](docs/99-appendix/project-journal.md#s01e08---the-storage--overlay-paradigm)** *(Aug 25)* - ZFS encrypted storage + VXLAN/EVPN overlay networking operational  
-**[S01E07 - The Great Integration](docs/99-appendix/project-journal.md#s01e07---the-great-integration)** *(Aug 24)* - Complete infrastructure assembly with all Dell OptiPlex nodes integrated  
-**[S01E06 - The Proxmox Automation Revolution](docs/99-appendix/project-journal.md#s01e06---the-proxmox-automation-revolution)** *(Aug 24)* - Complete Infrastructure as Code automation with 45-minute bare-metal deployment
+**[S01E07 - The Great Integration](docs/99-appendix/project-journal.md#-episode-s01e07---the-great-integration)** *(Aug 24)* - Complete infrastructure assembly with all Dell OptiPlex nodes integrated
 
 ## 🎯 Project Overview
 
 Enterprise Architect's learning laboratory combining **theoretical knowledge** with **practical implementation**. Built to bridge the gap between architecture decisions and operational reality.
 
-**Current Focus**: Network services foundation with enterprise DNS/DHCP infrastructure  
+**Current Focus**: Vault Transit integration with cross-node ZFS access and enterprise automation 
 **Learning Goal**: Master enterprise infrastructure patterns through hands-on experience  
 **Approach**: Scientific method applied to infrastructure architecture  
 **Hardware Platform**: Dell OptiPlex infrastructure from [**GreenDot IT**](https://greendot.it) <a href="#-partners--acknowledgments"><img src="https://greendot.it/bilder/intern/shoplogo/greenDotITweb.png" alt="GreenDot IT" height="16" style="vertical-align: middle;"/></a>

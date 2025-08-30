@@ -118,6 +118,73 @@ docker exec [container] keactrl status
 - **Capacity Planning**: Monitor resource and address pool usage
 - **Backup Validation**: Test database and configuration backups
 
+### Boot-Time Network Stability
+
+**Challenge**: Proxmox boot ordering cycles and network.target dependencies caused unreliable bridge configuration during system startup.
+
+**Solution**: Timer-based post-boot network reload for robust bridge initialization.
+
+#### **Post-Boot Network Service**
+```ini
+# /etc/systemd/system/ifreload-postboot.service
+[Unit]
+Description=Run ifreload -a once after boot (no boot ordering deps)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/ifreload -a
+```
+
+#### **Delayed Execution Timer**
+```ini
+# /etc/systemd/system/ifreload-postboot.timer
+[Unit]
+Description=Trigger ifreload -a 120s after boot (no jitter)
+
+[Timer]
+OnBootSec=120s
+RandomizedDelaySec=0
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+
+#### **Service Management**
+```bash
+# Enable timer-based reload
+systemctl daemon-reload
+systemctl enable --now ifreload-postboot.timer
+
+# Validation commands
+systemctl list-timers ifreload-postboot.timer --no-pager
+systemctl show ifreload-postboot.service -p Result -p ExecMainStatus
+ip -o -4 addr show | grep -E 'vmbr0|vmbr1'
+```
+
+#### **Legacy Cleanup**
+```bash
+# Remove inconsistent network service overrides
+systemctl disable --now ensure-network-up.service 2>/dev/null || true
+systemctl reset-failed ensure-network-up.service 2>/dev/null || true
+rm -f /etc/systemd/system/ensure-network-up.service
+rm -rf /etc/systemd/system/networking.service.d
+systemctl daemon-reload
+```
+
+#### **Service Masking for Clean Boot**
+```bash
+# Mask services that cause boot log noise without functionality
+systemctl mask openipmi.service pvefw-logger.service fail2ban.service frr.service
+```
+
+**Benefits:**
+- ✅ **Clean boot logs**: No failed service attempts
+- ✅ **Faster boot**: Reduced systemd target complexity
+- ✅ **Reliable networking**: Timer-based reload eliminates ordering cycles
+- ✅ **HA-ready**: Consistent network configuration across all nodes
+
+
 ## 🔍 Troubleshooting Framework
 
 ### DNS Resolution Issues

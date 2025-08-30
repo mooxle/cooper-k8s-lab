@@ -78,6 +78,54 @@ tpm2_evictcontrol -C o -c /etc/zfs/keys/cooper.ctx 0x81010001
 - **Unique Per Node**: Each node has independent TPM objects
 - **Audit Trail**: TPM operations logged systemically
 
+### Vault Transit Integration (Enhanced Security)
+
+**Enterprise Key Management Evolution:**
+- **Vault Transit Engine**: `transit/keys/zfs-wrapper-cooper-zfs` (AES-256-GCM)
+- **KV Storage**: `cooper-n-80s/environments/dev/zfs-keys/{node-name}`
+- **Authentication**: AppRole per node with dedicated policies
+- **Fallback Strategy**: TPM unlock preserved for offline operation
+
+**Dual-Path Architecture:**
+```
+Primary Path: Vault Transit (HA-capable)
+├── AppRole authentication per node
+├── Network-based key retrieval
+├── Cross-node unlock capability
+└── Centralized audit logging
+
+Fallback Path: TPM (Offline-capable)  
+├── Hardware-bound local keys
+├── No network dependency
+├── Node-specific unlock only
+└── Local systemd integration
+```
+
+**Vault Service Configuration:**
+```ini
+# /etc/systemd/system/zfs-load-key-cooper-zfs-vault.service
+[Unit]
+Description=Load ZFS encryption key for cooper-zfs via Vault Transit (AppRole)
+After=network.target
+Wants=network.target
+
+[Service]
+Type=oneshot
+Environment=VAULT_ADDR=http://vault.sammet.me:8200
+ExecStart=/usr/local/bin/zfs-vault-unlock
+RemainAfterExit=yes
+TimeoutStartSec=120
+
+[Install]
+WantedBy=zfs.target
+```
+
+**High Availability Benefits:**
+- ✅ **Cross-node unlock**: Any cluster node can unlock any ZFS pool
+- ✅ **Live migration ready**: VM storage accessible from multiple hosts  
+- ✅ **Zero-downtime maintenance**: Pool migration during node maintenance
+- ✅ **Centralized management**: Key lifecycle via Vault API
+
 ## 🛠️ ZFS Pool Implementation
 
 ### Pool Creation
