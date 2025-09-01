@@ -26,8 +26,61 @@ Lab Networks (served by ipam.cooper.lab):
 ├── Tenant: 10.0.10.0/24 → DHCP Pool: 10.0.10.100-200
 ├── Gateway: 10.0.1.1 (router VLAN interface)
 ├── DNS Resolution: cooper.lab + upstream to Pi-hole
-└── Service Discovery: Automatic registration for all devices
+└── Service Discovery: Automatic registration for all devices + VMs
 ```
+
+#### Extended Kea DHCP Configuration
+
+
+```
+{
+  "subnet4": [
+    {
+      "subnet": "10.0.1.0/24",
+      "pools": [{ "pool": "10.0.1.10 - 10.0.1.200" }],
+      "reservations": [
+        { "hw-address": "a4:bb:6d:80:e6:b2", "ip-address": "10.0.1.10", "hostname": "cooper-node-01.cooper.lab" },
+        { "hw-address": "a4:bb:6d:80:f0:4f", "ip-address": "10.0.1.11", "hostname": "cooper-node-02.cooper.lab" },
+        { "hw-address": "a4:bb:6d:81:56:30", "ip-address": "10.0.1.12", "hostname": "cooper-node-03.cooper.lab" }
+      ]
+    },
+    {
+      "subnet": "10.0.10.0/24",
+      "pools": [{ "pool": "10.0.10.100 - 10.0.10.199" }],
+      "option-data": [
+        { "name": "domain-name", "data": "cooper.lab" },
+        { "name": "domain-name-servers", "data": "10.0.1.23" },
+        { "name": "domain-search", "data": "cooper.lab" },
+        { "name": "routers", "data": "10.0.10.1" }
+      ]
+    }
+  ]
+}
+```
+
+
+### Multi-Layer Routing Configuration (NEW)
+```
+VM Network Flow:
+VM (10.0.10.x) → vmbr1 → VXLAN100 → Node underlay → D-Link Switch → Fritz!Box → Internet
+↓                                    ↓               ↓
+DHCP Request → Relay → PowerDNS/Kea → DNS Record → cooper.lab
+```
+
+**Routing Implementation:**
+- **Fritz!Box Route**: 10.0.10.0/24 via 192.168.1.3 (D-Link management IP)
+- **D-Link Route**: 10.0.10.0/24 via 10.0.1.10 (cooper-node-01)
+- **DHCP Relay**: isc-dhcp-relay on Proxmox nodes for VXLAN tenant networks
+
+### DHCP Relay Configuration (NEW)
+```bash
+# /etc/default/isc-dhcp-relay on all Proxmox nodes
+SERVERS="10.0.1.23"
+INTERFACES="vmbr1 vmbr0"
+OPTIONS=""
+
+
+
 
 ### DNS Zones Configured
 - **Forward Zone**: cooper.lab (authoritative)

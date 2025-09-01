@@ -109,13 +109,38 @@ Available for Workloads: ~65-75% of hardware capacity
 - **Battle-tested** in edge and resource-constrained scenarios
 - **Simple networking** works well with VM-to-VM connectivity
 
-**VM Resource Allocation**:
+### K3s High Availability Configuration (UPDATED)
+
+**Why K3s HA**:
+- **True High Availability** with 3-node etcd quorum (fault tolerance: 1 node)
+- **Enterprise patterns** with multiple API servers and leader election
+- **Resource efficiency** on VM infrastructure with proper cluster sizing
+- **Production readiness** for real-world Kubernetes workload patterns
+```yaml
+K3s HA Control+Worker Nodes (3x VMs):
+├── VM Resources: 6 vCPU, 16GB per node
+├── Cluster Total: 18 vCPUs, 48GB dedicated
+├── Control Plane Overhead: ~6GB (etcd + API servers + controllers)
+├── System Services: ~6GB (CNI, CSI, monitoring, ingress)
+├── Available for Workloads: ~36GB effective capacity
+└── Pod Estimate: 250-350 pods (enterprise density)
+Future Worker Expansion (3x additional VMs):
+├── Additional Resources: 18 vCPUs, 48GB
+├── Total Expanded: 36 vCPUs, 96GB cluster capacity
+├── Workload Capacity: ~84GB after system overhead
+└── Pod Estimate: 400-600 pods across expanded cluster
 ```
-Control+Worker Node: 6 vCPU, 6GB RAM
-Pure Worker Node:    6 vCPU, 8GB RAM
-Cluster Capacity:    36 vCPU, 42GB RAM (6 VMs total)
-Pod Estimate:        150-200 pods across cluster
-```
+
+**HA Characteristics:**
+- **etcd Quorum**: 3-node majority (survives 1 node failure)
+- **API Load Balancing**: 3x API servers for client distribution
+- **Leader Election**: Controller Manager + Scheduler HA
+- **Network Integration**: vmbr1 VXLAN overlay with automatic DNS
+- **Storage**: ZFS-backed persistent volumes on encrypted foundation
+
+**Alternative Considered**: MicroK8s
+
+**HA Cluster Resource Allocation:**
 
 **Alternative Considered**: MicroK8s
 - Higher overhead than K3s

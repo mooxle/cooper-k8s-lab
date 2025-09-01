@@ -19,7 +19,8 @@
 | **[Deployment Guide](automated-deployment.md)** | Complete automation pipeline | ✅ Operational |
 | **[Auto-Install Process](autoinstall-process.md)** | Official Proxmox tooling workflow | ✅ Tested |
 | **[Cluster Formation](cluster-formation.md)** | Manual cluster creation procedures | ✅ Operational |
-| **[Terraform Integration](terraform/)** | Vault secrets and infrastructure | 🟡 In Progress |
+| **[VM Automation](terraform-vm-configuration.md)** | Complete Terraform VM lifecycle | ✅ Operational |
+| **[Terraform Integration](terraform/)** | Vault secrets and infrastructure | ✅ Production |
 | **[Ansible Playbooks](ansible/)** | Post-deployment automation | 🟡 In Progress |
 
 ### Automation Components
@@ -177,6 +178,37 @@ security_layers:
     service_monitoring: "Prometheus node-exporter"
     backup_automation: "Daily retention with validation"
 ```
+## 🚀 VM Automation Pipeline (NEW)
+
+### Complete Terraform Integration Achievement
+
+**Status**: ✅ **OPERATIONAL** - Full VM lifecycle management with Infrastructure as Code
+
+### Technical Implementation Stack
+- **Terraform Provider**: bpg/proxmox for complete VM lifecycle
+- **Template Management**: Ubuntu 22.04 cloud images with guest agent
+- **Network Integration**: VXLAN overlay with multi-layer routing
+- **Service Discovery**: Automatic DNS registration via cooper.lab
+- **Security Foundation**: SSH key deployment via cloud-init
+
+### Network Architecture Resolution
+**Multi-Layer Routing Implementation:**
+- **Fritz!Box Route**: 10.0.10.0/24 via 192.168.1.3 (D-Link switch)
+- **D-Link Route**: 10.0.10.0/24 via 10.0.1.10 (Proxmox Node-01)  
+- **DHCP Relay**: isc-dhcp-relay on Proxmox nodes for tenant networks
+- **DNS Integration**: PowerDNS/Kea configuration for overlay networks
+
+### K3s High Availability Preparation
+```yaml
+Target HA Cluster:
+  topology: "3x Control+Worker Nodes (true HA)"
+  vm_resources: "6 vCPU, 16GB per K3s node"  
+  total_capacity: "18 vCPUs, 48GB for HA control plane"
+  expansion_ready: "18 vCPUs, 48GB for future workers"
+  network: "vmbr1 VXLAN overlay with automatic DNS"
+  pod_estimate: "250-350 pods (HA) → 400-600 (expanded)"
+```
+
 
 ## 🚀 Next Phase: K3s Deployment
 

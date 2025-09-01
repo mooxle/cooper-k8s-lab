@@ -15,6 +15,7 @@
 ---
 
 ### 📺 Latest Episodes
+**[S01E11 - The VM Automation Paradigm](docs/99-appendix/project-journal.md#-episode-s01e11---the-VM-automation-paradigm)** *(Sep 01)* - VM Automation with Terraform 
 **[S01E10 - The Vault Transit Paradigm](docs/99-appendix/project-journal.md#-episode-s01e10---the-vault-transit-paradigm)** *(Aug 30)* - Vault Transit integration with cross-node ZFS access and network stability engineering  
 **[S01E09 - The Network Services Integration](docs/99-appendix/project-journal.md#-episode-s01e09---the-network-services-integration)** *(Aug 26)* - DNS/DHCP migration to 10.0.1.23 + EVPN/VXLAN + TPM-backed ZFS encryption  
 **[S01E08 - The Storage & Overlay Paradigm](docs/99-appendix/project-journal.md#s01e08---the-storage--overlay-paradigm)** *(Aug 25)* - ZFS encrypted storage + VXLAN/EVPN overlay networking operational  
@@ -66,19 +67,24 @@ Enterprise Architect's learning laboratory combining **theoretical knowledge** w
 - **Lessons Learned**: [Storage & Network](docs/99-appendix/lessons-learned.md#storage--network-implementation) • [All Technical Discoveries](docs/99-appendix/lessons-learned.md)
 - **Project Journal**: [Complete Episode Guide](docs/99-appendix/project-journal.md#episode-guide)
 
-## 📊 Current Status
 
-```
-🖥️ Hardware     ████████████ 🟢 Mini PCs delivered with Proxmox automation ready
-🌐 Network Infra ████████████ 🟢 DNS/DHCP operational with service discovery
-🏗️ Infrastructure ████████████ 🟢 Complete enterprise platform with Proxmox automation
-🔐 Secrets Mgmt  ████████████ 🟢 Vault with automated deployment integration
-🔒 Storage       ████████████ 🟢 ZFS encrypted pools (AES-256-GCM) operational
-🌐 Network L2    ████████████ 🟢 VXLAN + EVPN overlay networking deployed
-⚙️ Service Discovery ████████████ 🟢 cooper.lab domain operational  
-🚀 K8s Foundation ████████████ 🟢 Infrastructure as Code automation complete
-```
+| Category | Progress | Next Milestone |
+|----------|----------|----------------|
+| **🖥️ Hardware** | ████████████ 100% | Mini PCs operational with Proxmox + VMs |
+| **🌐 Network Services** | ████████████ 100% | Multi-layer routing + DHCP relay operational |
+| **🏗️ Infrastructure** | ████████████ 100% | VM automation pipeline complete |
+| **📚 Documentation** | ████████████ 100% | K3s HA deployment procedures |
+| **🚀 VM Platform** | ████████████ 100% | Terraform lifecycle management |
+| **🔐 Security Framework** | ████████████ 100% | SSH keys + cloud-init + DNS integration |
+
 ### Current Status
+
+🚀 **VM Automation**: ✅ **OPERATIONAL** - Complete Terraform lifecycle management
+- VM creation, configuration, and destruction fully automated
+- Template-driven deployment across all Proxmox nodes  
+- Cloud-init integration with SSH keys and guest tools
+- Network integration with cooper.lab DNS registration
+- Multi-layer routing: Fritz!Box → D-Link → VXLAN overlay
 
 🌐 **Network Services**: ✅ **OPERATIONAL** - Complete DNS/DHCP stack at 10.0.1.23
 - PowerDNS authoritative + recursor with cooper.lab domain
